@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Everything Breaks</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <span class="top-bar-text">24/7 Protection Plans for Home & Electronics — Get Covered Today.</span>
+                    <div class="top-bar-right">
+                        <span class="phone">300-535-6789</span>
+                        <span class="support">support.vlly</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="Everything Breaks" class="logo-img">
+                    </div>
+                    
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="plans.html">Plans</a></li>
+                        <li><a href="claims.html">Claims</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                        <li><a href="signin.html">Sign In</a></li>
+                    </ul>
+                    
+                    <button class="cta-button">Get a Quote</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-content">
+                <h1>Get in Touch</h1>
+                <p>We're here to help! Reach out to us for questions about our protection plans, claims support, or general inquiries.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="contact-options">
+        <div class="container">
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Speak directly with our customer service team</p>
+                    <div class="contact-details">
+                        <strong>General Inquiries:</strong><br>
+                        <a href="tel:300-535-6789">300-535-6789</a><br>
+                        <small>Mon-Fri: 8AM-8PM EST<br>Sat-Sun: 9AM-5PM EST</small>
+                    </div>
+                    <div class="contact-details">
+                        <strong>Emergency Claims:</strong><br>
+                        <a href="tel:300-535-6789">300-535-6789</a><br>
+                        <small>Available 24/7</small>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>Send us a message and we'll respond within 24 hours</p>
+                    <div class="contact-details">
+                        <strong>General Support:</strong><br>
+                        <a href="mailto:support@everythingbreaks.com">support@everythingbreaks.com</a>
+                    </div>
+                    <div class="contact-details">
+                        <strong>Claims Department:</strong><br>
+                        <a href="mailto:claims@everythingbreaks.com">claims@everythingbreaks.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our support team in real-time</p>
+                    <div class="contact-details">
+                        <strong>Available:</strong><br>
+                        Mon-Fri: 8AM-8PM EST<br>
+                        Sat-Sun: 9AM-5PM EST
+                    </div>
+                    <button class="btn-primary">Start Chat</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-container">
+                <h2>Send Us a Message</h2>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name *</label>
+                            <input type="text" id="contact-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address *</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-phone">Phone Number</label>
+                            <input type="tel" id="contact-phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject *</label>
+                            <select id="contact-subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="quote">Get a Quote</option>
+                                <option value="claims">Claims Support</option>
+                                <option value="billing">Billing Question</option>
+                                <option value="cancel">Cancel Service</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-message">Message *</label>
+                        <textarea id="contact-message" name="message" rows="6" placeholder="Please describe your inquiry or question..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter" value="yes">
+                            <span>I would like to receive updates and promotional offers via email</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations -->
+    <section class="office-locations">
+        <div class="container">
+            <h2>Our Offices</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <h3>Corporate Headquarters</h3>
+                    <div class="location-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Protection Plaza<br>Suite 500<br>Chicago, IL 60601</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:300-535-6789">300-535-6789</a></p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8AM-8PM EST</p>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <h3>West Coast Office</h3>
+                    <div class="location-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 456 Service Street<br>Floor 12<br>Los Angeles, CA 90210</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:300-535-6789">300-535-6789</a></p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8AM-8PM PST</p>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <h3>East Coast Office</h3>
+                    <div class="location-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 789 Coverage Court<br>Building A<br>New York, NY 10001</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:300-535-6789">300-535-6789</a></p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8AM-8PM EST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="contact-faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>What are your business hours?</h4>
+                    <p>Our customer service team is available Monday-Friday from 8AM-8PM EST and Saturday-Sunday from 9AM-5PM EST. Emergency claims support is available 24/7.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>How quickly will I receive a response?</h4>
+                    <p>We typically respond to emails within 24 hours during business days. Phone calls are answered immediately during business hours.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Can I schedule a callback?</h4>
+                    <p>Yes! When you call us, you can request a callback at a more convenient time. We'll call you back within the hour during business hours.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Do you have multilingual support?</h4>
+                    <p>Yes, we have customer service representatives who speak English, Spanish, and French. Let us know your preferred language when you contact us.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>How can I update my contact information?</h4>
+                    <p>You can update your contact information by calling us, sending an email, or logging into your online account if you have one.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Is there a fee for customer service calls?</h4>
+                    <p>No, all customer service calls are free. We're here to help you with any questions or concerns about your protection plan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media -->
+    <section class="social-media">
+        <div class="container">
+            <div class="social-content">
+                <h2>Connect With Us</h2>
+                <p>Follow us on social media for tips, updates, and special offers.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Everything Breaks" class="logo-img footer-logo-img">
+                </div>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

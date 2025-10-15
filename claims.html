@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File a Claim - Everything Breaks</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <span class="top-bar-text">24/7 Protection Plans for Home & Electronics — Get Covered Today.</span>
+                    <div class="top-bar-right">
+                        <span class="phone">300-535-6789</span>
+                        <span class="support">support.vlly</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="Everything Breaks" class="logo-img">
+                    </div>
+                    
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="plans.html">Plans</a></li>
+                        <li><a href="claims.html" class="active">Claims</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="signin.html">Sign In</a></li>
+                    </ul>
+                    
+                    <button class="cta-button">Get a Quote</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Claims Hero Section -->
+    <section class="claims-hero">
+        <div class="container">
+            <div class="claims-hero-content">
+                <h1>File Your Claim</h1>
+                <p>Get your covered items repaired or replaced quickly and easily. Our streamlined process gets you back to normal in no time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Claim Options -->
+    <section class="claim-options">
+        <div class="container">
+            <div class="claim-cards">
+                <div class="claim-card">
+                    <div class="claim-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>File Online</h3>
+                    <p>Submit your claim through our secure online portal. Upload photos and get instant confirmation.</p>
+                    <button class="btn-primary">Start Claim</button>
+                </div>
+                
+                <div class="claim-card">
+                    <div class="claim-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Speak directly with our claims specialists who will guide you through the process step by step.</p>
+                    <button class="btn-secondary">Call 300-535-6789</button>
+                </div>
+                
+                <div class="claim-card">
+                    <div class="claim-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App</h3>
+                    <p>Download our app for instant claims filing, tracking, and communication with your service provider.</p>
+                    <button class="btn-primary">Download App</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Claims Process -->
+    <section class="claims-process">
+        <div class="container">
+            <h2>How the Claims Process Works</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Report Your Issue</h3>
+                        <p>Contact us through any of our channels and provide details about your covered item that needs repair or replacement.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Get Approved</h3>
+                        <p>We'll review your claim and coverage. Most claims are approved within 24 hours of submission.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Schedule Service</h3>
+                        <p>We'll connect you with a qualified technician in your area who will schedule a convenient appointment.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Get Fixed</h3>
+                        <p>Our technician will repair or replace your covered item. You only pay the small service fee specified in your plan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Claim Form -->
+    <section class="claim-form-section">
+        <div class="container">
+            <div class="form-container">
+                <h2>File Your Claim Online</h2>
+                <form class="claim-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="claim-name">Full Name</label>
+                            <input type="text" id="claim-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="claim-email">Email Address</label>
+                            <input type="email" id="claim-email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="claim-phone">Phone Number</label>
+                            <input type="tel" id="claim-phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="claim-plan">Protection Plan</label>
+                            <select id="claim-plan" name="plan" required>
+                                <option value="">Select your plan</option>
+                                <option value="home">Home Warranty</option>
+                                <option value="electronics">Electronics Protection</option>
+                                <option value="auto">Auto Protection</option>
+                                <option value="complete">Complete Protection</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="claim-item">Covered Item</label>
+                        <input type="text" id="claim-item" name="item" placeholder="e.g., Kitchen Refrigerator, iPhone 14, 2020 Honda Civic" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="claim-description">Describe the Problem</label>
+                        <textarea id="claim-description" name="description" rows="4" placeholder="Please describe what happened and what's not working..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="claim-photos">Upload Photos (Optional)</label>
+                        <input type="file" id="claim-photos" name="photos" multiple accept="image/*">
+                        <small>Upload photos of the damaged item to help expedite your claim</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="claim-preferred-contact">Preferred Contact Method</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="contact-method" value="email" checked>
+                                <span>Email</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="contact-method" value="phone">
+                                <span>Phone Call</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="contact-method" value="text">
+                                <span>Text Message</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Submit Claim</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Claims -->
+    <section class="track-claims">
+        <div class="container">
+            <div class="track-content">
+                <h2>Track Your Claims</h2>
+                <p>Already filed a claim? Enter your claim number to check the status and get updates.</p>
+                <div class="track-form">
+                    <input type="text" placeholder="Enter your claim number" class="track-input">
+                    <button class="btn-primary">Track Claim</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Claims FAQ -->
+    <section class="claims-faq">
+        <div class="container">
+            <h2>Claims Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>How long does it take to process a claim?</h4>
+                    <p>Most claims are reviewed and approved within 24 hours. Emergency claims for home systems are processed immediately.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>What information do I need to file a claim?</h4>
+                    <p>You'll need your policy number, description of the problem, and photos of the damaged item if applicable.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Is there a deductible for claims?</h4>
+                    <p>Yes, most plans have a small service fee (typically $75-$125) that you pay directly to the technician.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>What if my item can't be repaired?</h4>
+                    <p>If an item cannot be repaired, we will replace it with a similar model of equal or greater value.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Can I choose my own repair technician?</h4>
+                    <p>We work with a network of pre-screened, licensed technicians. You can request a specific provider if you have a preference.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>What if I'm not satisfied with the repair?</h4>
+                    <p>We guarantee our work. If you're not satisfied, we'll send another technician or arrange for a replacement at no extra cost.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="emergency-contact">
+        <div class="container">
+            <div class="emergency-content">
+                <h2>Need Immediate Help?</h2>
+                <p>For urgent home emergencies like heating, cooling, or plumbing issues, call our 24/7 emergency line.</p>
+                <div class="emergency-phone">
+                    <i class="fas fa-phone"></i>
+                    <span>Emergency Line: 300-535-6789</span>
+                </div>
+                <p class="emergency-note">Available 24/7 for home warranty emergencies only</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Everything Breaks" class="logo-img footer-logo-img">
+                </div>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
