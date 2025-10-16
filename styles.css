@@ -654,6 +654,35 @@ body {
     margin: 0 auto;
 }
 
+/* Plans Section Styling */
+.plans-section {
+    padding: 80px 0;
+    background: #e6f3ff;
+}
+
+.plans-section:nth-child(even) {
+    background: rgba(255, 255, 255, 1);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    font-size: 18px;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* Active Navigation Link */
 .nav-links a.active {
     color: #2563eb;
@@ -680,6 +709,8 @@ body {
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     position: relative;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .plan-card.detailed:hover {
@@ -728,6 +759,10 @@ body {
 .plan-benefits ul {
     list-style: none;
     margin-bottom: 20px;
+}
+
+.plan-card.detailed .btn-primary {
+    margin-top: auto;
 }
 
 .plan-features li,
