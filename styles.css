@@ -459,7 +459,7 @@ body {
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    height: 280px;
+    height: 320px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -510,6 +510,11 @@ body {
     color: #1e293b;
     margin-bottom: 10px;
     line-height: 1.2;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .plan-features {
