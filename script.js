@@ -255,5 +255,171 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Info Kit Form Validation
+    const infoKitForm = document.getElementById('infoKitForm');
+    
+    if (infoKitForm) {
+        infoKitForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            clearErrors();
+            
+            // Get form data
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            
+            let isValid = true;
+            
+            // Validate Name
+            if (!name) {
+                showError('nameError', 'Name is required');
+                isValid = false;
+            } else if (name.length < 2) {
+                showError('nameError', 'Name must be at least 2 characters');
+                isValid = false;
+            }
+            
+            // Validate Email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email) {
+                showError('emailError', 'Email is required');
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Validate Phone
+            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+            const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+            if (!phone) {
+                showError('phoneError', 'Phone number is required');
+                isValid = false;
+            } else if (!phoneRegex.test(cleanPhone) || cleanPhone.length < 10) {
+                showError('phoneError', 'Please enter a valid phone number');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simulate download
+                const downloadBtn = this.querySelector('.btn-download');
+                const originalText = downloadBtn.textContent;
+                
+                downloadBtn.textContent = 'Downloading...';
+                downloadBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Thank you! Your info kit has been downloaded. Check your email for additional resources.');
+                    this.reset();
+                    downloadBtn.textContent = originalText;
+                    downloadBtn.disabled = false;
+                }, 2000);
+            }
+        });
+        
+        // Real-time validation
+        const inputs = infoKitForm.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+            
+            input.addEventListener('input', function() {
+                // Clear error when user starts typing
+                const errorId = this.id + 'Error';
+                const errorElement = document.getElementById(errorId);
+                if (errorElement) {
+                    errorElement.textContent = '';
+                }
+                this.classList.remove('error');
+            });
+        });
+    }
+    
+    function validateField(field) {
+        const value = field.value.trim();
+        const fieldId = field.id;
+        const errorId = fieldId + 'Error';
+        const errorElement = document.getElementById(errorId);
+        
+        let isValid = true;
+        let errorMessage = '';
+        
+        switch (fieldId) {
+            case 'name':
+                if (!value) {
+                    errorMessage = 'Name is required';
+                    isValid = false;
+                } else if (value.length < 2) {
+                    errorMessage = 'Name must be at least 2 characters';
+                    isValid = false;
+                }
+                break;
+                
+            case 'email':
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!value) {
+                    errorMessage = 'Email is required';
+                    isValid = false;
+                } else if (!emailRegex.test(value)) {
+                    errorMessage = 'Please enter a valid email address';
+                    isValid = false;
+                }
+                break;
+                
+            case 'phone':
+                const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                const cleanPhone = value.replace(/[\s\-\(\)]/g, '');
+                if (!value) {
+                    errorMessage = 'Phone number is required';
+                    isValid = false;
+                } else if (!phoneRegex.test(cleanPhone) || cleanPhone.length < 10) {
+                    errorMessage = 'Please enter a valid phone number';
+                    isValid = false;
+                }
+                break;
+        }
+        
+        if (!isValid) {
+            field.classList.add('error');
+            if (errorElement) {
+                errorElement.textContent = errorMessage;
+            }
+        } else {
+            field.classList.remove('error');
+            if (errorElement) {
+                errorElement.textContent = '';
+            }
+        }
+    }
+    
+    function showError(errorId, message) {
+        const errorElement = document.getElementById(errorId);
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
+        
+        // Add error class to corresponding input
+        const fieldId = errorId.replace('Error', '');
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.classList.add('error');
+        }
+    }
+    
+    function clearErrors() {
+        const errorElements = document.querySelectorAll('.error-message');
+        errorElements.forEach(element => {
+            element.textContent = '';
+        });
+        
+        const errorInputs = document.querySelectorAll('.info-kit-form input.error');
+        errorInputs.forEach(input => {
+            input.classList.remove('error');
+        });
+    }
+
 });
 

@@ -57,8 +57,111 @@ body {
     font-size: 14px;
 }
 
+/* Info Kit Section */
+.info-kit-section {
+    background: #4c1d95;
+    padding: 10px 0;
+}
+
+.info-kit-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.info-kit-text {
+    color: #87ceeb;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.info-kit-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.info-kit-form input {
+    width: 180px;
+    padding: 1px 12px 2px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 10px;
+    font-family: 'Inter', sans-serif;
+    background: white;
+    color: #333;
+    vertical-align: middle;
+    line-height: 1.2;
+}
+
+.info-kit-form input::placeholder {
+    color: #9ca3af;
+}
+
+.info-kit-form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #87ceeb;
+}
+
+.info-kit-form input.error {
+    border: 2px solid #ef4444;
+}
+
+.error-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: #ffb327;
+    font-size: 11px;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+.btn-download {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 20px 9px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.btn-download:hover {
+    background: #1d4ed8;
+}
+
+.btn-download:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+}
+
 .main-nav {
     padding: 15px 0;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-content {
@@ -779,6 +882,40 @@ body {
         gap: 20px;
     }
     
+    .info-kit-section {
+        padding: 12px 0;
+    }
+    
+    .info-kit-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .info-kit-text {
+        font-size: 16px;
+    }
+    
+    .info-kit-form {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .info-kit-form input {
+        width: 100%;
+        max-width: 280px;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .btn-download {
+        width: 100%;
+        max-width: 280px;
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
     .hero {
         margin-top: 200px;
         padding: 40px 0;
