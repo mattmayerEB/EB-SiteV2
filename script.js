@@ -303,19 +303,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (isValid) {
-                // Simulate download
-                const downloadBtn = this.querySelector('.btn-download');
-                const originalText = downloadBtn.textContent;
-                
-                downloadBtn.textContent = 'Downloading...';
-                downloadBtn.disabled = true;
-                
-                setTimeout(() => {
-                    alert('Thank you! Your info kit has been downloaded. Check your email for additional resources.');
-                    this.reset();
-                    downloadBtn.textContent = originalText;
-                    downloadBtn.disabled = false;
-                }, 2000);
+                // Show disclaimer modal
+                const disclaimerModal = document.getElementById('disclaimerModal');
+                disclaimerModal.classList.add('active');
             }
         });
         
@@ -418,6 +408,80 @@ document.addEventListener('DOMContentLoaded', function() {
         const errorInputs = document.querySelectorAll('.info-kit-form input.error');
         errorInputs.forEach(input => {
             input.classList.remove('error');
+        });
+    }
+    
+    // Disclaimer modal functionality
+    const disclaimerModal = document.getElementById('disclaimerModal');
+    const disclaimerCheckbox = document.getElementById('disclaimerCheckbox');
+    const disclaimerAccept = document.getElementById('disclaimerAccept');
+    const disclaimerCancel = document.getElementById('disclaimerCancel');
+    
+    if (disclaimerModal && disclaimerCheckbox && disclaimerAccept && disclaimerCancel) {
+        // Enable/disable accept button based on checkbox
+        disclaimerCheckbox.addEventListener('change', function() {
+            disclaimerAccept.disabled = !this.checked;
+        });
+        
+        // Accept button - proceed with download
+        disclaimerAccept.addEventListener('click', function() {
+            if (disclaimerCheckbox.checked) {
+                // Close modal
+                disclaimerModal.classList.remove('active');
+                disclaimerCheckbox.checked = false;
+                disclaimerAccept.disabled = true;
+                
+                // Download the PDF
+                const downloadBtn = document.querySelector('.info-kit-form .btn-download');
+                if (downloadBtn) {
+                    const originalText = downloadBtn.textContent;
+                    downloadBtn.textContent = 'Downloading...';
+                    downloadBtn.disabled = true;
+                    
+                    // Create a temporary link to download the PDF
+                    const link = document.createElement('a');
+                    link.href = 'Policies/EverythingBreaks_InfoKit-2024_web.pdf';
+                    link.download = 'EverythingBreaks_InfoKit.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    setTimeout(() => {
+                        alert('Thank you! Your info kit has been downloaded.');
+                        const form = document.getElementById('infoKitForm');
+                        if (form) {
+                            form.reset();
+                        }
+                        downloadBtn.textContent = originalText;
+                        downloadBtn.disabled = false;
+                    }, 1000);
+                }
+            }
+        });
+        
+        // Cancel button - close modal and reset checkbox
+        disclaimerCancel.addEventListener('click', function() {
+            disclaimerModal.classList.remove('active');
+            disclaimerCheckbox.checked = false;
+            disclaimerAccept.disabled = true;
+        });
+        
+        // Close modal when clicking outside
+        disclaimerModal.addEventListener('click', function(e) {
+            if (e.target === disclaimerModal) {
+                disclaimerModal.classList.remove('active');
+                disclaimerCheckbox.checked = false;
+                disclaimerAccept.disabled = true;
+            }
+        });
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && disclaimerModal.classList.contains('active')) {
+                disclaimerModal.classList.remove('active');
+                disclaimerCheckbox.checked = false;
+                disclaimerAccept.disabled = true;
+            }
         });
     }
 
