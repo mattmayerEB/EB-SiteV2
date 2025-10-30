@@ -418,6 +418,45 @@
         </div>
     </section>
 
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-content">
+                <div class="video-text">
+                    <h2>See Why We're The<br>Fastest Growing<br>Auto Protection<br>Plan Provider</h2>
+                    <ul class="video-benefits">
+                        <li><i class="fas fa-check-circle"></i> Coverage up to 250,000 miles</li>
+                        <li><i class="fas fa-check-circle"></i> Free rental coverage</li>
+                        <li><i class="fas fa-check-circle"></i> 30 days money back guarantee</li>
+                        <li><i class="fas fa-check-circle"></i> Cancel online any time</li>
+                        <li><i class="fas fa-check-circle"></i> Fast and easy claims process</li>
+                        <li><i class="fas fa-check-circle"></i> No middlemen</li>
+                    </ul>
+                </div>
+                <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/PMinafYHUX4/maxresdefault.jpg'); background-size: cover; background-position: center;">
+                    <div class="video-overlay">
+                        <div class="as-seen-badge">AS SEEN ON TV</div>
+                    </div>
+                    <div class="video-controls" onclick="openVideo()">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-footer">
+                        <span class="video-brand">everything<b>breaks</b>.com</span>
+                        <span class="video-cta">Call Now | Get MORE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal" onclick="closeVideo()">
+        <div class="video-modal-content" onclick="event.stopPropagation()">
+            <span class="video-close" onclick="closeVideo()">&times;</span>
+            <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+
     <!-- Testimonials Section -->
     <section class="testimonials-section">
         <div class="container">
@@ -660,20 +699,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Get Protected?</h2>
-                <p>Join thousands of satisfied customers who trust Everything Breaks for their protection needs.</p>
-                <div class="cta-buttons">
-                    <button class="btn-primary">Get Quote Now</button>
-                    <button class="btn-secondary">Call 300-535-6789</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ Section -->
     <section class="auto-faq">
         <div class="container">
@@ -736,6 +761,20 @@
                             <p>Yes, you can cancel your protection plan at any time. Please contact our customer service team for assistance with cancellation.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Protected?</h2>
+                <p>Join thousands of satisfied customers who trust Everything Breaks for their protection needs.</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary">Get Quote Now</button>
+                    <button class="btn-secondary">Call 300-535-6789</button>
                 </div>
             </div>
         </div>
@@ -824,6 +863,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" style="display: none;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>

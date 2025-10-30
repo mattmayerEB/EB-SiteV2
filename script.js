@@ -507,4 +507,62 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Back to Top Button
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.style.display = 'flex';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+    
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Video Modal Functions
+function openVideo() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoFrame');
+    
+    // Set the video source with autoplay
+    iframe.src = 'https://www.youtube.com/embed/PMinafYHUX4?autoplay=1';
+    
+    // Show the modal
+    modal.classList.add('active');
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideo() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoFrame');
+    
+    // Hide the modal
+    modal.classList.remove('active');
+    
+    // Remove the iframe source to stop the video
+    iframe.src = '';
+    
+    // Restore body scroll
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside or pressing Escape
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeVideo();
+    }
+});
+
 
