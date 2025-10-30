@@ -357,6 +357,146 @@ body {
     object-fit: contain;
 }
 
+/* Odds Infographic Section */
+.odds-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.odds-section h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #1e293b;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.odds-subtitle {
+    font-size: 20px;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.odds-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-top: 50px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 0;
+}
+
+.odds-bubble {
+    background: #e0f2fe;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+    text-align: center;
+    min-height: 250px;
+    margin-left: -20px;
+    position: relative;
+    z-index: 1;
+}
+
+.odds-bubble:first-child {
+    margin-left: 0;
+}
+
+.odds-bubble:nth-child(2) {
+    margin-top: -30px;
+    z-index: 2;
+}
+
+.odds-bubble:nth-child(3) {
+    margin-top: -60px;
+    z-index: 3;
+}
+
+.odds-bubble:nth-child(4) {
+    margin-top: -30px;
+    z-index: 2;
+}
+
+.odds-bubble:nth-child(5) {
+    z-index: 1;
+}
+
+.odds-bubble.odds-dark {
+    background: #bae6fd;
+}
+
+.odds-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.odds-text {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+@media (max-width: 1200px) {
+    .odds-grid {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .odds-bubble {
+        margin-left: -15px;
+    }
+    
+    .odds-bubble:first-child {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .odds-section h2 {
+        font-size: 32px;
+    }
+    
+    .odds-subtitle {
+        font-size: 18px;
+    }
+    
+    .odds-grid {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+    }
+    
+    .odds-bubble {
+        min-height: 200px;
+        margin-left: 0;
+        margin-top: 0;
+    }
+    
+    .odds-bubble:nth-child(2),
+    .odds-bubble:nth-child(3),
+    .odds-bubble:nth-child(4) {
+        margin-top: 0;
+    }
+    
+    .odds-number {
+        font-size: 36px;
+    }
+    
+    .odds-text {
+        font-size: 11px;
+    }
+}
+
 /* How It Works Section */
 .how-it-works {
     padding: 20px 0;
