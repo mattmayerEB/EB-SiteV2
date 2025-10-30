@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protection Plans - Everything Breaks</title>
+    <title>Auto Protection Plans - Everything Breaks</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -33,11 +33,11 @@
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
                         <li class="dropdown">
-                            <a href="plans.html" class="active">Plans <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                            <a href="#" class="active" onclick="return false;">Plans <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="plans.html#auto-plans">Auto</a></li>
-                                <li><a href="plans.html#home-plans">Home</a></li>
-                                <li><a href="plans.html#electronics-plans">Electronics</a></li>
+                                <li><a href="auto.html">Auto</a></li>
+                                <li><a href="home.html">Home</a></li>
+                                <li><a href="electronics.html">Electronics</a></li>
                             </ul>
                         </li>
                         <li><a href="claims.html">Claims</a></li>
@@ -56,8 +56,8 @@
     <section class="plans-hero">
         <div class="container">
             <div class="plans-hero-content">
-                <h1>Choose Your Protection Plan</h1>
-                <p>Comprehensive coverage for your home, electronics, and vehicles. Find the perfect plan that fits your needs and budget.</p>
+                <h1>Auto Protection Plans</h1>
+                <p>Comprehensive coverage for your vehicle. Choose the perfect plan that fits your needs.</p>
             </div>
         </div>
     </section>
@@ -365,6 +365,49 @@
                                 <td class="not-covered"></td>
                                 <td class="not-covered"></td>
                             </tr>
+                            <tr class="download-row">
+                                <td class="component-name"></td>
+                                <td class="download-cell">
+                                    <a href="Policies/XD - EB Top Line Auto Monthly.pdf" download target="_blank">
+                                        <button class="btn-download-mini">
+                                            <i class="fas fa-file-download"></i>
+                                            <span>View Policy</span>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td class="download-cell">
+                                    <a href="Policies/ES - EB Deluxe Auto Monthly.pdf" download target="_blank">
+                                        <button class="btn-download-mini">
+                                            <i class="fas fa-file-download"></i>
+                                            <span>View Policy</span>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td class="download-cell">
+                                    <a href="Policies/EP - EB Enhanced Powertrain Auto Monthly.pdf" download target="_blank">
+                                        <button class="btn-download-mini">
+                                            <i class="fas fa-file-download"></i>
+                                            <span>View Policy</span>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td class="download-cell">
+                                    <a href="Policies/PT - EB Standard Powertrain Monthly.pdf" download target="_blank">
+                                        <button class="btn-download-mini">
+                                            <i class="fas fa-file-download"></i>
+                                            <span>View Policy</span>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td class="download-cell">
+                                    <a href="Policies/Critical-Coverage-TC-New.pdf" download target="_blank">
+                                        <button class="btn-download-mini">
+                                            <i class="fas fa-file-download"></i>
+                                            <span>View Policy</span>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -375,311 +418,243 @@
         </div>
     </section>
 
-    <!-- Home Protection Plans -->
-    <section class="plans-section" id="home-plans">
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Home Protection Plans</h2>
-                <p>Comprehensive coverage for your home and appliances</p>
-            </div>
-            <div class="plans-grid">
-                <!-- Ruby -->
-                <div class="plan-card detailed">
-                    <div class="plan-header">
-                        <div class="plan-icon">
-                            <img src="images/Ruby Home.png" alt="Home icon" class="plan-icon-img">
-                        </div>
-                        <p><i>0 Major Systems</i>
-                        <br>
-                        <i>Up to 5 Appliances</i></p>
-                        <h3>Ruby</h3>
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <button class="btn-primary">Choose Plan</button>
+                    <p class="testimonial-text">"Everything Breaks saved me thousands when my air conditioner broke down. The repair was quick and their customer service was excellent!"</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah Johnson</strong>
+                        <span>Homeowner, Texas</span>
+                    </div>
                 </div>
-
-                <!-- Sapphire -->
-                <div class="plan-card detailed">
-                    <div class="plan-header">
-                        <div class="plan-icon">
-                            <img src="images/Sapphire Home.png" alt="Home icon" class="plan-icon-img">
-                        </div>
-                        <p><i>2 Major Systems <br>Up to 17 Appliances</i></p>
-                        <h3>Sapphire</h3>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <button class="btn-primary">Choose Plan</button>
+                    <p class="testimonial-text">"Best decision I made for my home. Covered multiple appliances and systems, and the claims process was so easy."</p>
+                    <div class="testimonial-author">
+                        <strong>Michael Chen</strong>
+                        <span>Homeowner, California</span>
+                    </div>
                 </div>
-
-                <!-- Emerald -->
-                <div class="plan-card detailed">
-                    <div class="plan-header">
-                        <div class="plan-icon">
-                            <img src="images/Emerald Home.png" alt="Home icon" class="plan-icon-img">
-                        </div>
-                        <p><i>4 Major Systems <br>Up to 17 Appliances</i></p>
-                        <h3>Emerald</h3>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <button class="btn-primary">Choose Plan</button>
+                    <p class="testimonial-text">"Fast response time and professional service. My water heater was fixed the same day I called. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <strong>Lisa Anderson</strong>
+                        <span>Homeowner, Florida</span>
+                    </div>
                 </div>
-
-                <!-- Diamond -->
-                <div class="plan-card detailed">
-                    <div class="plan-header">
-                        <div class="plan-icon">
-                            <img src="images/Diamond Home.png" alt="Home icon" class="plan-icon-img">
-                        </div>
-                        <p><i>7 Major Systems <br>Up to 17 Appliances</i></p>
-                        <h3>Diamond</h3>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <button class="btn-primary">Choose Plan</button>
+                    <p class="testimonial-text">"The peace of mind is incredible. Knowing my home is protected gives me one less thing to worry about."</p>
+                    <div class="testimonial-author">
+                        <strong>David Martinez</strong>
+                        <span>Homeowner, Arizona</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Absolutely worth every penny. They covered the repair of my refrigerator that would have cost me $800 out of pocket."</p>
+                    <div class="testimonial-author">
+                        <strong>Jennifer Taylor</strong>
+                        <span>Homeowner, North Carolina</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Five-star service from start to finish. The technician they sent was professional and knowledgeable."</p>
+                    <div class="testimonial-author">
+                        <strong>Robert Wilson</strong>
+                        <span>Homeowner, Georgia</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Easy to use website and great customer support. Filed my claim online and they handled everything."</p>
+                    <div class="testimonial-author">
+                        <strong>Amanda Brown</strong>
+                        <span>Homeowner, Virginia</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Saved my family from a huge unexpected expense. The coverage paid for itself in the first claim!"</p>
+                    <div class="testimonial-author">
+                        <strong>Thomas Lee</strong>
+                        <span>Homeowner, Washington</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Best warranty company I've ever used. They cover so much more than I expected!"</p>
+                    <div class="testimonial-author">
+                        <strong>Patricia Garcia</strong>
+                        <span>Homeowner, Colorado</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Reliable and trustworthy. Every interaction has been smooth and they always deliver on their promises."</p>
+                    <div class="testimonial-author">
+                        <strong>Kevin Harris</strong>
+                        <span>Homeowner, Nevada</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Highly satisfied with the coverage and service. This is my second year with them and I couldn't be happier."</p>
+                    <div class="testimonial-author">
+                        <strong>Michelle Clark</strong>
+                        <span>Homeowner, Illinois</span>
+                    </div>
                 </div>
             </div>
             
-            <!-- Major Systems Coverage -->
-            <div class="major-systems-section">
-                <h3>Major Systems for Home</h3>
-                <p>Up to 7 Major Systems to Pick From</p>
-                
-                <div class="systems-grid">
-                    <div class="system-item">
-                        <img src="images\Central AC (2).png" alt="HVAC System" class="system-icon">
-                        <h4>Central A/C</h4>
-                    </div>
-                    
-                    <div class="system-item">
-                        <img src="images/Central Heating.png" alt="Plumbing System" class="system-icon">
-                        <h4>Central Heating</h4>
-                    </div>
-                    
-                    <div class="system-item">
-                        <img src="images/Ductwork.png" alt="Electrical System" class="system-icon">
-                        <h4>Ductwork</h4>
-                    </div>
-                    
-                    <div class="system-item">
-                        <img src="images/Electrical.png" alt="Water Heater" class="system-icon">
-                        <h4>Electrical</h4>
-                    </div>
-                    
-                    <div class="system-item">
-                        <img src="images/Hot Water Heater.png" alt="Garage Door System" class="system-icon">
-                        <h4>Hot Water Heater</h4>
-                    </div>
-                    
-                    <div class="system-item">
-                        <img src="images/Plumbing.png" alt="Pool & Spa Equipment" class="system-icon">
-                        <h4>Plumbing</h4>
-                    </div>
-                    
-                    <div class="system-item">
-                        <img src="images/Bathtub.png" alt="Septic System" class="system-icon">
-                        <h4>Whirlpool Bathtub</h4>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; font-size: 48px; color: #2563eb; margin: 30px 0; font-weight: bold;">+</div>
-                
-                <h3 style="margin-top: 20px; margin-bottom: 20px;">17 Included Appliances</h3>
-                
-                <div class="appliances-list">
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Attic Fan</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Clothes Dryer</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Instant Hot Water Dispenser</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Door Bell</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Oven</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Stand-Alone Freezer</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Bathroom Exhaust Fans</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Clothes Washer</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Garage Door Opener</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Kitchen Fan/Exhaust Hood</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Range Stove Cooktop</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Trash Compactor</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Ceiling Fans</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Dishwasher</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Garbage Disposal</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Microwave (Built-in/Countertop)</span></div>
-                    <div class="appliance-item"><i class="fas fa-check" style="color: #10b981; margin-right: 10px;"></i><span class="appliance-name">Refrigerator (With Ice Maker)</span></div>
-                </div>
-                
-                <div style="text-align: center; font-size: 48px; color: #2563eb; margin: 40px 0; font-weight: bold;">+</div>
-                
-                <h3 style="margin-top: 20px; margin-bottom: 20px;">Optional Coverage</h3>
-                
-                <div class="appliances-list">
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">In Ground Pool And/Or Spa Equipment</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Additional Central Heating System</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Additional Central A/C System</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Whole Home Water Softener</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Central Vacuum</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Septic System</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Well Pump</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Whole House Humidifier</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Wine Refrigerator</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Free Standing Icemaker</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Alarm System</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Limited Roof Leak</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Plumbing and Lighting Fixtures</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Second Refrigerator</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Sump Pump</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Lawn Sprinkler System</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Ductwork</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Hot Water Heater</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Electrical System</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Plumbing System</span></div>
-                    <div class="appliance-item"><i class="fas fa-plus" style="color: #2563eb; margin-right: 10px;"></i><span class="appliance-name">Whirlpool Bathtub</B></span></div>
+            <!-- Pagination Dots -->
+            <div class="testimonials-pagination">
+                <div class="pagination-dots">
+                    <span class="dot active" onclick="showTestimonialPage(0)"></span>
+                    <span class="dot" onclick="showTestimonialPage(1)"></span>
+                    <span class="dot" onclick="showTestimonialPage(2)"></span>
+                    <span class="dot" onclick="showTestimonialPage(3)"></span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Electronics Protection Plans -->
-    <section class="plans-section" id="electronics-plans">
-        <div class="container">
-            <div class="section-header">
-                <h2>Electronics Protection Plans</h2>
-                <p>Keep your devices protected and running smoothly</p>
-            </div>
-            <div class="plans-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto;">
-                <!-- Consumer Electronics -->
-                <div class="plan-card detailed">
-                    <div class="plan-header">
-                        <div class="plan-icon">
-                            <img src="images/Electronics.png" alt="Electronics icon" class="plan-icon-img">
-                        </div>
-                        <h3>Consumer Electronics</h3>
+            
+            <!-- Rating Platforms -->
+            <div class="rating-platforms">
+                <div class="platform-item">
+                    <div class="platform-logo trustpilot">
+                        <img src="images/TrustPilot.png" alt="Trustpilot" class="platform-img">
                     </div>
-                    <div class="plan-features">
-                        <h4>Coverage:</h4>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Small Kitchen Appliances</li>
-                            <li><i class="fas fa-check"></i> Electronics (TVs, Audio, etc.)</li>
-                            <li><i class="fas fa-check"></i> Computers & Tablets</li>
-                            <li><i class="fas fa-check"></i> Mechanical & electrical failures</li>
-                            <li><i class="fas fa-check"></i> ADH coverage on first 2 claims</li>
-                        </ul>
+                    <div class="platform-stars trustpilot">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
                     </div>
-                    <div class="plan-benefits">
-                        <h4>Benefits:</h4>
-                        <ul>
-                            <li><i class="fas fa-dollar-sign"></i> $25 deductible per claim</li>
-                            <li><i class="fas fa-shield-alt"></i> $3,000 max payout per 12 months</li>
-                            <li><i class="fas fa-home"></i> On-site service available</li>
-                            <li><i class="fas fa-clock"></i> Products purchased within last 36 months eligible</li>
-                            <li><i class="fas fa-sync"></i> No Lemon Guarantee</li>
-                        </ul>
-                    </div>
-                    <button class="btn-primary">Choose Plan</button>
+                    <p class="platform-rating">Ratings 4/5</p>
                 </div>
                 
-                <!-- Tech Plan -->
-                <div class="plan-card detailed">
-                    <div class="plan-header">
-                        <div class="plan-icon">
-                            <img src="images/Electronics.png" alt="Tech Plan icon" class="plan-icon-img">
-                        </div>
-                        <h3>Tech Plan</h3>
+                <div class="platform-item">
+                    <div class="platform-logo reseller">
+                        <img src="images/googlelogo.webp" alt="Google" class="platform-img">
                     </div>
-                    <div class="plan-features">
-                        <h4>Coverage:</h4>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Up to 3 products</li>
-                            <li><i class="fas fa-check"></i> Cellphones</li>
-                            <li><i class="fas fa-check"></i> Tablets</li>
-                            <li><i class="fas fa-check"></i> Laptop Computers</li>
-                            <li><i class="fas fa-check"></i> Mechanical & electrical failures</li>
-                        </ul>
+                    <div class="platform-stars reseller">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
                     </div>
-                    <div class="plan-benefits">
-                        <h4>Benefits:</h4>
-                        <ul>
-                            <li><i class="fas fa-dollar-sign"></i> $75 deductible per claim</li>
-                            <li><i class="fas fa-shield-alt"></i> $1,500 max payout per 12 months</li>
-                            <li><i class="fas fa-star"></i> 1 ADH claim per 12 months included</li>
-                            <li><i class="fas fa-clock"></i> Products purchased within last 24 months eligible</li>
-                        </ul>
+                    <p class="platform-rating">Ratings 8.44/10</p>
+                </div>
+                
+                <div class="platform-item">
+                    <div class="platform-logo facebook">
+                        <img src="images/YelpLogo.png" alt="Yelp" class="platform-img">
                     </div>
-                    <button class="btn-primary">Choose Plan</button>
+                    <div class="platform-stars facebook">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="platform-rating">Ratings 4.2/5</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison Section -->
-    <section class="comparison-section">
-        <div class="container">
-            <h2>Compare All Plans</h2>
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Features</th>
-                            <th>Home Warranty</th>
-                            <th>Electronics</th>
-                            <th>Auto</th>
-                            <th>Complete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>24/7 Support</td>
-                            <td><i class="fas fa-check"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Emergency Service</td>
-                            <td><i class="fas fa-check"></i></td>
-                            <td><i class="fas fa-times"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Replacement Guarantee</td>
-                            <td><i class="fas fa-times"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                            <td><i class="fas fa-times"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Roadside Assistance</td>
-                            <td><i class="fas fa-times"></i></td>
-                            <td><i class="fas fa-times"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td>Multiple Claims</td>
-                            <td><i class="fas fa-check"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                            <td><i class="fas fa-check"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h4>What is covered under a home warranty?</h4>
-                    <p>Home warranties cover major systems and appliances including HVAC, plumbing, electrical, kitchen appliances, and more. Coverage varies by plan.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>How quickly can I file a claim?</h4>
-                    <p>You can file a claim 24/7 through our online portal or by calling our support team. Most claims are processed within 24 hours.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Are there any deductibles?</h4>
-                    <p>Most plans include a small service fee per claim, typically ranging from $75-$125. This is much less than paying for repairs out of pocket.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Can I cancel my plan anytime?</h4>
-                    <p>Yes, you can cancel your protection plan at any time. We offer a 30-day money-back guarantee on all new plans.</p>
+                
+                <div class="platform-item">
+                    <div class="platform-logo review">
+                        <img src="images/BBB Logo.png" alt="BBB" class="platform-img">
+                    </div>
+                    <div class="platform-stars review">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="platform-rating">Ratings 4.6/5</p>
                 </div>
             </div>
         </div>
@@ -699,6 +674,73 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="auto-faq">
+        <div class="container">
+            <h2 class="faq-title">FAQ</h2>
+            <p class="faq-subtitle">Most frequent questions and answers</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn-terms">VIEW TERMS & CONDITIONS</button>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-column">
+                    <div class="faq-item expandable">
+                        <div class="faq-question">
+                            <h4>HOW DO I FILE A REPAIR SERVICE REQUEST IF SOMETHING BREAKS?</h4>
+                            <i class="fas fa-minus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To file a service request, call 888-994-0914 to request service on any one of your eligible products or visit us online and file a request through your customer portal.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item expandable">
+                        <div class="faq-question">
+                            <h4>DO I NEED TO KEEP MY RECEIPTS?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            <p>It's always a good idea to keep receipts for your covered items, but they're not always required for claims processing.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-column">
+                    <div class="faq-item expandable">
+                        <div class="faq-question">
+                            <h4>WHO PERFORMS THE REPAIR SERVICE IF SOMETHING BREAKS?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            <p>We work with a network of certified, licensed technicians who will perform the repair or replacement service for your covered items.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item expandable">
+                        <div class="faq-question">
+                            <h4>IS THERE A SERVICE CHARGE FOR APPLIANCE AND SYSTEMS REPAIRS?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            <p>Yes, there is a service charge that you pay directly to the technician. The amount varies by plan and type of service.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item expandable">
+                        <div class="faq-question">
+                            <h4>CAN I CANCEL MY PROTECTION PLAN?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer" style="display: none;">
+                            <p>Yes, you can cancel your protection plan at any time. Please contact our customer service team for assistance with cancellation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -707,45 +749,30 @@
                     <div class="footer-column">
                         <h4>AUTO</h4>
                         <ul>
-                            <li><a href="plans.html#auto-plans">Critical Coverage</a></li>
-                            <li><a href="plans.html#auto-plans">Standard Powertrain</a></li>
-                            <li><a href="plans.html#auto-plans">Enhanced Powertrain</a></li>
-                            <li><a href="plans.html#auto-plans">Deluxe</a></li>
-                            <li><a href="plans.html#auto-plans">Topline</a></li>
+                            <li><a href="auto.html">Critical Coverage</a></li>
+                            <li><a href="auto.html">Standard Powertrain</a></li>
+                            <li><a href="auto.html">Enhanced Powertrain</a></li>
+                            <li><a href="auto.html">Deluxe</a></li>
+                            <li><a href="auto.html">Topline</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h4>ELECTRONICS</h4>
                         <ul>
-                            <li><a href="plans.html#electronics-plans">Smartphones</a></li>
-                            <li><a href="plans.html#electronics-plans">Laptops</a></li>
-                            <li><a href="plans.html#electronics-plans">Tablets/eReaders</a></li>
-                            <li><a href="plans.html#electronics-plans">Televisions</a></li>
-                            <li><a href="plans.html#electronics-plans">Technology Plan</a></li>
-                            <li><a href="plans.html#electronics-plans">Consumer Electronics Plan</a></li>
+                            <li><a href="electronics.html">Technology Plan</a></li>
+                            <li><a href="electronics.html">Consumer Electronics Plan</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
                         <h4>HOME</h4>
                         <ul>
-                            <li><a href="plans.html#home-plans">Individual Appliances</a></li>
-                            <li><a href="plans.html#home-plans">5-Appliances Package</a></li>
-                            <li><a href="plans.html#home-plans">Standard Home Warranty</a></li>
-                            <li><a href="plans.html#home-plans">Premium Home Warranty</a></li>
-                            <li><a href="plans.html#home-plans">Total Home Warranty</a></li>
+                            <li><a href="home.html">Ruby</a></li>
+                            <li><a href="home.html">Sapphire</a></li>
+                            <li><a href="home.html">Emerald</a></li>
+                            <li><a href="home.html">Diamond</a></li>
                         </ul>
                     </div>
-                    <div class="footer-column">
-                        <h4>VALUE PACKS</h4>
-                        <ul>
-                            <li><a href="plans.html">Technology Plan</a></li>
-                            <li><a href="plans.html">Consumer Electronics Plan</a></li>
-                            <li><a href="plans.html">5-Appliances Package</a></li>
-                            <li><a href="plans.html">Standard Home Warranty</a></li>
-                            <li><a href="plans.html">Premium Home Warranty</a></li>
-                            <li><a href="plans.html">Total Home Warranty</a></li>
-                        </ul>
-                    </div>
+
                 </div>
                 
                 <div class="footer-bottom">
@@ -801,3 +828,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+

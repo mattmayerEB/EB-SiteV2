@@ -893,7 +893,7 @@ body {
 
 .footer-columns {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     padding-bottom: 40px;
     border-bottom: 1px solid #34495e;
@@ -905,12 +905,14 @@ body {
     font-weight: 600;
     margin-bottom: 20px;
     letter-spacing: 0.5px;
+    text-align: center;
 }
 
 .footer-column ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 
 .footer-column li {
@@ -1209,22 +1211,30 @@ body {
     border-collapse: collapse;
     font-size: 14px;
     background: white;
+    table-layout: fixed;
 }
 
 .coverage-table th {
-    padding: 15px 12px;
+    padding: 12px 8px;
     text-align: center;
     font-weight: 600;
     color: white;
-    font-size: 13px;
+    font-size: 11px;
     border: 1px solid #e2e8f0;
+    vertical-align: middle;
+    word-wrap: break-word;
+    line-height: 1.3;
 }
 
 .coverage-table .component-col {
     background: #374151;
     color: white;
     text-align: left;
-    width: 20%;
+    width: 18%;
+}
+
+.coverage-table .plan-col {
+    width: 16.4%;
 }
 
 .coverage-table .plan-col.topline {
@@ -1286,6 +1296,22 @@ body {
     background: #e0f2fe;
 }
 
+/* Download Row */
+.download-row {
+    background: #f8fafc;
+}
+
+.download-cell {
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+    background: #f8fafc;
+}
+
+.download-row .component-name {
+    background: #f8fafc;
+}
+
 /* Major Makes & Models logos section */
 .makes-logos {
     display: grid;
@@ -1320,6 +1346,54 @@ body {
     .make-logo {
         max-width: 90px;
         height: 40px;
+    }
+}
+
+/* Policy Download Buttons */
+.download-cell a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-download-mini {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: white;
+    color: #10b981;
+    border: 2px solid white;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-download-mini i {
+    font-size: 12px;
+}
+
+.btn-download-mini span {
+    display: inline;
+}
+
+.btn-download-mini:hover {
+    background: #10b981;
+    color: white;
+    transform: scale(1.05);
+}
+
+@media (min-width: 1024px) {
+    .btn-download-mini {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+    
+    .btn-download-mini i {
+        font-size: 13px;
     }
 }
 
@@ -2401,6 +2475,119 @@ body {
     background: #f8fafc;
 }
 
+/* Auto FAQ Section */
+.auto-faq {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+    color: white;
+}
+
+.faq-title {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.faq-subtitle {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn-terms {
+    background: white;
+    color: #2563eb;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-terms:hover {
+    background: #f0f9ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.faq-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auto-faq .faq-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.auto-faq .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auto-faq .faq-question:hover {
+    background: #f8fafc;
+}
+
+.auto-faq .faq-question h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+    flex: 1;
+    padding-right: 15px;
+}
+
+.auto-faq .faq-question i {
+    font-size: 18px;
+    color: #2563eb;
+    transition: transform 0.3s ease;
+}
+
+.auto-faq .faq-answer {
+    padding: 0 25px 20px 25px;
+}
+
+.auto-faq .faq-answer p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-title {
+        font-size: 36px;
+    }
+    
+    .faq-subtitle {
+        font-size: 16px;
+    }
+}
+
 .social-media {
     padding: 80px 0;
     text-align: center;
@@ -2666,7 +2853,7 @@ body {
 /* CTA Sections */
 .cta-section {
     padding: 80px 0;
-    background: #2563eb;
+    background: #1e3a8a;
     color: white;
     text-align: center;
 }
@@ -2688,6 +2875,329 @@ body {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+}
+
+/* Home Repairs Section */
+.home-repairs-section {
+    background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.home-repairs-section h2 {
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.home-repairs-section .subtitle {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+
+.home-repairs-section .repair-costs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 40px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.home-repairs-section .repair-cost-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.home-repairs-section .repair-cost-item h3 {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.home-repairs-section .repair-cost {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.total-cost-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.total-cost-section p {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.total-cost-section strong {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+    .home-repairs-section .repair-costs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .home-repairs-section .repair-costs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .home-repairs-section h2 {
+        font-size: 28px;
+    }
+    
+    .home-repairs-section .subtitle {
+        font-size: 16px;
+    }
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.testimonials-section .container {
+    position: relative;
+}
+
+.testimonials-section h2 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 50px;
+}
+
+.testimonials-grid {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.testimonials-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 0 0 calc(33.333% - 20px);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-stars {
+    color: #fbbf24;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #64748b;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.testimonial-author strong {
+    color: #1e293b;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.testimonial-author span {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.testimonials-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.pagination-dots {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #2563eb;
+    width: 40px;
+    border-radius: 6px;
+}
+
+.dot:hover {
+    background: #94a3b8;
+}
+
+/* Rating Platforms */
+.rating-platforms {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.platform-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.platform-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 28px;
+}
+
+.platform-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.platform-logo.trustpilot {
+    background: transparent;
+}
+
+.platform-logo.reseller {
+    background: transparent;
+}
+
+.platform-logo.facebook {
+    background: transparent;
+}
+
+.platform-logo.review {
+    background: transparent;
+}
+
+.platform-item h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.platform-stars {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.platform-stars.trustpilot {
+    color: #00b67a;
+}
+
+.platform-stars.reseller {
+    color: #9333ea;
+}
+
+.platform-stars.facebook {
+    color: #1877f2;
+}
+
+.platform-stars.review {
+    color: #fbbf24;
+}
+
+.platform-rating {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+}
+
+.platform-rating span {
+    display: block;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+@media (max-width: 1024px) {
+    .testimonial-card {
+        flex: 0 0 calc(50% - 15px);
+    }
+    
+    .rating-platforms {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-section h2 {
+        font-size: 28px;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 100%;
+    }
+    
+    .rating-platforms {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 40px;
+        padding-top: 40px;
+    }
+    
+    .platform-item h3 {
+        font-size: 16px;
+    }
 }
 
 /* Responsive Design for New Pages */

@@ -423,3 +423,88 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+// Testimonial Pagination
+function showTestimonialPage(page) {
+    const grid = document.querySelector('.testimonials-grid');
+    const cards = grid.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (cards.length === 0) return;
+    
+    // Calculate which card to scroll to (show 3 cards per page)
+    const cardsPerPage = 3;
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 30;
+    const scrollPosition = page * cardsPerPage * (cardWidth + gap);
+    
+    grid.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+    });
+    
+    // Update active dot
+    dots.forEach((dot, index) => {
+        if (index === page) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+// Auto-update dots based on scroll position
+document.addEventListener('DOMContentLoaded', function() {
+    const grid = document.querySelector('.testimonials-grid');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (grid && dots.length > 0) {
+        grid.addEventListener('scroll', function() {
+            const cards = grid.querySelectorAll('.testimonial-card');
+            if (cards.length === 0) return;
+            
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 30;
+            const scrollPosition = grid.scrollLeft;
+            const cardsPerPage = 3;
+            const currentPage = Math.round(scrollPosition / (cardsPerPage * (cardWidth + gap)));
+            
+            // Update active dot
+            dots.forEach((dot, index) => {
+                if (index === currentPage) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        });
+    }
+});
+
+// FAQ Expand/Collapse Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.auto-faq .faq-item.expandable');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-question i');
+        
+        question.addEventListener('click', function() {
+            const isOpen = answer.style.display !== 'none';
+            
+            if (isOpen) {
+                // Close
+                answer.style.display = 'none';
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            } else {
+                // Open
+                answer.style.display = 'block';
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            }
+        });
+    });
+});
+
+
