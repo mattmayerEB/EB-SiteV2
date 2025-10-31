@@ -2021,6 +2021,13 @@ body {
     text-align: center;
 }
 
+.about-hero,
+.claims-hero,
+.contact-hero,
+.signin-hero {
+    padding: 80px 0 !important;
+}
+
 .plans-hero h1,
 .claims-hero h1,
 .about-hero h1,
