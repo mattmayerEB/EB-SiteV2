@@ -74,28 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Button click handlers
-    const ctaButtons = document.querySelectorAll('.cta-button, .btn-primary');
-    
-    ctaButtons.forEach(button => {
-        if (!button.closest('.quote-form')) {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Scroll to quote form
-                const quoteSection = document.querySelector('.quote-section');
-                if (quoteSection) {
-                    const headerHeight = document.querySelector('.header').offsetHeight;
-                    const targetPosition = quoteSection.offsetTop - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        }
-    });
 
     // Contact Us and Call Now buttons
     const contactBtn = document.querySelector('.help-buttons .btn-primary');
@@ -627,6 +605,67 @@ document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeVideo();
     }
+});
+
+// Choose Plan Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const choosePlanModal = document.getElementById('choosePlanModal');
+    const choosePlanClose = document.getElementById('choosePlanClose');
+    const choosePlanButtons = document.querySelectorAll('.btn-close-modal');
+    
+    // Get all "Choose Plan" buttons
+    const allChoosePlanButtons = document.querySelectorAll('.plan-card .btn-primary');
+    
+    // Add event listeners to all "Choose Plan" buttons
+    allChoosePlanButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (choosePlanModal) {
+                choosePlanModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    // Close modal with X button
+    if (choosePlanClose) {
+        choosePlanClose.addEventListener('click', function() {
+            if (choosePlanModal) {
+                choosePlanModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    // Close modal with "Close" button
+    if (choosePlanButtons) {
+        choosePlanButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (choosePlanModal) {
+                    choosePlanModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    }
+    
+    // Close modal when clicking outside
+    if (choosePlanModal) {
+        choosePlanModal.addEventListener('click', function(e) {
+            if (e.target === choosePlanModal) {
+                choosePlanModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && choosePlanModal && choosePlanModal.classList.contains('active')) {
+            choosePlanModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
 });
 
 
