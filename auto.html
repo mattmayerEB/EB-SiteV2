@@ -52,6 +52,50 @@
         </nav>
     </header>
 
+    <!-- Info Kit Download Form -->
+    <div class="info-kit-section">
+        <div class="container">
+            <div class="info-kit-content">
+                <div class="info-kit-text">GET A FREE INFO KIT!</div>
+                <form class="info-kit-form" id="infoKitForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+                    <button type="submit" class="btn-download">DOWNLOAD NOW</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Disclaimer Modal -->
+    <div class="disclaimer-modal" id="disclaimerModal">
+        <div class="disclaimer-modal-content">
+            <h3>Privacy & Consent Notice</h3>
+            <div class="disclaimer-text">
+                <p>We respect your privacy and want to make sure you are aware of a few things. By filling out this form you explicitly agree to be contacted by Everything Breaks Inc. about their products or services by phone call, pre-recorded message, email, and/or text message at the telephone/mobile number/email that you entered above. These calls/messages may be sent using automated telephone technology, even if your telephone or mobile number is currently listed on any state, federal, or corporate "Do Not Call" list. Message and data rates may apply. You are not required to give your consent here as a condition of any purchase.</p>
+            </div>
+            <div class="disclaimer-checkbox">
+                <label>
+                    <input type="checkbox" id="disclaimerCheckbox">
+                    <span>I have read and agree to the terms above</span>
+                </label>
+            </div>
+            <div class="disclaimer-buttons">
+                <button type="button" class="btn-disclaimer-accept" id="disclaimerAccept" disabled>Accept & Download</button>
+                <button type="button" class="btn-disclaimer-cancel" id="disclaimerCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Plans Hero Section -->
     <section class="plans-hero">
         <img src="images/Banner Car.png" alt="Auto Protection Plans">

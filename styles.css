@@ -65,6 +65,7 @@ body {
 .info-kit-section {
     background: #1e3a8a;
     padding: 25px 0;
+    margin-top: 120px;
 }
 
 .info-kit-content {
@@ -271,7 +272,7 @@ body {
 
 /* Hero Section */
 .hero {
-    margin-top: 160px;
+    margin-top: 0;
     background: #e6f3ff;
     padding: 80px 0;
     position: relative;
@@ -1990,7 +1991,7 @@ body {
 .about-hero,
 .contact-hero,
 .signin-hero {
-    margin-top: 120px;
+    margin-top: 0;
     padding: 0;
     background: linear-gradient(135deg, #dbeafe 0%, #f0f9ff 100%);
     text-align: center;

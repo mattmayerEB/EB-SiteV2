@@ -52,6 +52,50 @@
         </nav>
     </header>
 
+    <!-- Info Kit Download Form -->
+    <div class="info-kit-section">
+        <div class="container">
+            <div class="info-kit-content">
+                <div class="info-kit-text">GET A FREE INFO KIT!</div>
+                <form class="info-kit-form" id="infoKitForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+                    <button type="submit" class="btn-download">DOWNLOAD NOW</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Disclaimer Modal -->
+    <div class="disclaimer-modal" id="disclaimerModal">
+        <div class="disclaimer-modal-content">
+            <h3>Privacy & Consent Notice</h3>
+            <div class="disclaimer-text">
+                <p>We respect your privacy and want to make sure you are aware of a few things. By filling out this form you explicitly agree to be contacted by Everything Breaks Inc. about their products or services by phone call, pre-recorded message, email, and/or text message at the telephone/mobile number/email that you entered above. These calls/messages may be sent using automated telephone technology, even if your telephone or mobile number is currently listed on any state, federal, or corporate "Do Not Call" list. Message and data rates may apply. You are not required to give your consent here as a condition of any purchase.</p>
+            </div>
+            <div class="disclaimer-checkbox">
+                <label>
+                    <input type="checkbox" id="disclaimerCheckbox">
+                    <span>I have read and agree to the terms above</span>
+                </label>
+            </div>
+            <div class="disclaimer-buttons">
+                <button type="button" class="btn-disclaimer-accept" id="disclaimerAccept" disabled>Accept & Download</button>
+                <button type="button" class="btn-disclaimer-cancel" id="disclaimerCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Hero Section -->
     <section class="contact-hero">
         <div class="container">
@@ -77,11 +121,6 @@
                         <a href="tel:888-994-0914">888-994-0914</a><br>
                         <small>Mon-Fri: 8AM-8PM EST<br>Sat-Sun: 9AM-5PM EST</small>
                     </div>
-                    <div class="contact-details">
-                        <strong>Emergency Claims:</strong><br>
-                        <a href="tel:888-994-0914">888-994-0914</a><br>
-                        <small>Available 24/7</small>
-                    </div>
                 </div>
                 
                 <div class="contact-card">
@@ -94,24 +133,6 @@
                         <strong>General Support:</strong><br>
                         <a href="mailto:support@everythingbreaks.com">support@everythingbreaks.com</a>
                     </div>
-                    <div class="contact-details">
-                        <strong>Claims Department:</strong><br>
-                        <a href="mailto:claims@everythingbreaks.com">claims@everythingbreaks.com</a>
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>Live Chat</h3>
-                    <p>Chat with our support team in real-time</p>
-                    <div class="contact-details">
-                        <strong>Available:</strong><br>
-                        Mon-Fri: 8AM-8PM EST<br>
-                        Sat-Sun: 9AM-5PM EST
-                    </div>
-                    <button class="btn-primary">Start Chat</button>
                 </div>
             </div>
         </div>
@@ -131,40 +152,6 @@
         </div>
     </section>
 
-    <!-- Office Locations -->
-    <section class="office-locations">
-        <div class="container">
-            <h2>Our Offices</h2>
-            <div class="locations-grid">
-                <div class="location-card">
-                    <h3>Corporate Headquarters</h3>
-                    <div class="location-details">
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Protection Plaza<br>Suite 500<br>Chicago, IL 60601</p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:300-535-6789">300-535-6789</a></p>
-                        <p><i class="fas fa-clock"></i> Mon-Fri: 8AM-8PM EST</p>
-                    </div>
-                </div>
-                
-                <div class="location-card">
-                    <h3>West Coast Office</h3>
-                    <div class="location-details">
-                        <p><i class="fas fa-map-marker-alt"></i> 456 Service Street<br>Floor 12<br>Los Angeles, CA 90210</p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:300-535-6789">300-535-6789</a></p>
-                        <p><i class="fas fa-clock"></i> Mon-Fri: 8AM-8PM PST</p>
-                    </div>
-                </div>
-                
-                <div class="location-card">
-                    <h3>East Coast Office</h3>
-                    <div class="location-details">
-                        <p><i class="fas fa-map-marker-alt"></i> 789 Coverage Court<br>Building A<br>New York, NY 10001</p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:300-535-6789">300-535-6789</a></p>
-                        <p><i class="fas fa-clock"></i> Mon-Fri: 8AM-8PM EST</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- FAQ Section -->
     <section class="contact-faq">
