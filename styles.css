@@ -205,6 +205,46 @@ body {
     color: #2563eb;
 }
 
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #333;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.3s ease;
+}
+
+.hamburger-menu:hover {
+    color: #2563eb;
+}
+
+/* Phone Button */
+.phone-button {
+    display: none;
+    text-decoration: none;
+    color: #000;
+    border: 2px solid #3b82f6;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.phone-button i {
+    color: #000;
+    margin-right: 6px;
+}
+
+.phone-button:hover {
+    background: #eff6ff;
+}
+
 /* Dropdown Styles */
 .dropdown {
     position: relative;
@@ -4339,5 +4379,518 @@ body {
         top: 15px;
         right: 20px;
         font-size: 28px;
+    }
+}
+
+/* ===========================
+   COMPREHENSIVE MOBILE STYLES
+   =========================== */
+
+/* Tablet and Below (1024px) */
+@media (max-width: 1024px) {
+    /* Navigation */
+    nav .nav-links {
+        gap: 20px;
+    }
+    
+    nav .nav-links a {
+        font-size: 14px;
+    }
+    
+    /* Hero Section */
+    .hero-content {
+        gap: 40px;
+    }
+    
+    .hero h1 {
+        font-size: 42px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+    /* Typography */
+    h1 {
+        font-size: 32px !important;
+    }
+    
+    h2 {
+        font-size: 28px !important;
+    }
+    
+    h3 {
+        font-size: 22px !important;
+    }
+    
+    /* Top Bar */
+    .top-bar {
+        display: none;
+    }
+    
+    /* Navigation */
+    .main-nav {
+        padding: 0;
+    }
+    
+    .nav-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+        min-height: auto;
+        padding: 0;
+    }
+    
+    .hamburger-menu {
+        display: none;
+    }
+    
+    .logo {
+        order: 1;
+        flex: 0 0 100%;
+        margin: 0;
+        margin-top: -20px;
+        margin-bottom: 20px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    
+    .logo-img {
+        height: 40px;
+        max-width: 130px;
+    }
+    
+    .phone-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        order: 2;
+        padding: 10px;
+        font-size: 11px;
+        flex: 0 1 auto;
+        margin-right: 0;
+        width: calc(50% - 4px);
+        height: 40px;
+    }
+    
+    .phone-button i {
+        font-size: 11px;
+        margin-right: 3px;
+    }
+    
+    .cta-button {
+        order: 3;
+        padding: 10px;
+        font-size: 11px;
+        white-space: nowrap;
+        flex: 0 1 auto;
+        width: calc(50% - 4px);
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-height: 400px;
+        background: white;
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 0;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        overflow-y: auto;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 12px 0;
+        font-size: 14px;
+    }
+    
+    .dropdown-menu {
+        display: none;
+        position: static;
+        box-shadow: none;
+        padding-left: 15px;
+        margin-top: 0;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu li {
+        border-bottom: none;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 0;
+        font-size: 13px;
+    }
+    
+    .dropdown > a i {
+        display: inline;
+        transition: transform 0.3s ease;
+    }
+    
+    .dropdown.active > a i {
+        transform: rotate(180deg);
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero-buttons button,
+    .hero-buttons a {
+        width: 100%;
+    }
+    
+    .hero-image {
+        order: -1;
+    }
+    
+    .hero-illustration {
+        max-width: 100%;
+    }
+    
+    /* Plans Hero */
+    .plans-hero {
+        display: none;
+    }
+    
+    /* Info Kit Section */
+    .info-kit-section {
+        display: none;
+    }
+    
+    /* Quote Section */
+    .quote-section {
+        padding: 40px 0;
+    }
+    
+    .quote-form {
+        padding: 30px 20px;
+    }
+    
+    .form-group-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    /* Features Section */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .feature-card {
+        padding: 30px 20px;
+    }
+    
+    /* Plans Grid */
+    .plans-section {
+        padding: 40px 0;
+    }
+    
+    .plans-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* Coverage Cards */
+    .coverage-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Benefits Grid */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    /* Stats Grid */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    /* About Section */
+    .about-hero,
+    .claims-hero,
+    .contact-hero,
+    .signin-hero {
+        padding: 40px 0 !important;
+    }
+    
+    .about-content,
+    .values-grid,
+    .awards-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* Claims Process */
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* Contact Section */
+    .contact-options {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .contact-form-section {
+        padding: 40px 0;
+    }
+    
+    .contact-form-container {
+        padding: 30px 20px;
+    }
+    
+    /* Footer */
+    .footer-content {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-column h3 {
+        font-size: 18px;
+    }
+    
+    .footer-apps {
+        margin-top: 30px;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .footer-badges {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Sponsored Event Section */
+    .event-intro {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .video-grid,
+    .image-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .partner-logos-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .partner-logo {
+        position: relative !important;
+        transform: none !important;
+    }
+    
+    /* Sign In */
+    .signin-container {
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+    
+    /* Buttons */
+    .btn-primary,
+    .btn-secondary,
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+    /* Typography */
+    h1 {
+        font-size: 24px !important;
+    }
+    
+    h2 {
+        font-size: 22px !important;
+    }
+    
+    h3 {
+        font-size: 18px !important;
+    }
+    
+    p {
+        font-size: 14px;
+    }
+    
+    /* Container */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Navigation */
+    .main-nav {
+        padding: 8px 0;
+    }
+    
+    .nav-content {
+        gap: 0px;
+    }
+    
+    .logo-img {
+        height: 50px;
+        max-width: 220px;
+    }
+    
+    .cta-button {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+    
+    /* Hero */
+    .hero h1 {
+        font-size: 24px;
+    }
+    
+    .hero p {
+        font-size: 14px;
+    }
+    
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card h3 {
+        font-size: 32px;
+    }
+    
+    /* Odds Infographic */
+    .odds-bubble {
+        width: 140px;
+        height: 140px;
+        font-size: 13px;
+        padding: 15px;
+    }
+    
+    .odds-bubble-title {
+        font-size: 28px;
+    }
+    
+    /* Forms */
+    .quote-form,
+    .info-kit-form,
+    .contact-form-container,
+    .signin-container {
+        padding: 25px 15px;
+    }
+    
+    input,
+    select,
+    textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    /* Buttons */
+    .btn-primary,
+    .btn-secondary,
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    /* Cards */
+    .feature-card,
+    .plan-card,
+    .coverage-card,
+    .benefit-card {
+        padding: 25px 15px;
+    }
+    
+    /* Footer */
+    .footer-column h3 {
+        font-size: 16px;
+    }
+    
+    .footer-column ul li a {
+        font-size: 13px;
+    }
+    
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .footer-badge {
+        max-width: 60px;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding: 30px 0;
+    }
+    
+    nav .nav-links {
+        height: calc(100vh - 70px);
+        overflow-y: auto;
     }
 }
