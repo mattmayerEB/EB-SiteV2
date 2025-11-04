@@ -6112,3 +6112,63 @@ body {
         min-width: 200px;
     }
 }
+
+/* Plan Badge Image (ASOT) */
+.plan-card {
+    position: relative;
+}
+
+.plan-badge-img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: auto;
+    z-index: 10;
+}
+
+/* Mobile responsive for plan badge */
+@media (max-width: 904px) {
+    .plan-badge-img {
+        width: 60px;
+        top: 8px;
+        right: 8px;
+    }
+}
+
+/* Best Value Card Styles */
+.best-value-card {
+    border: 3px solid #28a745 !important;
+    box-shadow: 0 0 20px rgba(40, 167, 69, 0.3) !important;
+    position: relative;
+}
+
+.best-value-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #28a745;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+    z-index: 10;
+    letter-spacing: 0.5px;
+}
+
+/* Mobile responsive for best value badge */
+@media (max-width: 904px) {
+    .best-value-card {
+        border: 2px solid #28a745 !important;
+    }
+    
+    .best-value-badge {
+        font-size: 12px;
+        padding: 6px 16px;
+        top: -12px;
+    }
+}
