@@ -4895,6 +4895,46 @@ body {
     }
 }
 
+/* Mission Section Styles */
+.mission-section {
+    background: #1e3a8a;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.mission-text {
+    font-size: 32px;
+    line-height: 1.5;
+    color: white;
+    font-weight: 600;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-style: italic;
+}
+
+/* Responsive Mission Section */
+@media (max-width: 768px) {
+    .mission-section {
+        padding: 60px 0;
+    }
+    
+    .mission-text {
+        font-size: 24px;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .mission-section {
+        padding: 40px 0;
+    }
+    
+    .mission-text {
+        font-size: 20px;
+    }
+}
+
 /* Privacy Policy Styles */
 .privacy-policy-page {
     background: #f8f9fa;
