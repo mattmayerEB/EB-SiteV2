@@ -4896,8 +4896,146 @@ body {
 }
 
 /* Privacy Policy Styles */
+.privacy-policy-page {
+    background: #f8f9fa;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.main-container-text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.privacy-policy-text p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.q-and-a {
+    background: white;
+    padding: 60px 20px;
+}
+
+.q-and-a-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.main__heading {
+    font-size: 36px;
+    color: #333;
+    font-weight: 700;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
+}
+
+.acc {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.left__block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.acc__card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.acc__card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.acc__title {
+    font-size: 18px;
+    color: #333;
+    padding: 20px 25px;
+    margin: 0;
+    cursor: pointer;
+    font-weight: 600;
+    background: #f8f9fa;
+    transition: background 0.3s ease;
+    position: relative;
+    padding-right: 50px;
+}
+
+.acc__title:hover {
+    background: #e9ecef;
+}
+
+.acc__title::after {
+    content: '+';
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: 400;
+    color: #667eea;
+    transition: transform 0.3s ease;
+}
+
+.acc__card.active .acc__title::after {
+    content: '−';
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.acc__panel {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: #666;
+    line-height: 1.6;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.acc__card.active .acc__panel {
+    padding: 20px 25px;
+    max-height: 1000px;
+}
+
+.acc__panel ul {
+    margin: 10px 0;
+    padding-left: 25px;
+}
+
+.acc__panel ul li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.acc__panel a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.acc__panel a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
 .privacy-hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #1e3a8a;
     color: white;
     padding: 120px 0 80px;
     margin-top: 0;
@@ -5065,5 +5203,43 @@ body {
     
     .contact-box {
         padding: 20px 15px;
+    }
+    
+    /* Mobile styles for accordion */
+    .main-container {
+        padding: 20px 15px;
+    }
+    
+    .main__heading {
+        font-size: 28px;
+    }
+    
+    .q-and-a {
+        padding: 40px 15px;
+    }
+    
+    .acc__title {
+        font-size: 16px;
+        padding: 15px 20px;
+        padding-right: 45px;
+    }
+    
+    .acc__title::after {
+        right: 20px;
+        font-size: 20px;
+    }
+    
+    .acc__panel {
+        padding: 0 20px;
+        font-size: 15px;
+    }
+    
+    .acc__card.active .acc__panel {
+        padding: 15px 20px;
+    }
+    
+    .privacy-policy-text p {
+        font-size: 15px;
+        padding: 0 10px;
     }
 }
