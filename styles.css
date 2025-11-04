@@ -399,18 +399,134 @@ body {
 }
 
 .illustration {
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.hero-container {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    overflow: hidden;
+    background: #000;
+}
+
 .hero-illustration {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    min-height: 600px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-cta-content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0);
+    padding: 30px 40px;
+}
+
+.hero-cta-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.hero-cta-subtitle {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.hero-learn-more-btn {
+    background: #1e3a8a;
+    color: white;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.hero-learn-more-btn:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile responsive for hero button */
+@media (max-width: 768px) {
+    .hero-container {
+        min-height: 400px;
+    }
+    
+    .hero-illustration {
+        min-height: 400px;
+    }
+    
+    .hero-cta-content {
+        padding: 25px 30px;
+        max-width: 90%;
+    }
+    
+    .hero-cta-title {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+    
+    .hero-cta-subtitle {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-learn-more-btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-container {
+        min-height: 300px;
+    }
+    
+    .hero-illustration {
+        min-height: 300px;
+    }
+    
+    .hero-cta-content {
+        padding: 20px 25px;
+        max-width: 90%;
+    }
+    
+    .hero-cta-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .hero-cta-subtitle {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .hero-learn-more-btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
 }
 
 /* Odds Infographic Section */
@@ -558,6 +674,7 @@ body {
     padding: 20px 0;
     text-align: center;
     background: transparent;
+    background: #e6f3ff;
 }
 
 .how-it-works h2 {
@@ -1017,7 +1134,7 @@ body {
     background: #e6f3ff;
     padding: 40px;
     border-radius: 12px;
-    scroll-margin-top: 200px;
+    scroll-margin-top: 140px;
 }
 
 .quote-form {
@@ -5281,5 +5398,459 @@ body {
     .privacy-policy-text p {
         font-size: 15px;
         padding: 0 10px;
+    }
+}
+
+/* Quote Disclaimer Modal Styles */
+.quote-disclaimer-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease;
+}
+
+.quote-disclaimer-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote-disclaimer-modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.quote-disclaimer-modal-content h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.quote-disclaimer-modal-content .disclaimer-text {
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.quote-disclaimer-modal-content .disclaimer-text p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.quote-disclaimer-modal-content .disclaimer-checkbox {
+    margin-bottom: 25px;
+}
+
+.quote-disclaimer-modal-content .disclaimer-checkbox label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.quote-disclaimer-modal-content .disclaimer-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 3px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.quote-disclaimer-modal-content .disclaimer-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.quote-disclaimer-modal-content .btn-disclaimer-accept {
+    background: #667eea;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quote-disclaimer-modal-content .btn-disclaimer-accept:hover:not(:disabled) {
+    background: #5568d3;
+}
+
+.quote-disclaimer-modal-content .btn-disclaimer-accept:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.quote-disclaimer-modal-content .btn-disclaimer-cancel {
+    background: #6c757d;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quote-disclaimer-modal-content .btn-disclaimer-cancel:hover {
+    background: #5a6268;
+}
+
+/* Mobile responsive for quote disclaimer modal */
+@media (max-width: 768px) {
+    .quote-disclaimer-modal-content {
+        padding: 25px;
+        max-width: 95%;
+    }
+    
+    .quote-disclaimer-modal-content h3 {
+        font-size: 20px;
+    }
+    
+    .quote-disclaimer-modal-content .disclaimer-buttons {
+        flex-direction: column;
+    }
+    
+    .quote-disclaimer-modal-content .btn-disclaimer-accept,
+    .quote-disclaimer-modal-content .btn-disclaimer-cancel {
+        width: 100%;
+    }
+}
+
+/* Quote Success Modal Styles */
+.quote-success-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease;
+}
+
+.quote-success-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote-success-modal-content {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+.quote-success-modal-content .success-icon {
+    margin-bottom: 20px;
+}
+
+.quote-success-modal-content .success-icon i {
+    font-size: 64px;
+    color: #28a745;
+}
+
+.quote-success-modal-content h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.quote-success-modal-content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.quote-success-modal-content .btn-success-ok {
+    background: #667eea;
+    color: white;
+    padding: 12px 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quote-success-modal-content .btn-success-ok:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Mobile responsive for success modal */
+@media (max-width: 768px) {
+    .quote-success-modal-content {
+        padding: 40px 25px;
+        max-width: 95%;
+    }
+    
+    .quote-success-modal-content .success-icon i {
+        font-size: 48px;
+    }
+    
+    .quote-success-modal-content h3 {
+        font-size: 24px;
+    }
+    
+    .quote-success-modal-content p {
+        font-size: 16px;
+    }
+}
+
+/* State Unavailable Modal Styles */
+.state-unavailable-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease;
+}
+
+.state-unavailable-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.state-unavailable-modal-content {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+.state-unavailable-modal-content .unavailable-icon {
+    margin-bottom: 20px;
+}
+
+.state-unavailable-modal-content .unavailable-icon i {
+    font-size: 64px;
+    color: #dc3545;
+}
+
+.state-unavailable-modal-content h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.state-unavailable-modal-content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.state-unavailable-modal-content .btn-unavailable-ok {
+    background: #667eea;
+    color: white;
+    padding: 12px 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.state-unavailable-modal-content .btn-unavailable-ok:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Mobile responsive for state unavailable modal */
+@media (max-width: 768px) {
+    .state-unavailable-modal-content {
+        padding: 40px 25px;
+        max-width: 95%;
+    }
+    
+    .state-unavailable-modal-content .unavailable-icon i {
+        font-size: 48px;
+    }
+    
+    .state-unavailable-modal-content h3 {
+        font-size: 24px;
+    }
+    
+    .state-unavailable-modal-content p {
+        font-size: 16px;
+    }
+}
+
+/* State Custom Quote Modal Styles */
+.state-custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.3s ease;
+}
+
+.state-custom-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.state-custom-modal-content {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+.state-custom-modal-content .custom-icon {
+    margin-bottom: 20px;
+}
+
+.state-custom-modal-content .custom-icon i {
+    font-size: 64px;
+    color: #667eea;
+}
+
+.state-custom-modal-content h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.state-custom-modal-content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.state-custom-modal-content .custom-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.state-custom-modal-content .custom-contact i {
+    color: #667eea;
+    font-size: 24px;
+}
+
+.state-custom-modal-content .custom-contact a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.state-custom-modal-content .custom-contact a:hover {
+    color: #667eea;
+}
+
+.state-custom-modal-content .btn-custom-ok {
+    background: #667eea;
+    color: white;
+    padding: 12px 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.state-custom-modal-content .btn-custom-ok:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Mobile responsive for state custom modal */
+@media (max-width: 768px) {
+    .state-custom-modal-content {
+        padding: 40px 25px;
+        max-width: 95%;
+    }
+    
+    .state-custom-modal-content .custom-icon i {
+        font-size: 48px;
+    }
+    
+    .state-custom-modal-content h3 {
+        font-size: 24px;
+    }
+    
+    .state-custom-modal-content p {
+        font-size: 16px;
+    }
+    
+    .state-custom-modal-content .custom-contact {
+        font-size: 20px;
+    }
+    
+    .state-custom-modal-content .custom-contact i {
+        font-size: 20px;
     }
 }

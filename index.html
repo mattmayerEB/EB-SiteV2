@@ -63,8 +63,12 @@
                 <div class="info-kit-text">GET A FREE INFO KIT!</div>
                 <form class="info-kit-form" id="infoKitForm">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Name" required>
-                        <span class="error-message" id="nameError"></span>
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                        <span class="error-message" id="lastNameError"></span>
                     </div>
                     <div class="form-group">
                         <input type="email" id="email" name="email" placeholder="Email" required>
@@ -101,31 +105,16 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Protection Plans That Keep Life Running</h1>
-                    <p>Auto, Home, Electronics, Appliances, and More — All in One Place.</p>
-                    <div class="hero-buttons">
-                        <button class="btn-secondary" onclick="window.location.href='about.html'">Learn More</button>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="illustration">
-                        <img src="images/People Image V3.png" alt="Family looking at laptop" class="hero-illustration">
-                    </div>
-                </div>
+
+        <div class="hero-container">
+            <img src="images/IMG HOME PAGE v2.png" alt="Family looking at laptop" class="hero-illustration">
+            <div class="hero-cta-content">
+                <h1 class="hero-cta-title">Protection Plans That Keep Life Running</h1>
+                <p class="hero-cta-subtitle">Auto, Home, Electronics, Appliances, and More — All in One Place.</p>
+                <a href="#how-it-works" class="hero-learn-more-btn">Learn More</a>
             </div>
         </div>
-    </section>
 
-    <!-- Mission Statement Section -->
-    <section class="mission-section">
-        <div class="container">
-            <p class="mission-text">At Everything Breaks, our mission is to make protection simple, affordable, and accessible — so when life happens, you're covered.</p>
-        </div>
-    </section>
 
     <!-- How It Works Section -->
     <section class="how-it-works" id="how-it-works">
@@ -177,7 +166,7 @@
                     </div>
                     <h3>Electronics</h3>
                     <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> Cracked Screem? No Problem!</li>
+                        <li><i class="fas fa-check"></i> Cracked Screen? No Problem!</li>
                         <li><i class="fas fa-check"></i> Fast Repairs or Replacements</li>
                     </ul>
                     <button class="btn-primary" onclick="window.location.href='electronics.html'">View Details</button>
@@ -248,21 +237,83 @@
                     <h2>Get a Quote</h2>
                     <form class="quote-form">
                         <div class="form-group">
-                            <label for="quote-name">Name</label>
-                            <input type="text" id="quote-name" name="quote-name" required>
+                            <label for="quote-first-name">First Name</label>
+                            <input type="text" id="quote-first-name" name="quote-first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quote-last-name">Last Name</label>
+                            <input type="text" id="quote-last-name" name="quote-last-name" required>
                         </div>
                         <div class="form-group">
                             <label for="quote-email">Email</label>
                             <input type="email" id="quote-email" name="quote-email" required>
                         </div>
                         <div class="form-group">
-                            <label for="quote-zipcode">Zip Code</label>
-                            <input type="text" id="quote-zipcode" name="quote-zipcode" required>
+                            <label for="quote-phone">Phone Number</label>
+                            <input type="tel" id="quote-phone" name="quote-phone" placeholder="(123) 456-7890" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quote-state">State</label>
+                            <select id="quote-state" name="quote-state" required>
+                                <option value="">Select a state</option>
+                                <option value="AL">AL</option>
+                                <option value="AK">AK</option>
+                                <option value="AZ">AZ</option>
+                                <option value="AR">AR</option>
+                                <option value="CA">CA</option>
+                                <option value="CO">CO</option>
+                                <option value="CT">CT</option>
+                                <option value="DE">DE</option>
+                                <option value="DC">DC</option>
+                                <option value="FL">FL</option>
+                                <option value="GA">GA</option>
+                                <option value="HI">HI</option>
+                                <option value="ID">ID</option>
+                                <option value="IL">IL</option>
+                                <option value="IN">IN</option>
+                                <option value="IA">IA</option>
+                                <option value="KS">KS</option>
+                                <option value="KY">KY</option>
+                                <option value="LA">LA</option>
+                                <option value="ME">ME</option>
+                                <option value="MD">MD</option>
+                                <option value="MA">MA</option>
+                                <option value="MI">MI</option>
+                                <option value="MN">MN</option>
+                                <option value="MS">MS</option>
+                                <option value="MO">MO</option>
+                                <option value="MT">MT</option>
+                                <option value="NE">NE</option>
+                                <option value="NV">NV</option>
+                                <option value="NH">NH</option>
+                                <option value="NJ">NJ</option>
+                                <option value="NM">NM</option>
+                                <option value="NY">NY</option>
+                                <option value="NC">NC</option>
+                                <option value="ND">ND</option>
+                                <option value="OH">OH</option>
+                                <option value="OK">OK</option>
+                                <option value="OR">OR</option>
+                                <option value="PA">PA</option>
+                                <option value="RI">RI</option>
+                                <option value="SC">SC</option>
+                                <option value="SD">SD</option>
+                                <option value="TN">TN</option>
+                                <option value="TX">TX</option>
+                                <option value="UT">UT</option>
+                                <option value="VT">VT</option>
+                                <option value="VA">VA</option>
+                                <option value="WA">WA</option>
+                                <option value="WV">WV</option>
+                                <option value="WI">WI</option>
+                                <option value="WY">WY</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="quote-plan-type">Type of Plan</label>
                             <select id="quote-plan-type" name="quote-plan-type" required>
                                 <option value="">Select a plan</option>
+                                <option value="all">All</option>
                                 <option value="home">Home Warranty</option>
                                 <option value="electronics">Electronics</option>
                                 <option value="auto">Auto</option>
@@ -274,6 +325,66 @@
             </div>
         </div>
     </section>
+
+    <!-- Quote Disclaimer Modal -->
+    <div class="quote-disclaimer-modal" id="quoteDisclaimerModal">
+        <div class="quote-disclaimer-modal-content">
+            <h3>Privacy & Consent Notice</h3>
+            <div class="disclaimer-text">
+                <p>We respect your privacy and want to make sure you are aware of a few things. By filling out this form you explicitly agree to be contacted by Everything Breaks Inc. about their products or services by phone call, pre-recorded message, email, and/or text message at the telephone/mobile number/email that you entered above. These calls/messages may be sent using automated telephone technology, even if your telephone or mobile number is currently listed on any state, federal, or corporate "Do Not Call" list. Message and data rates may apply. You are not required to give your consent here as a condition of any purchase.</p>
+            </div>
+            <div class="disclaimer-checkbox">
+                <label>
+                    <input type="checkbox" id="quoteDisclaimerCheckbox">
+                    <span>I have read and agree to the terms above</span>
+                </label>
+            </div>
+            <div class="disclaimer-buttons">
+                <button type="button" class="btn-disclaimer-accept" id="quoteDisclaimerAccept" disabled>Accept & Submit</button>
+                <button type="button" class="btn-disclaimer-cancel" id="quoteDisclaimerCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Success Modal -->
+    <div class="quote-success-modal" id="quoteSuccessModal">
+        <div class="quote-success-modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Thank You!</h3>
+            <p>An agent will be calling you shortly.</p>
+            <button type="button" class="btn-success-ok" id="successOkButton">OK</button>
+        </div>
+    </div>
+
+    <!-- State Not Available Modal -->
+    <div class="state-unavailable-modal" id="stateUnavailableModal">
+        <div class="state-unavailable-modal-content">
+            <div class="unavailable-icon">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <h3>Plans Not Available</h3>
+            <p>Unfortunately, no plans are available in your state.</p>
+            <button type="button" class="btn-unavailable-ok" id="unavailableOkButton">OK</button>
+        </div>
+    </div>
+
+    <!-- State Custom Quote Modal -->
+    <div class="state-custom-modal" id="stateCustomModal">
+        <div class="state-custom-modal-content">
+            <div class="custom-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <h3>Customized Quote Required</h3>
+            <p>Due to your state, please contact us for a customized quote.</p>
+            <div class="custom-contact">
+                <i class="fas fa-phone"></i>
+                <a href="tel:888-994-0914"><strong>888-994-0914</strong></a>
+            </div>
+            <button type="button" class="btn-custom-ok" id="customOkButton">OK</button>
+        </div>
+    </div>
 
     <!-- Need Help Section -->
     <section class="need-help">

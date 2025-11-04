@@ -62,57 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Quote form handling
-    const quoteForm = document.querySelector('.quote-form');
-    
-    if (quoteForm) {
-        quoteForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                zipcode: formData.get('zipcode'),
-                planType: formData.get('plan-type')
-            };
-            
-            // Basic validation
-            if (!data.name || !data.email || !data.zipcode || !data.planType) {
-                alert('Please fill in all fields.');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            // Zip code validation (US format)
-            const zipRegex = /^\d{5}(-\d{4})?$/;
-            if (!zipRegex.test(data.zipcode)) {
-                alert('Please enter a valid US zip code.');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Thank you for your interest! We will contact you within 24 hours with your personalized quote.');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    }
+    // Quote form handling is now handled by the disclaimer modal (see bottom of file)
 
 
     // Contact Us and Call Now buttons
@@ -284,18 +234,28 @@ document.addEventListener('DOMContentLoaded', function() {
             clearErrors();
             
             // Get form data
-            const name = document.getElementById('name').value.trim();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
             
             let isValid = true;
             
-            // Validate Name
-            if (!name) {
-                showError('nameError', 'Name is required');
+            // Validate First Name
+            if (!firstName) {
+                showError('firstNameError', 'First name is required');
                 isValid = false;
-            } else if (name.length < 2) {
-                showError('nameError', 'Name must be at least 2 characters');
+            } else if (firstName.length < 2) {
+                showError('firstNameError', 'First name must be at least 2 characters');
+                isValid = false;
+            }
+            
+            // Validate Last Name
+            if (!lastName) {
+                showError('lastNameError', 'Last name is required');
+                isValid = false;
+            } else if (lastName.length < 2) {
+                showError('lastNameError', 'Last name must be at least 2 characters');
                 isValid = false;
             }
             
@@ -356,12 +316,22 @@ document.addEventListener('DOMContentLoaded', function() {
         let errorMessage = '';
         
         switch (fieldId) {
-            case 'name':
+            case 'firstName':
                 if (!value) {
-                    errorMessage = 'Name is required';
+                    errorMessage = 'First name is required';
                     isValid = false;
                 } else if (value.length < 2) {
-                    errorMessage = 'Name must be at least 2 characters';
+                    errorMessage = 'First name must be at least 2 characters';
+                    isValid = false;
+                }
+                break;
+                
+            case 'lastName':
+                if (!value) {
+                    errorMessage = 'Last name is required';
+                    isValid = false;
+                } else if (value.length < 2) {
+                    errorMessage = 'Last name must be at least 2 characters';
                     isValid = false;
                 }
                 break;
@@ -422,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errorElements.forEach(element => {
             element.textContent = '';
         });
-        
+        d
         const errorInputs = document.querySelectorAll('.info-kit-form input.error');
         errorInputs.forEach(input => {
             input.classList.remove('error');
@@ -444,6 +414,29 @@ document.addEventListener('DOMContentLoaded', function() {
         // Accept button - proceed with download
         disclaimerAccept.addEventListener('click', function() {
             if (disclaimerCheckbox.checked) {
+                // Get form data
+                const form = document.getElementById('infoKitForm');
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                
+                // Clean phone number - remove all non-digit characters
+                const cleanPhone = phone.replace(/\D/g, '');
+                
+                // Send data to API
+                const apiUrl = `http://api.automotiveservicescenter.com/live/addlead59.php?key=55ffesafe24try&l=650&ph=${cleanPhone}&fn=${encodeURIComponent(firstName)}&ln=${encodeURIComponent(lastName)}&email=${encodeURIComponent(email)}&vend=EB_infokit&subv=EB_infokit`;
+                
+                // Make API call
+                fetch(apiUrl, {
+                    method: 'GET',
+                    mode: 'no-cors'
+                }).then(() => {
+                    console.log('Info kit data sent to API');
+                }).catch((error) => {
+                    console.error('Error sending data to API:', error);
+                });
+                
                 // Close modal
                 disclaimerModal.classList.remove('active');
                 disclaimerCheckbox.checked = false;
@@ -456,17 +449,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     downloadBtn.textContent = 'Downloading...';
                     downloadBtn.disabled = true;
                     
-                    // Create a temporary link to download the PDF
-                    const link = document.createElement('a');
-                    link.href = 'Policies/EverythingBreaks_InfoKit-2024_web.pdf';
-                    link.download = 'EverythingBreaks_InfoKit.pdf';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
+                    // Open PDF in a new tab
+                    window.open('Policies/EverythingBreaks_InfoKit-2024_web.pdf', '_blank');
                     
                     setTimeout(() => {
                         alert('Thank you! Your info kit has been downloaded.');
-                        const form = document.getElementById('infoKitForm');
                         if (form) {
                             form.reset();
                         }
@@ -708,4 +695,175 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Quote Form Disclaimer Modal
+document.addEventListener('DOMContentLoaded', function() {
+    const quoteForm = document.querySelector('.quote-form');
+    const quoteDisclaimerModal = document.getElementById('quoteDisclaimerModal');
+    const quoteDisclaimerCheckbox = document.getElementById('quoteDisclaimerCheckbox');
+    const quoteDisclaimerAccept = document.getElementById('quoteDisclaimerAccept');
+    const quoteDisclaimerCancel = document.getElementById('quoteDisclaimerCancel');
+    const quoteSuccessModal = document.getElementById('quoteSuccessModal');
+    const successOkButton = document.getElementById('successOkButton');
+    let quoteFormData = null;
+    
+    if (quoteForm) {
+        quoteForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Check selected state
+            const selectedState = document.getElementById('quote-state').value;
+            
+            // Check if state is WV (not available)
+            if (selectedState === 'WV') {
+                const stateUnavailableModal = document.getElementById('stateUnavailableModal');
+                stateUnavailableModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                return;
+            }
+            
+            // Check if state requires custom quote (NY, WI, OH, IA, HI, DC, MN)
+            const customQuoteStates = ['NY', 'WI', 'OH', 'IA', 'HI', 'DC', 'MN'];
+            if (customQuoteStates.includes(selectedState)) {
+                const stateCustomModal = document.getElementById('stateCustomModal');
+                stateCustomModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                return;
+            }
+            
+            // Store form data
+            quoteFormData = new FormData(quoteForm);
+            
+            // Show disclaimer modal
+            quoteDisclaimerModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    if (quoteDisclaimerCheckbox) {
+        quoteDisclaimerCheckbox.addEventListener('change', function() {
+            quoteDisclaimerAccept.disabled = !this.checked;
+        });
+    }
+    
+    if (quoteDisclaimerAccept) {
+        quoteDisclaimerAccept.addEventListener('click', function() {
+            if (quoteDisclaimerCheckbox.checked) {
+                // Get form data
+                const firstName = document.getElementById('quote-first-name').value;
+                const lastName = document.getElementById('quote-last-name').value;
+                const email = document.getElementById('quote-email').value;
+                const phone = document.getElementById('quote-phone').value;
+                const state = document.getElementById('quote-state').value;
+                const planType = document.getElementById('quote-plan-type').value;
+                
+                // Clean phone number - remove all non-digit characters
+                const cleanPhone = phone.replace(/\D/g, '');
+                
+                // Send data to API
+                const apiUrl = `http://api.automotiveservicescenter.com/live/addlead59.php?key=55ffesafe24try&l=651&ph=${cleanPhone}&fn=${encodeURIComponent(firstName)}&ln=${encodeURIComponent(lastName)}&st=${encodeURIComponent(state)}&email=${encodeURIComponent(email)}&vend=Website_GetQuote_${encodeURIComponent(planType)}&subv=Website_GetQuote_${encodeURIComponent(planType)}`;
+                
+                // Make API call
+                fetch(apiUrl, {
+                    method: 'GET',
+                    mode: 'no-cors'
+                }).then(() => {
+                    console.log('Quote form data sent to API');
+                }).catch((error) => {
+                    console.error('Error sending data to API:', error);
+                });
+                
+                // Close disclaimer modal
+                quoteDisclaimerModal.classList.remove('active');
+                
+                // Show success modal
+                quoteSuccessModal.classList.add('active');
+                
+                // Reset form and disclaimer
+                quoteForm.reset();
+                quoteDisclaimerCheckbox.checked = false;
+                quoteDisclaimerAccept.disabled = true;
+            }
+        });
+    }
+    
+    if (successOkButton) {
+        successOkButton.addEventListener('click', function() {
+            quoteSuccessModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    if (quoteDisclaimerCancel) {
+        quoteDisclaimerCancel.addEventListener('click', function() {
+            quoteDisclaimerModal.classList.remove('active');
+            quoteDisclaimerCheckbox.checked = false;
+            quoteDisclaimerAccept.disabled = true;
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    // Close disclaimer modal when clicking outside
+    if (quoteDisclaimerModal) {
+        quoteDisclaimerModal.addEventListener('click', function(e) {
+            if (e.target === quoteDisclaimerModal) {
+                quoteDisclaimerModal.classList.remove('active');
+                quoteDisclaimerCheckbox.checked = false;
+                quoteDisclaimerAccept.disabled = true;
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    // Close success modal when clicking outside
+    if (quoteSuccessModal) {
+        quoteSuccessModal.addEventListener('click', function(e) {
+            if (e.target === quoteSuccessModal) {
+                quoteSuccessModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    // State Unavailable Modal handlers
+    const stateUnavailableModal = document.getElementById('stateUnavailableModal');
+    const unavailableOkButton = document.getElementById('unavailableOkButton');
+    
+    if (unavailableOkButton) {
+        unavailableOkButton.addEventListener('click', function() {
+            stateUnavailableModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    // Close state unavailable modal when clicking outside
+    if (stateUnavailableModal) {
+        stateUnavailableModal.addEventListener('click', function(e) {
+            if (e.target === stateUnavailableModal) {
+                stateUnavailableModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    // State Custom Quote Modal handlers
+    const stateCustomModal = document.getElementById('stateCustomModal');
+    const customOkButton = document.getElementById('customOkButton');
+    
+    if (customOkButton) {
+        customOkButton.addEventListener('click', function() {
+            stateCustomModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    // Close state custom modal when clicking outside
+    if (stateCustomModal) {
+        stateCustomModal.addEventListener('click', function(e) {
+            if (e.target === stateCustomModal) {
+                stateCustomModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+});
 

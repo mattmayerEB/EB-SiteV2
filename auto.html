@@ -63,8 +63,12 @@
                 <div class="info-kit-text">GET A FREE INFO KIT!</div>
                 <form class="info-kit-form" id="infoKitForm">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Name" required>
-                        <span class="error-message" id="nameError"></span>
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                        <span class="error-message" id="lastNameError"></span>
                     </div>
                     <div class="form-group">
                         <input type="email" id="email" name="email" placeholder="Email" required>
@@ -173,178 +177,6 @@
                     </div>
                     <button class="btn-primary">Choose Plan</button>
                 </div>
-            </div>
-            
-            <!-- Vehicle Information Form -->
-            <div class="vehicle-form-section" style="margin-top: 40px; margin-bottom: 40px;">
-                <div class="vehicle-form-info">
-                    <p><strong>All vehicle service contracts have a 30 day and 1,000 mile waiting period.</strong></p>
-                    <p>During this waiting period, only the benefits under Towing Benefit/Roadside Service will apply.</p>
-                </div>
-                
-                <form class="vehicle-form">
-                    <div class="form-row-vehicle">
-                        <div class="form-field">
-                            <label for="state">State*</label>
-                            <select id="state" name="state" required>
-                                <option value="">Please Select</option>
-                                <option value="AL">AL</option>
-                                <option value="AK">AK</option>
-                                <option value="AZ">AZ</option>
-                                <option value="AR">AR</option>
-                                <option value="CA">CA</option>
-                                <option value="CO">CO</option>
-                                <option value="CT">CT</option>
-                                <option value="DE">DE</option>
-                                <option value="FL">FL</option>
-                                <option value="GA">GA</option>
-                                <option value="HI">HI</option>
-                                <option value="ID">ID</option>
-                                <option value="IL">IL</option>
-                                <option value="IN">IN</option>
-                                <option value="IA">IA</option>
-                                <option value="KS">KS</option>
-                                <option value="KY">KY</option>
-                                <option value="LA">LA</option>
-                                <option value="ME">ME</option>
-                                <option value="MD">MD</option>
-                                <option value="MA">MA</option>
-                                <option value="MI">MI</option>
-                                <option value="MN">MN</option>
-                                <option value="MS">MS</option>
-                                <option value="MO">MO</option>
-                                <option value="MT">MT</option>
-                                <option value="NE">NE</option>
-                                <option value="NV">NV</option>
-                                <option value="NH">NH</option>
-                                <option value="NJ">NJ</option>
-                                <option value="NM">NM</option>
-                                <option value="NY">NY</option>
-                                <option value="NC">NC</option>
-                                <option value="ND">ND</option>
-                                <option value="OH">OH</option>
-                                <option value="OK">OK</option>
-                                <option value="OR">OR</option>
-                                <option value="PA">PA</option>
-                                <option value="RI">RI</option>
-                                <option value="SC">SC</option>
-                                <option value="SD">SD</option>
-                                <option value="TN">TN</option>
-                                <option value="TX">TX</option>
-                                <option value="UT">UT</option>
-                                <option value="VT">VT</option>
-                                <option value="VA">VA</option>
-                                <option value="WA">WA</option>
-                                <option value="WV">WV</option>
-                                <option value="WI">WI</option>
-                                <option value="WY">WY</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-field">
-                            <label for="year">Year*</label>
-                            <select id="year" name="year" required>
-                                <option value="">Please Select</option>
-                                <option value="2025">2025</option>
-                                <option value="2024">2024</option>
-                                <option value="2023">2023</option>
-                                <option value="2022">2022</option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                                <option value="2017">2017</option>
-                                <option value="2016">2016</option>
-                                <option value="2015">2015</option>
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                                <option value="2011">2011</option>
-                                <option value="2010">2010</option>
-                                <option value="2009">2009</option>
-                                <option value="2008">2008</option>
-                                <option value="2007">2007</option>
-                                <option value="2006">2006</option>
-                                <option value="2005">2005</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-field">
-                            <label for="make">Make*</label>
-                            <input type="text" id="make" name="make" placeholder="Enter vehicle make" required>
-                        </div>
-                        
-                        <div class="form-field">
-                            <label for="model">Model*</label>
-                            <input type="text" id="model" name="model" placeholder="Enter vehicle model" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-field vin-field">
-                        <label for="vin">Enter Vehicle Identification Number*</label>
-                        <input type="text" id="vin" name="vin" placeholder="Enter valid 17 Digit VIN" maxlength="17" required>
-                    </div>
-                    
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="certify" name="certify" required>
-                        <label for="certify">I certify that the information entered above is true and accurate to the best of my knowledge.</label>
-                    </div>
-                    
-                    <div class="form-submit">
-                        <button type="submit" class="btn-buy-now">Get Quote</button>
-                    </div>
-                </form>
-            </div>
-            
-            <!-- Repair Costs Chart -->
-            <div class="repair-costs-section" style="margin-top: 40px; margin-bottom: 40px;">
-                <h3 style="text-align: center; font-size: 24px; margin-bottom: 25px; color: #1e293b; font-weight: 600;">Can You Afford a Surprise Auto Repair Bill?</h3>
-                
-                <div class="repair-costs-grid">
-                    <div class="repair-cost-column">
-                        <div class="repair-cost-item">Engine Components: $3,650*</div>
-                        <div class="repair-cost-item">A/C Heating Components: $1,550*</div>
-                        <div class="repair-cost-item">Cooling Components: $580*</div>
-                        <div class="repair-cost-item">Seals & Gaskets: $3,500*</div>
-                        <div class="repair-cost-item">Steering Components: $1,150*</div>
-                        <div class="repair-cost-item">Hybrid Components: $5,500*</div>
-                        <div class="repair-cost-item">Fuel System: $699*</div>
-                    </div>
-                    
-                    <div class="repair-cost-column">
-                        <div class="repair-cost-item">Electrical Components: $1,125*</div>
-                        <div class="repair-cost-item">Suspension Components: $2,930*</div>
-                        <div class="repair-cost-item">Brake Components: $1,300*</div>
-                        <div class="repair-cost-item">Transmission Components: $5,650*</div>
-                        <div class="repair-cost-item">Transfer Case Components: $7,500*</div>
-                        <div class="repair-cost-item">Axle Components: $580*</div>
-                    </div>
-                </div>
-                
-                <p style="text-align: center; font-size: 12px; color: #64748b; margin-top: 20px;">*Average repair costs if you were not protected</p>
-            </div>
-            
-            <!-- Coverage For All Major Makes & Models -->
-            <div class="section-header" style="margin-top: 50px;">
-                <h2>Coverage For All Major Makes &amp; Models</h2>
-            </div>
-
-            <div class="makes-logos">
-                <img src="images/makes/GM Logo.svg" alt="GM" class="make-logo">
-                <img src="images/makes/Ford Logo.png" alt="Ford" class="make-logo">
-                <img src="images/makes/Hyundai Logo.png" alt="Hyundai" class="make-logo">
-                <img src="images/makes/Toyota Logo.png" alt="Toyota" class="make-logo">
-                <img src="images/makes/Honda Logo.png" alt="Honda" class="make-logo">
-                <img src="images/makes/Nissan Logo.svg" alt="Nissan" class="make-logo">
-                <img src="images/makes/BMW Logo.png" alt="BMW" class="make-logo">
-                <img src="images/makes/Mercedes Logo.png" alt="Mercedes-Benz" class="make-logo">
-                <img src="images/makes/VW Logo.png" alt="Volkswagen" class="make-logo">
-                <img src="images/makes/Mistsubishi Logo.png" alt="Mitsubishi" class="make-logo">
-                <img src="images/makes/Mazda Logo.png" alt="Mazda" class="make-logo">
-                <img src="images/makes/Volvo Logo.png" alt="Volvo" class="make-logo">
-                <img src="images/makes/Buick Logo.png" alt="Buick" class="make-logo">
-                <img src="images/makes/Cadillac Logo.png" alt="Cadillac" class="make-logo">
-                <img src="images/makes/Subaru Logo.png" alt="Subaru" class="make-logo">
             </div>
             
             <!-- Auto Coverage Comparison Table -->
@@ -522,9 +354,58 @@
                     </table>
                 </div>
             </div>
-            <p><i>* Examples of Covered Components are included above, and are categorized by related vehicle systems. If a Covered Component Fails
-                during the term of this Contract, the Administrator will pay for the repair or replacement of the Covered Component in accordance with
-                the coverage and surcharges indicated on the first page of this Contract, subject to the terms and conditions herein.</i></p>
+            <p><i>* Examples of Covered Components are included above, and are categorized by related vehicle systems. If a Covered Component Fails during the term of this Contract, the Administrator will pay for the repair or replacement of the Covered Component in accordance with the coverage and surcharges indicated on the first page of this Contract, subject to the terms and conditions herein.</i></p>
+            
+            <!-- Repair Costs Chart -->
+            <div class="repair-costs-section" style="margin-top: 40px; margin-bottom: 40px;">
+                <h3 style="text-align: center; font-size: 24px; margin-bottom: 25px; color: #1e293b; font-weight: 600;">Can You Afford a Surprise Auto Repair Bill?</h3>
+                
+                <div class="repair-costs-grid">
+                    <div class="repair-cost-column">
+                        <div class="repair-cost-item">Engine Components: $3,650*</div>
+                        <div class="repair-cost-item">A/C Heating Components: $1,550*</div>
+                        <div class="repair-cost-item">Cooling Components: $580*</div>
+                        <div class="repair-cost-item">Seals & Gaskets: $3,500*</div>
+                        <div class="repair-cost-item">Steering Components: $1,150*</div>
+                        <div class="repair-cost-item">Hybrid Components: $5,500*</div>
+                        <div class="repair-cost-item">Fuel System: $699*</div>
+                    </div>
+                    
+                    <div class="repair-cost-column">
+                        <div class="repair-cost-item">Electrical Components: $1,125*</div>
+                        <div class="repair-cost-item">Suspension Components: $2,930*</div>
+                        <div class="repair-cost-item">Brake Components: $1,300*</div>
+                        <div class="repair-cost-item">Transmission Components: $5,650*</div>
+                        <div class="repair-cost-item">Transfer Case Components: $7,500*</div>
+                        <div class="repair-cost-item">Axle Components: $580*</div>
+                    </div>
+                </div>
+                
+                <p style="text-align: center; font-size: 12px; color: #64748b; margin-top: 20px;">*Average repair costs if you were not protected</p>
+            </div>
+            
+            <!-- Coverage For All Major Makes & Models -->
+            <div class="section-header" style="margin-top: 50px;">
+                <h2>Coverage For All Major Makes &amp; Models</h2>
+            </div>
+
+            <div class="makes-logos">
+                <img src="images/makes/GM Logo.svg" alt="GM" class="make-logo">
+                <img src="images/makes/Ford Logo.png" alt="Ford" class="make-logo">
+                <img src="images/makes/Hyundai Logo.png" alt="Hyundai" class="make-logo">
+                <img src="images/makes/Toyota Logo.png" alt="Toyota" class="make-logo">
+                <img src="images/makes/Honda Logo.png" alt="Honda" class="make-logo">
+                <img src="images/makes/Nissan Logo.svg" alt="Nissan" class="make-logo">
+                <img src="images/makes/BMW Logo.png" alt="BMW" class="make-logo">
+                <img src="images/makes/Mercedes Logo.png" alt="Mercedes-Benz" class="make-logo">
+                <img src="images/makes/VW Logo.png" alt="Volkswagen" class="make-logo">
+                <img src="images/makes/Mistsubishi Logo.png" alt="Mitsubishi" class="make-logo">
+                <img src="images/makes/Mazda Logo.png" alt="Mazda" class="make-logo">
+                <img src="images/makes/Volvo Logo.png" alt="Volvo" class="make-logo">
+                <img src="images/makes/Buick Logo.png" alt="Buick" class="make-logo">
+                <img src="images/makes/Cadillac Logo.png" alt="Cadillac" class="make-logo">
+                <img src="images/makes/Subaru Logo.png" alt="Subaru" class="make-logo">
+            </div>
         </div>
     </section>
 
