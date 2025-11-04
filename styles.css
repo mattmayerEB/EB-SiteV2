@@ -6172,3 +6172,52 @@ body {
         top: -12px;
     }
 }
+
+/* Plan Card Button Centering */
+.plan-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plan-card .btn-primary {
+    margin: 0 auto;
+    display: block;
+}
+
+/* Most Popular Card Styles */
+.most-popular-card {
+    border: 3px solid #ff6b35 !important;
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3) !important;
+    position: relative;
+}
+
+.most-popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff6b35;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(255, 107, 53, 0.4);
+    z-index: 10;
+    letter-spacing: 0.5px;
+}
+
+/* Mobile responsive for most popular badge */
+@media (max-width: 904px) {
+    .most-popular-card {
+        border: 2px solid #ff6b35 !important;
+    }
+    
+    .most-popular-badge {
+        font-size: 12px;
+        padding: 6px 16px;
+        top: -12px;
+    }
+}
