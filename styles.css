@@ -469,7 +469,7 @@ body {
 }
 
 /* Mobile responsive for hero button */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .hero {
         margin-top: 0 !important;
     }
@@ -686,7 +686,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .odds-section h2 {
         font-size: 32px;
     }
@@ -1709,7 +1709,7 @@ body {
     margin-top: 16px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .make-logo {
         max-width: 90px;
         height: 40px;
@@ -1899,7 +1899,7 @@ body {
     background: #059669;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .form-row-vehicle {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -1955,7 +1955,7 @@ body {
     margin-top: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .repair-costs-grid {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -1967,7 +1967,7 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .container {
         padding: 0 15px;
     }
@@ -2989,7 +2989,7 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .event-header h2 {
         font-size: 32px;
     }
@@ -3320,7 +3320,7 @@ body {
     margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .faq-grid {
         grid-template-columns: 1fr;
     }
@@ -3756,7 +3756,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .video-section {
         padding: 60px 0;
     }
@@ -3944,7 +3944,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .home-repairs-section .repair-costs-grid {
         grid-template-columns: 1fr;
     }
@@ -4168,7 +4168,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .testimonials-section h2 {
         font-size: 28px;
     }
@@ -4190,7 +4190,7 @@ body {
 }
 
 /* Responsive Design for New Pages */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .plans-hero h1,
     .claims-hero h1,
     .about-hero h1,
@@ -4373,7 +4373,7 @@ body {
     border-color: #94a3b8;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .disclaimer-modal-content {
         padding: 30px 20px;
     }
@@ -4423,7 +4423,7 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .back-to-top {
         width: 45px;
         height: 45px;
@@ -4532,7 +4532,7 @@ body {
     color: #475569;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .choose-plan-modal-content {
         padding: 40px 30px;
     }
@@ -4582,7 +4582,7 @@ body {
 }
 
 /* Mobile (768px and below) */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     /* Container */
     .container {
         padding-left: 15px;
@@ -5122,7 +5122,7 @@ body {
 }
 
 /* Landscape Mobile */
-@media (max-width: 768px) and (orientation: landscape) {
+@media (max-width: 904px) and (orientation: landscape) {
     .hero {
         padding: 30px 0;
     }
@@ -5152,7 +5152,7 @@ body {
 }
 
 /* Responsive Mission Section */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .mission-section {
         padding: 60px 0;
     }
@@ -5445,7 +5445,7 @@ body {
 }
 
 /* Responsive Privacy Page */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .privacy-hero {
         padding: 100px 0 60px;
     }
@@ -5651,7 +5651,7 @@ body {
 }
 
 /* Mobile responsive for quote disclaimer modal */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .quote-disclaimer-modal-content {
         padding: 25px;
         max-width: 95%;
@@ -5743,7 +5743,7 @@ body {
 }
 
 /* Mobile responsive for success modal */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .quote-success-modal-content {
         padding: 40px 25px;
         max-width: 95%;
@@ -5834,7 +5834,7 @@ body {
 }
 
 /* Mobile responsive for state unavailable modal */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .state-unavailable-modal-content {
         padding: 40px 25px;
         max-width: 95%;
@@ -5949,7 +5949,7 @@ body {
 }
 
 /* Mobile responsive for state custom modal */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .state-custom-modal-content {
         padding: 40px 25px;
         max-width: 95%;
@@ -6004,7 +6004,7 @@ body {
 }
 
 /* Mobile responsive for appliances list */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .appliances-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -6093,7 +6093,7 @@ body {
 }
 
 /* Mobile responsive for track claims */
-@media (max-width: 768px) {
+@media (max-width: 904px) {
     .track-content {
         padding: 20px 15px;
     }
