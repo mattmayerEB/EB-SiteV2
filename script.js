@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errorElements.forEach(element => {
             element.textContent = '';
         });
-        d
+        
         const errorInputs = document.querySelectorAll('.info-kit-form input.error');
         errorInputs.forEach(input => {
             input.classList.remove('error');
