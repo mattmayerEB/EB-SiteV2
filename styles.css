@@ -410,32 +410,46 @@ body {
 .hero-container {
     position: relative;
     width: 100%;
-    min-height: 600px;
+    min-height: clamp(300px, 50vh, 600px);
     overflow: hidden;
-    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+/* Mobile - add top spacing for navbar */
+@media (max-width: 1265px) {
+    .hero-container {
+        margin-top: 200px;
+    }
 }
 
 .hero-illustration {
     width: 100%;
-    height: 100%;
-    min-height: 600px;
+    height: auto;
+    max-height: none;
     object-fit: cover;
     display: block;
+    margin: 0;
+    padding: 0;
 }
 
 .hero-cta-content {
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 10;
     background: rgba(255, 255, 255, 0);
-    padding: 30px 40px;
+    padding: clamp(15px, 3vw, 40px);
+    max-width: 800px;
+    width: 90%;
 }
 
 .hero-cta-title {
-    font-size: 48px;
+    font-size: 24px;
     font-weight: 700;
     color: #1e3a8a;
     margin-bottom: 15px;
@@ -443,7 +457,7 @@ body {
 }
 
 .hero-cta-subtitle {
-    font-size: 20px;
+    font-size: clamp(14px, 2.5vw, 20px);
     color: #333;
     margin-bottom: 25px;
     line-height: 1.4;
@@ -452,8 +466,8 @@ body {
 .hero-learn-more-btn {
     background: #1e3a8a;
     color: white;
-    padding: 15px 40px;
-    font-size: 18px;
+    padding: clamp(12px, 2vh, 15px) clamp(30px, 4vw, 40px);
+    font-size: clamp(15px, 2vw, 18px);
     font-weight: 600;
     text-decoration: none;
     border-radius: 50px;
@@ -468,117 +482,31 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Mobile responsive for hero button */
-@media (max-width: 904px) {
-    .hero {
-        margin-top: 0 !important;
-    }
-    
-    .hero-container {
-        min-height: auto;
-        margin-top: 160px !important;
-        padding-top: 0 !important;
-        padding-bottom: 0;
-        background: white;
-        position: relative;
-    }
-    
+/* Mobile responsive for hero - Match desktop layout */
+@media (max-width: 1265px) {
     .hero-illustration {
-        display: none;
+        object-fit: contain;
+        max-height: 400px;
     }
     
     .hero-cta-content {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        z-index: 2;
-        background: #1e3a8a;
-        padding: 40px 25px;
-        max-width: 100%;
-        border-radius: 0;
-        margin: 0 !important;
+        top: 25%;
+        max-width: 90%;
     }
     
     .hero-cta-title {
-        font-size: 28px;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .hero-cta-subtitle {
+        font-size: 14px;
         margin-bottom: 15px;
-        color: white;
-        line-height: 1.3;
-    }
-    
-    .hero-cta-subtitle {
-        font-size: 16px;
-        margin-bottom: 25px;
-        color: white;
-        line-height: 1.4;
     }
     
     .hero-learn-more-btn {
-        padding: 14px 35px;
-        font-size: 16px;
-        background: white;
-        color: #1e3a8a;
-        font-weight: 600;
-    }
-    
-    .hero-learn-more-btn:hover {
-        background: #f0f0f0;
-        color: #1e3a8a;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        margin-top: 0 !important;
-    }
-    
-    .hero-container {
-        min-height: auto;
-        margin-top: 160px !important;
-        padding-top: 0 !important;
-        padding-bottom: 0;
-        background: white;
-        position: relative;
-    }
-    
-    .hero-illustration {
-        display: none;
-    }
-    
-    .hero-cta-content {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        z-index: 2;
-        background: #1e3a8a;
-        padding: 35px 20px;
-        max-width: 100%;
-        border-radius: 0;
-        margin: 0 !important;
-    }
-    
-    .hero-cta-title {
-        font-size: 24px;
-        margin-bottom: 12px;
-        color: white;
-        line-height: 1.3;
-    }
-    
-    .hero-cta-subtitle {
-        font-size: 15px;
-        margin-bottom: 20px;
-        color: white;
-        line-height: 1.4;
-    }
-    
-    .hero-learn-more-btn {
-        padding: 12px 30px;
-        font-size: 15px;
-        background: white;
-        color: #1e3a8a;
-        font-weight: 600;
+        font-size: 14px;
+        padding: 10px 25px;
     }
 }
 
@@ -1974,7 +1902,7 @@ body {
     
     .nav-content {
         flex-direction: column;
-        gap: 20px;
+        gap: 100px;
     }
     
     .nav-links {
