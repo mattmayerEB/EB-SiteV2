@@ -27,7 +27,9 @@
             <div class="container">
                 <div class="nav-content">
                     <div class="logo">
-                        <img src="images/logo.png" alt="Everything Breaks" class="logo-img">
+                        <a href="index.html">
+                            <img src="images/logo.png" alt="Everything Breaks" class="logo-img">
+                        </a>
                     </div>
                     
                     <a href="tel:1-888-994-0914" class="phone-button">
@@ -390,7 +392,7 @@
                         
                         <div class="footer-badges">
                             <img src="images/BBB_RATING.png" alt="BBB Accredited" class="footer-badge">
-                            <img src="images/AUTHORIZE.png" alt="Security Badge" class="footer-badge">
+                            <img src="images/AUTHORIZE.png" alt="Security Badge" class="footer-badge" id="easterEggBadge">
                         </div>
                     </div>
                     
@@ -408,5 +410,57 @@
     </button>
 
     <script src="script.js"></script>
+    <script>
+        // Easter Egg - Click security badge 10 times to access secret page
+        (function() {
+            const badge = document.getElementById('easterEggBadge');
+            if (badge) {
+                let clickCount = 0;
+                let resetTimer;
+                
+                badge.style.cursor = 'pointer';
+                badge.style.transition = 'transform 0.3s ease';
+                
+                badge.addEventListener('click', function(e) {
+                    clickCount++;
+                    
+                    // Clear existing timer
+                    clearTimeout(resetTimer);
+                    
+                    // Add a subtle shake animation on each click
+                    this.style.animation = 'none';
+                    setTimeout(() => {
+                        this.style.animation = 'badgeShake 0.3s ease';
+                    }, 10);
+                    
+                    // Show progress hint after 3 clicks
+                    if (clickCount >= 3 && clickCount < 10) {
+                        console.log(`🥚 Easter Egg Progress: ${clickCount}/10 clicks!`);
+                    }
+                    
+                    // Redirect to secret page on 10th click
+                    if (clickCount === 10) {
+                        // Add success animation
+                        this.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            window.location.href = 'secret.html';
+                        }, 300);
+                    }
+                    
+                    // Reset counter after 3 seconds of inactivity
+                    resetTimer = setTimeout(() => {
+                        clickCount = 0;
+                    }, 3000);
+                });
+            }
+        })();
+    </script>
+    <style>
+        @keyframes badgeShake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+    </style>
 </body>
 </html>

@@ -209,10 +209,17 @@ body {
     align-items: center;
 }
 
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .logo-img {
     height: clamp(40px, 5vw, 60px);
     width: auto;
     max-width: clamp(200px, 25vw, 300px);
+    cursor: pointer;
 }
 
 .nav-links {
@@ -5468,6 +5475,7 @@ body {
     color: #764ba2;
     text-decoration: underline;
 }
+
 
 .contact-box i {
     color: #667eea;
