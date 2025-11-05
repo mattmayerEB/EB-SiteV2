@@ -447,7 +447,7 @@ body {
 
 .hero-cta-content {
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -494,9 +494,17 @@ body {
 
 /* Mobile responsive for hero - Match desktop layout */
 @media (max-width: 1265px) {
+    .hero-container {
+        min-height: 250px;
+    }
+    
     .hero-illustration {
         object-fit: contain;
-        max-height: 400px;
+        max-height: 250px;
+        width: 100%;
+        display: block;
+        visibility: visible;
+        opacity: 1;
     }
     
     .hero-cta-content {
