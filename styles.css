@@ -3316,6 +3316,41 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Policy Download Cards */
+.policy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+    border-color: #667eea !important;
+}
+
+.btn-download-policy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    opacity: 0.95;
+}
+
+/* Policy Tab Buttons */
+.policy-tab-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+@media (max-width: 768px) {
+    .policies-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0 10px;
+    }
+    
+    .policy-card {
+        padding: 20px !important;
+    }
+    
+    .policy-tab-btn {
+        font-size: 14px !important;
+        padding: 10px 20px !important;
+    }
+}
+
 .faq-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

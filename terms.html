@@ -78,6 +78,167 @@
     <!-- Terms & Conditions Content -->
     <main class="main-container">
         <div class="main-container-text" style="padding: 60px 20px 30px;">
+            <!-- Downloadable Policies Section -->
+            <section class="policies-download-section" style="margin-bottom: 50px;">
+                <h2 style="text-align: center; font-size: 28px; color: #333; margin-bottom: 30px;">Sample Contract Policies</h2>
+                
+                <!-- Tabs Navigation -->
+                <div class="policy-tabs" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
+                    <button class="policy-tab-btn active" onclick="switchPolicyTab('auto')" style="padding: 12px 24px; border: 2px solid #667eea; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 20px;">
+                        <i class="fas fa-car"></i>
+                    </button>
+                    <button class="policy-tab-btn" onclick="switchPolicyTab('home')" style="padding: 12px 24px; border: 2px solid #667eea; background: white; color: #667eea; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 20px;">
+                        <i class="fas fa-home"></i>
+                    </button>
+                    <button class="policy-tab-btn" onclick="switchPolicyTab('electronics')" style="padding: 12px 24px; border: 2px solid #667eea; background: white; color: #667eea; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 20px;">
+                        <i class="fas fa-laptop"></i>
+                    </button>
+                </div>
+
+                <!-- Auto Policies Tab -->
+                <div id="auto-policies" class="policy-tab-content" style="display: block;">
+                    <div class="policies-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto;">
+                        
+                        <!-- Critical Coverage -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-shield-alt" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Critical Coverage</h3>
+                            <a href="Policies/Critical-Coverage-TC-New.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                        <!-- Standard Powertrain -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-cog" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Standard Powertrain</h3>
+                            <a href="Policies/PT - EB Standard Powertrain Monthly.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                        <!-- Enhanced Powertrain -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-car" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Enhanced Powertrain</h3>
+                            <a href="Policies/EP - EB Enhanced Powertrain Auto Monthly.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                        <!-- Deluxe Auto -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-star" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Deluxe Auto</h3>
+                            <a href="Policies/ES - EB Deluxe Auto Monthly.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                        <!-- Top Line -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-trophy" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Top Line Auto</h3>
+                            <a href="Policies/XD - EB Top Line Auto Monthly.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Home Policies Tab -->
+                <div id="home-policies" class="policy-tab-content" style="display: none;">
+                    <div class="policies-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto;">
+                        
+                        <!-- Ruby -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-gem" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Ruby Plan</h3>
+                            <a href="Policies/Everything Breaks - Home.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                        <!-- Sapphire -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-gem" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Sapphire Plan</h3>
+                            <a href="Policies/Everything Breaks - Home.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                        <!-- Emerald -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-gem" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Emerald Plan</h3>
+                            <a href="Policies/Everything Breaks - Home.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                        <!-- Diamond -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-gem" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Diamond Plan</h3>
+                            <a href="Policies/Everything Breaks - Home.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Electronics Policies Tab -->
+                <div id="electronics-policies" class="policy-tab-content" style="display: none;">
+                    <div class="policies-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto;">
+                        
+                        <!-- Consumer Electronics -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-laptop" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Consumer Electronics</h3>
+                            <a href="Policies/Everything Breaks - Electronics.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                        <!-- Technology Plan -->
+                        <div class="policy-card" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-mobile-alt" style="color: white; font-size: 28px;"></i>
+                            </div>
+                            <h3 style="font-size: 18px; color: #333; margin-bottom: 20px; font-weight: 600;">Technology Plan</h3>
+                            <a href="Policies/Everything Breaks - Tech.pdf" download class="btn-download-policy" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease;">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
             <div class="acc" style="gap: 20px; display: flex; flex-direction: column;">
                 <div class="acc__card">
                     <h3 class="acc__title active">1. Acknowledgement and Acceptance of Terms of Use:</h3>
@@ -256,6 +417,27 @@
                 });
             });
         });
+
+        // Policy Tab Switching
+        function switchPolicyTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.policy-tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.policy-tab-btn').forEach(btn => {
+                btn.style.background = 'white';
+                btn.style.color = '#667eea';
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-policies').style.display = 'block';
+            
+            // Add active class to clicked button
+            event.target.closest('.policy-tab-btn').style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            event.target.closest('.policy-tab-btn').style.color = 'white';
+        }
     </script>
 </body>
 </html>
