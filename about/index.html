@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <span class="top-bar-text">Protection Plans for Auto, Home & Electronics — Get Covered Today!</span>
+                    <div class="top-bar-right">
+                        <span class="phone"><i class="fas fa-phone"></i> 888-994-0914</span>
+                        <span class="support">support@everythingbreaks.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <a href="../index.html">
+                            <img src="../images/logo.png" alt="Everything Breaks" class="logo-img">
+                        </a>
+                    </div>
+                    
+                    <a href="tel:1-888-994-0914" class="phone-button">
+                        <i class="fas fa-phone"></i> 1-888-994-0914
+                    </a>
+                    
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="../index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" onclick="return false;">Plans <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../auto/index.html">Auto</a></li>
+                                <li><a href="../home/index.html">Home</a></li>
+                                <li><a href="../electronics/index.html">Electronics</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../claims/index.html">Claims</a></li>
+                        <li><a href="./index.html" class="active">About</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                        <li><a href="../signin/index.html">Sign In</a></li>
+                    </ul>
+                    
+                    <a href="../index.html#quoteForm" class="cta-button">Get a Quote</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Info Kit Download Form -->
+    <div class="info-kit-section">
+        <div class="container">
+            <div class="info-kit-content">
+                <div class="info-kit-text">GET A FREE INFO KIT!</div>
+                <form class="info-kit-form" id="infoKitForm">
+                    <div class="form-group">
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                        <span class="error-message" id="lastNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+                    <button type="submit" class="btn-download">DOWNLOAD NOW</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Disclaimer Modal -->
+    <div class="disclaimer-modal" id="disclaimerModal">
+        <div class="disclaimer-modal-content">
+            <h3>Privacy & Consent Notice</h3>
+            <div class="disclaimer-text">
+                <p>We respect your privacy and want to make sure you are aware of a few things. By filling out this form you explicitly agree to be contacted by Everything Breaks Inc. about their products or services by phone call, pre-recorded message, email, and/or text message at the telephone/mobile number/email that you entered above. These calls/messages may be sent using automated telephone technology, even if your telephone or mobile number is currently listed on any state, federal, or corporate "Do Not Call" list. Message and data rates may apply. You are not required to give your consent here as a condition of any purchase.</p>
+            </div>
+            <div class="disclaimer-checkbox">
+                <label>
+                    <input type="checkbox" id="disclaimerCheckbox">
+                    <span>I have read and agree to the terms above</span>
+                </label>
+            </div>
+            <div class="disclaimer-buttons">
+                <button type="button" class="btn-disclaimer-accept" id="disclaimerAccept" disabled>Accept & Download</button>
+                <button type="button" class="btn-disclaimer-cancel" id="disclaimerCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <h1>Protecting What Matters Most</h1>
+                <p>Everything Breaks has been providing comprehensive protection plans for homes, electronics, and vehicles since 2019. We understand that when things break, you need fast, reliable service to get back to normal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="company-story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>Our Story</h2>
+                    <hr>
+                    <br>
+                    <p>With 20 years of experience working in the Protection Plan business, the head honchos at Everything Breaks know that traditional extended warranties don't always work in the consumer's favor.</p>
+                    <br>
+                    <p> Paying a large sum upfront for extended coverage isn't consumer-friendly, and being bound to a contract for up to 72 months is just plain unreasonable.</p>
+                    <br>
+                    <p> So, they created a monthly protection program that works for you by alleviating hefty upfront payments and long-term commitments. At Everything Breaks, we always keep the customer in mind when developing new protection plans. It's our mission and pleasure to offer great coverage at an affordable price.</p>
+                </div>
+                <div class="story-stats">
+                    <div class="stat">
+                        <div class="stat-number">500K+</div>
+                        <div class="stat-label">Families Protected</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2M+</div>
+                        <div class="stat-label">Claims Processed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Customer Satisfaction</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">$100M+</div>
+                        <div class="stat-label">Claims Paid</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="mission-values">
+        <div class="container">
+            <div class="mission-content">
+                <h2>Our Mission & Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Reliable Protection</h3>
+                        <p>We provide comprehensive coverage that actually works when you need it most. No fine print, no surprises.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Fast Response</h3>
+                        <p>When something breaks, time matters. Our average response time is under 4 minutes for emergency claims.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Transparent Service</h3>
+                        <p>Clear pricing, honest communication, and no hidden fees. What you see is what you get.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Customer First</h3>
+                        <p>Every decision we make is guided by what's best for our customers and their families.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Quality Repairs</h3>
+                        <p>We work with certified, licensed professionals who stand behind their work with guarantees.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Peace of Mind</h3>
+                        <p>Our goal is to give you confidence that when things break, you're covered and taken care of.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsored Event Section -->
+    <section class="sponsored-event">
+        <div class="container">
+            <div class="event-header">
+                <h2>Our Latest Sponsorship</h2>
+                <p>Everything Breaks at Texas Motorplex NHRA Event</p>
+            </div>
+            
+            <div class="event-content">
+                <div class="event-intro">
+                    <h3>Everything Breaks Sponsors Drag Race Team at Texas Motorplex</h3>
+                    <p>We're thrilled to share our latest partnership - sponsoring Paul Lee at the prestigious Texas Motorplex NHRA event. As a company that protects everything that breaks, we understand the importance of high-performance equipment and reliability, even at 300+ mph!</p>
+                    <p>This sponsorship reflects our commitment to supporting high-performance motorsports and the incredible athletes who push the limits of speed and engineering.</p>
+                </div>
+                
+                <div class="event-media">
+                    <!-- Video Section -->
+                    <div class="event-videos">
+                        <h4>Event Highlights</h4>
+                        <div class="videos-grid">
+                            <div class="video-item">
+                                <video width="100%" height="100%" controls>
+                                    <source src="../images/NHRA clip.mov" type="video/quicktime">
+                                    <source src="../images/NHRA clip.mov" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/6sdjQ-5PtcA?si=lBx1pW1fSDv1EmL1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Partner Logos Section -->
+                    <div class="event-partners">
+                        <h4>Our Partners</h4>
+                        <div class="partners-logos">
+                            <div class="partner-logo">
+                                <img src="../images/Texas Motorplex.png" alt="Texas Motorplex">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="../images/Paul-Lee-Logo-300x300.png" alt="Paul Lee Racing">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="../images/National_Hot_Rod_Association_Logo.svg.png" alt="NHRA">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Images Section -->
+                    <div class="event-images">
+                        <h4>Event Photos</h4>
+                        <div class="images-grid">
+                            <div class="image-item">
+                                <img src="../images/Drag_Car.jpg" alt="Everything Breaks Drag Racing Car" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            </div>
+                            <div class="image-item">
+                                <img src="../images/Crew_EB.jpg" alt="Everything Breaks Crew" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            </div>
+                            <div class="image-item">
+                                <img src="../images/Paul_Lee_Autograph.jpg" alt="Paul Lee Autograph Session" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            </div>
+                            <div class="image-item">
+                                <img src="../images/IG_Image.jpg" alt="Everything Breaks Event" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Join Our Family?</h2>
+                <p>Experience the Everything Breaks difference. Get protected today and enjoy the peace of mind that comes with comprehensive coverage.</p>
+                <div class="cta-buttons">
+                    <a href="../index.html#quoteForm" class="btn-primary">Get Your Quote</a>
+                    <button class="btn-secondary">Call Us Today</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h4>AUTO</h4>
+                        <ul>
+                            <li><a href="../auto/index.html">Critical Coverage</a></li>
+                            <li><a href="../auto/index.html">Standard Powertrain</a></li>
+                            <li><a href="../auto/index.html">Enhanced Powertrain</a></li>
+                            <li><a href="../auto/index.html">Deluxe</a></li>
+                            <li><a href="../auto/index.html">Topline</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>ELECTRONICS</h4>
+                        <ul>
+                            <li><a href="../electronics/index.html">Technology Plan</a></li>
+                            <li><a href="../electronics/index.html">Consumer Electronics Plan</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>HOME</h4>
+                        <ul>
+                            <li><a href="../home/index.html">Ruby</a></li>
+                            <li><a href="../home/index.html">Sapphire</a></li>
+                            <li><a href="../home/index.html">Emerald</a></li>
+                            <li><a href="../home/index.html">Diamond</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-links">
+                        <div class="footer-links-column">
+                            <a href="./index.html">About Us</a>
+                            <a href="../privacy/index.html">Privacy Policy</a>
+                            <a href="../terms/index.html">Terms & Conditions</a>
+                        </div>
+                        <div class="footer-links-column">
+                            <a href="../signin/index.html">Log In</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-apps">
+                        
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/everythngbreaks" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/everythngbreaks" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.youtube.com/@everythingbreaks9249" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/everythngbreaks/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/everything-breaks-inc/posts/?feedView=all" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        
+                        <div class="footer-badges">
+                            <img src="../images/BBB_RATING.png" alt="BBB Accredited" class="footer-badge">
+                            <img src="../images/AUTHORIZE.png" alt="Security Badge" class="footer-badge">
+                        </div>
+                    </div>
+                    
+                    <div class="footer-copyright">
+                        <p>© All rights reserved Everything Breaks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" style="display: none;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <style>
+        @keyframes logoShake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+    </style>
+</body>
+</html>
