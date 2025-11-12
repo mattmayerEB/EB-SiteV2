@@ -1509,8 +1509,9 @@ body {
 .system-icon {
     width: 60px;
     height: 60px;
-    margin-bottom: 15px;
+    margin: 0 auto 15px auto;
     object-fit: contain;
+    display: block;
 }
 
 .system-item h4 {
