@@ -33,7 +33,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    /* max-width: 1200px; */ /* Commented out to allow 100% width */
     margin: 0 auto;
     padding: 0 clamp(15px, 3vw, 40px);
     width: 100%;
@@ -1153,7 +1153,7 @@ body {
 .trustpilot-section {
     margin-top: 30px;
     padding: 25px;
-    background: #00b67a;
+    background: #1e3a8a;
     border-radius: 12px;
     color: white;
     text-align: center;
@@ -2319,7 +2319,7 @@ body {
 }
 
 .plans-section .container {
-    max-width: 1200px;
+    /* max-width: 1200px; */ /* Commented out to allow 100% width */
     margin: 0 auto;
     padding: 0 clamp(15px, 3vw, 40px);
 }

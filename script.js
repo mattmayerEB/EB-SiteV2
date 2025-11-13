@@ -755,12 +755,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const phone = document.getElementById('quote-phone').value;
                 const state = document.getElementById('quote-state').value;
                 const planType = document.getElementById('quote-plan-type').value;
+                const referralSource = document.getElementById('quote-referral-source').value;
                 
                 // Clean phone number - remove all non-digit characters
                 const cleanPhone = phone.replace(/\D/g, '');
                 
                 // Send data to API
-                const apiUrl = `http://api.automotiveservicescenter.com/live/addlead59.php?key=55ffesafe24try&l=651&ph=${cleanPhone}&fn=${encodeURIComponent(firstName)}&ln=${encodeURIComponent(lastName)}&st=${encodeURIComponent(state)}&email=${encodeURIComponent(email)}&vend=Website_GetQuote_${encodeURIComponent(planType)}&subv=Website_GetQuote_${encodeURIComponent(planType)}`;
+                const apiUrl = `http://api.automotiveservicescenter.com/live/addlead59.php?key=55ffesafe24try&l=651&ph=${cleanPhone}&fn=${encodeURIComponent(firstName)}&ln=${encodeURIComponent(lastName)}&st=${encodeURIComponent(state)}&email=${encodeURIComponent(email)}&vend=Website_GetQuote_${encodeURIComponent(planType)}&subv=Website_GetQuote_${encodeURIComponent(planType)}${referralSource ? '&ref=' + encodeURIComponent(referralSource) : ''}`;
                 
                 // Make API call
                 fetch(apiUrl, {
