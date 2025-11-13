@@ -3678,12 +3678,18 @@ body {
     background: white;
 }
 
+.video-section .container {
+    max-width: 1600px;
+    padding: 0 clamp(20px, 4vw, 60px);
+}
+
 .video-wrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
     max-width: 100%;
+    width: 100%;
     margin: 0 auto;
 }
 
