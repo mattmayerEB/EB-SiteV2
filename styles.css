@@ -2261,11 +2261,12 @@ body {
 
 .plans-hero {
     position: relative;
-    min-height: clamp(250px, 40vh, 400px);
     padding: 0;
     margin-bottom: 0;
     width: 100%;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .plans-hero > img:not(.check-engine-light) {
@@ -2273,7 +2274,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 0;
     object-fit: contain;
     image-rendering: auto;
     -ms-interpolation-mode: nearest-neighbor;
@@ -4932,10 +4933,11 @@ body {
     
     /* Plans Hero */
     .plans-hero {
-        margin-top: 120px !important;
-        min-height: clamp(250px, 40vh, 350px);
+        margin-top: 180px !important;
         padding: 0;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
     
     .plans-hero > img:not(.check-engine-light) {
@@ -4943,7 +4945,7 @@ body {
         width: 100%;
         height: auto;
         display: block;
-        margin: 0 auto;
+        margin: 0;
         object-fit: contain;
         image-rendering: auto;
         -ms-interpolation-mode: nearest-neighbor;

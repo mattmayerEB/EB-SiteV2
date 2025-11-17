@@ -490,28 +490,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Auto-play video when scrolled into view
-    const homeVideo = document.getElementById('homeVideo');
-    if (homeVideo) {
-        const videoObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Video is in viewport, play it
-                    homeVideo.play().catch(error => {
-                        // Autoplay was prevented, user interaction required
-                        console.log('Autoplay prevented:', error);
-                    });
-                } else {
-                    // Video is out of viewport, pause it
-                    homeVideo.pause();
-                }
-            });
-        }, {
-            threshold: 0.5 // Play when 50% of video is visible
-        });
-
-        videoObserver.observe(homeVideo);
-    }
 });
 
 // Testimonial Pagination
