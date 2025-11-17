@@ -98,8 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const navContent = document.querySelector('.nav-content');
         const navLinks = document.querySelector('.nav-links');
         
-        if (window.innerWidth <= 768) {
-            // Create mobile menu button
+        if (window.innerWidth <= 960) {
+            // Create mobile menu button if it doesn't exist
             if (!document.querySelector('.mobile-menu-btn')) {
                 const mobileMenuBtn = document.createElement('button');
                 mobileMenuBtn.className = 'mobile-menu-btn';
@@ -120,21 +120,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenuBtn.addEventListener('click', function() {
                     navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
                 });
-                
-                // Hide nav links by default on mobile
-                navLinks.style.display = 'none';
-                navLinks.style.cssText += `
-                    flex-direction: column;
-                    position: absolute;
-                    top: 100%;
-                    left: 0;
-                    right: 0;
-                    background: white;
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                    padding: 20px;
-                    z-index: 1000;
-                `;
             }
+            
+            // Hide nav links by default on mobile
+            navLinks.style.display = 'none';
+            navLinks.style.cssText += `
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                padding: 20px;
+                z-index: 1000;
+            `;
         } else {
             // Remove mobile menu button and reset styles
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
