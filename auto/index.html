@@ -871,14 +871,114 @@
         // Animate check engine light in SVG (similar to Lottie-style animations)
         document.addEventListener('DOMContentLoaded', function() {
             const svgObject = document.querySelector('.auto-banner-svg');
+            const checkEngineImg = document.querySelector('.check-engine-light');
+            
+            // Fallback: Animate the separate check engine light image if SVG animation fails
+            if (checkEngineImg) {
+                checkEngineImg.style.animation = 'pulseCheckEngine 1s ease-in-out infinite';
+                checkEngineImg.style.transformOrigin = 'center';
+                checkEngineImg.style.willChange = 'transform, opacity, filter';
+                console.log('Fallback: Applied animation to check-engine-light image');
+            }
             
             function animateSVG() {
                 try {
+                    if (!svgObject) {
+                        console.warn('SVG object not found');
+                        return;
+                    }
+                    
                     const svgDoc = svgObject.contentDocument;
-                    if (!svgDoc) return;
+                    if (!svgDoc) {
+                        console.warn('Cannot access SVG contentDocument. This might be a CORS issue or the SVG hasn\'t loaded yet.');
+                        console.log('SVG object:', svgObject);
+                        console.log('SVG src:', svgObject.data);
+                        return;
+                    }
                     
                     const svgElement = svgDoc.querySelector('svg');
-                    if (!svgElement) return;
+                    if (!svgElement) {
+                        console.warn('SVG element not found in document');
+                        return;
+                    }
+                    
+                    console.log('SVG loaded successfully, starting animation injection...');
+                    
+                    // Debug: Log all elements to find the check engine light
+                    console.log('=== DEBUGGING SVG STRUCTURE ===');
+                    const allCircles = svgDoc.querySelectorAll('circle');
+                    const allPaths = svgDoc.querySelectorAll('path');
+                    const allGroups = svgDoc.querySelectorAll('g');
+                    const allImages = svgDoc.querySelectorAll('image');
+                    
+                    console.log(`Found ${allCircles.length} circles, ${allPaths.length} paths, ${allGroups.length} groups, ${allImages.length} images`);
+                    
+                    // Log first few elements with their attributes
+                    const circlesArray = Array.from(allCircles);
+                    const pathsArray = Array.from(allPaths);
+                    const groupsArray = Array.from(allGroups);
+                    const imagesArray = Array.from(allImages);
+                    
+                    console.log('Sample circles:', circlesArray.slice(0, 5).map(c => ({
+                        fill: c.getAttribute('fill'),
+                        stroke: c.getAttribute('stroke'),
+                        id: c.getAttribute('id'),
+                        class: c.getAttribute('class')
+                    })));
+                    
+                    console.log('Sample paths:', pathsArray.slice(0, 5).map(p => ({
+                        fill: p.getAttribute('fill'),
+                        stroke: p.getAttribute('stroke'),
+                        id: p.getAttribute('id'),
+                        class: p.getAttribute('class')
+                    })));
+                    
+                    console.log('All groups:', groupsArray.map(g => ({
+                        id: g.getAttribute('id'),
+                        class: g.getAttribute('class'),
+                        transform: g.getAttribute('transform')?.substring(0, 100) || 'no-transform',
+                        hasImage: !!g.querySelector('image'),
+                        hasCircle: !!g.querySelector('circle'),
+                        hasPath: !!g.querySelector('path'),
+                        children: g.children.length
+                    })));
+                    
+                    console.log('All images:', imagesArray.map(img => ({
+                        id: img.getAttribute('id'),
+                        class: img.getAttribute('class'),
+                        href: img.getAttribute('href') || img.getAttribute('xlink:href') || 'no-href',
+                        x: img.getAttribute('x'),
+                        y: img.getAttribute('y'),
+                        width: img.getAttribute('width'),
+                        height: img.getAttribute('height'),
+                        parent: img.parentElement?.tagName,
+                        parentTransform: img.parentElement?.getAttribute('transform')?.substring(0, 100)
+                    })));
+                    
+                    // Look for any orange/red colors in the entire SVG
+                    const allSVGElements = svgDoc.querySelectorAll('*');
+                    const coloredElements = Array.from(allSVGElements).filter(el => {
+                        const fill = el.getAttribute('fill') || '';
+                        const stroke = el.getAttribute('stroke') || '';
+                        return fill.toLowerCase().includes('ff6b00') || 
+                               fill.toLowerCase().includes('ff0000') ||
+                               fill.toLowerCase().includes('orange') ||
+                               fill.toLowerCase().includes('red') ||
+                               stroke.toLowerCase().includes('ff6b00') ||
+                               stroke.toLowerCase().includes('ff0000') ||
+                               stroke.toLowerCase().includes('orange') ||
+                               stroke.toLowerCase().includes('red');
+                    });
+                    
+                    console.log(`Found ${coloredElements.length} elements with orange/red colors:`, 
+                        coloredElements.slice(0, 10).map(el => ({
+                            tag: el.tagName,
+                            fill: el.getAttribute('fill'),
+                            stroke: el.getAttribute('stroke'),
+                            id: el.getAttribute('id'),
+                            class: el.getAttribute('class')
+                        }))
+                    );
                     
                     // Create style element with keyframe animation
                     let styleEl = svgDoc.querySelector('style');
@@ -889,25 +989,30 @@
                     
                     styleEl.textContent = `
                         @keyframes pulseCheckEngine {
-                            0%, 100% {
+                            0% {
                                 opacity: 1;
                                 transform: scale(1) translate(0, 0);
-                                filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.8)) drop-shadow(0 0 16px rgba(255, 107, 0, 0.6));
+                                filter: drop-shadow(0 0 10px rgba(255, 107, 0, 1)) drop-shadow(0 0 20px rgba(255, 107, 0, 0.8)) drop-shadow(0 0 30px rgba(255, 107, 0, 0.6));
                             }
                             25% {
-                                opacity: 0.9;
-                                transform: scale(1.08) translate(1px, -1px);
-                                filter: drop-shadow(0 0 12px rgba(255, 107, 0, 0.9)) drop-shadow(0 0 24px rgba(255, 107, 0, 0.7));
+                                opacity: 0.95;
+                                transform: scale(1.15) translate(3px, -3px);
+                                filter: drop-shadow(0 0 15px rgba(255, 107, 0, 1)) drop-shadow(0 0 30px rgba(255, 107, 0, 0.9)) drop-shadow(0 0 45px rgba(255, 107, 0, 0.7));
                             }
                             50% {
-                                opacity: 0.85;
-                                transform: scale(1.15) translate(0, -2px);
-                                filter: drop-shadow(0 0 16px rgba(255, 107, 0, 1)) drop-shadow(0 0 32px rgba(255, 107, 0, 0.8)) drop-shadow(0 0 48px rgba(255, 107, 0, 0.6));
+                                opacity: 0.9;
+                                transform: scale(1.3) translate(0, -6px);
+                                filter: drop-shadow(0 0 20px rgba(255, 107, 0, 1)) drop-shadow(0 0 40px rgba(255, 107, 0, 1)) drop-shadow(0 0 60px rgba(255, 107, 0, 0.8));
                             }
                             75% {
-                                opacity: 0.9;
-                                transform: scale(1.08) translate(-1px, -1px);
-                                filter: drop-shadow(0 0 12px rgba(255, 107, 0, 0.9)) drop-shadow(0 0 24px rgba(255, 107, 0, 0.7));
+                                opacity: 0.95;
+                                transform: scale(1.15) translate(-3px, -3px);
+                                filter: drop-shadow(0 0 15px rgba(255, 107, 0, 1)) drop-shadow(0 0 30px rgba(255, 107, 0, 0.9)) drop-shadow(0 0 45px rgba(255, 107, 0, 0.7));
+                            }
+                            100% {
+                                opacity: 1;
+                                transform: scale(1) translate(0, 0);
+                                filter: drop-shadow(0 0 10px rgba(255, 107, 0, 1)) drop-shadow(0 0 20px rgba(255, 107, 0, 0.8)) drop-shadow(0 0 30px rgba(255, 107, 0, 0.6));
                             }
                         }
                         
@@ -916,14 +1021,60 @@
                                 transform: scale(1) translate(0, 0) rotate(0deg);
                             }
                             25% {
-                                transform: scale(1.1) translate(2px, -2px) rotate(1deg);
+                                transform: scale(1.2) translate(5px, -5px) rotate(2deg);
                             }
                             50% {
-                                transform: scale(1.2) translate(0, -4px) rotate(0deg);
+                                transform: scale(1.4) translate(0, -8px) rotate(0deg);
                             }
                             75% {
-                                transform: scale(1.1) translate(-2px, -2px) rotate(-1deg);
+                                transform: scale(1.2) translate(-5px, -5px) rotate(-2deg);
                             }
+                        }
+                        
+                        @keyframes checkEnginePath {
+                            0% {
+                                transform: translate(0, 0) scale(1);
+                            }
+                            25% {
+                                transform: translate(8px, -8px) scale(1.2);
+                            }
+                            50% {
+                                transform: translate(0, -12px) scale(1.4);
+                            }
+                            75% {
+                                transform: translate(-8px, -8px) scale(1.2);
+                            }
+                            100% {
+                                transform: translate(0, 0) scale(1);
+                            }
+                        }
+                        
+                        /* Target the check engine light by class - ensure infinite continuous animation */
+                        .check-engine-light-animated {
+                            animation: checkEnginePath 1s ease-in-out infinite, pulseCheckEngine 1s ease-in-out infinite !important;
+                            animation-iteration-count: infinite !important;
+                            animation-fill-mode: both !important;
+                            animation-play-state: running !important;
+                            transform-origin: center !important;
+                            will-change: transform, opacity, filter !important;
+                        }
+                        
+                        .check-engine-light-image {
+                            animation: pulseCheckEngine 1s ease-in-out infinite !important;
+                            animation-iteration-count: infinite !important;
+                            animation-fill-mode: both !important;
+                            animation-play-state: running !important;
+                            transform-origin: center !important;
+                            will-change: transform, opacity, filter !important;
+                        }
+                        
+                        /* Make sure images inside animated groups also animate */
+                        .check-engine-light-animated image {
+                            animation: pulseCheckEngine 1s ease-in-out infinite !important;
+                            animation-iteration-count: infinite !important;
+                            animation-fill-mode: both !important;
+                            animation-play-state: running !important;
+                            transform-origin: center !important;
                         }
                         
                         @keyframes fadePulse {
@@ -980,7 +1131,7 @@
                         g[class*="light"],
                         g[class*="Light"],
                         g[class*="LIGHT"] {
-                            animation: transformPulse 1.5s ease-in-out infinite, pulseCheckEngine 1.2s ease-in-out infinite;
+                            animation: checkEnginePath 1s ease-in-out infinite, pulseCheckEngine 1s ease-in-out infinite;
                             transform-origin: center;
                             transform-box: fill-box;
                         }
@@ -1027,8 +1178,8 @@
                     }
                     
                     // Also try to find elements by inspecting fill colors
-                    const allElements = svgDoc.querySelectorAll('circle, path, g');
-                    allElements.forEach(el => {
+                    const allElements = svgDoc.querySelectorAll('circle, path, g, image');
+                    Array.from(allElements).forEach(el => {
                         const fill = el.getAttribute('fill') || '';
                         const id = el.getAttribute('id') || '';
                         const className = el.getAttribute('class') || '';
@@ -1042,12 +1193,13 @@
                             fill.toLowerCase().includes('red')) {
                             
                             if (!el.style.animation) {
-                                el.style.animation = 'pulseCheckEngine 1.2s ease-in-out infinite';
+                                el.style.animation = 'pulseCheckEngine 1s ease-in-out infinite';
                                 el.style.transformOrigin = 'center';
+                                el.style.willChange = 'transform, opacity, filter';
                             }
                         }
                         
-                        // For groups containing check engine light, animate transform attribute
+                        // For groups containing check engine light, animate transform attribute with path-like movement
                         if (tagName === 'g' && (id.toLowerCase().includes('check') ||
                             id.toLowerCase().includes('engine') ||
                             id.toLowerCase().includes('light') ||
@@ -1056,33 +1208,216 @@
                             className.toLowerCase().includes('light'))) {
                             
                             if (!el.style.animation) {
-                                el.style.animation = 'transformPulse 1.5s ease-in-out infinite, pulseCheckEngine 1.2s ease-in-out infinite';
+                                el.style.animation = 'checkEnginePath 1s ease-in-out infinite, pulseCheckEngine 1s ease-in-out infinite';
                                 el.style.transformOrigin = 'center';
+                                el.style.willChange = 'transform, opacity, filter';
                             }
                             
                             // Also use JavaScript animation for more control (like lemonade.com)
+                            // Uncomment to enable requestAnimationFrame-based animation
                             // animateTransformAttribute(el, transform);
+                        }
+                        
+                        // Also check for elements that might be the check engine light by their visual characteristics
+                        // Look for bright orange/red colors in fills or strokes
+                        const stroke = el.getAttribute('stroke') || '';
+                        if ((stroke.toLowerCase().includes('#ff6b00') || 
+                             stroke.toLowerCase().includes('#ff0000') ||
+                             stroke.toLowerCase().includes('orange') ||
+                             stroke.toLowerCase().includes('red')) && 
+                            !el.style.animation) {
+                            el.style.animation = 'pulseCheckEngine 1s ease-in-out infinite';
+                            el.style.transformOrigin = 'center';
+                            el.style.willChange = 'transform, opacity, filter';
                         }
                         
                     });
                     
-                    console.log('SVG animation styles injected successfully');
+                    // Specifically target images and groups that might be the check engine light
+                    // Based on the transform matrix you showed earlier (0.110714)
+                    imagesArray.forEach(img => {
+                        const parentG = img.parentElement;
+                        if (parentG && parentG.tagName.toLowerCase() === 'g') {
+                            const parentTransform = parentG.getAttribute('transform') || '';
+                            // Check if this matches the check engine light transform pattern
+                            if (parentTransform.includes('0.110714') || 
+                                parentTransform.includes('235.282381') ||
+                                parentTransform.includes('133.954118')) {
+                                console.log('Found check engine light image group!', {
+                                    img: img,
+                                    parent: parentG,
+                                    transform: parentTransform
+                                });
+                                
+                                // Store original transform for reference
+                                const originalTransform = parentTransform;
+                                parentG.setAttribute('data-original-transform', originalTransform);
+                                
+                                // Function to apply animation styles - ensure infinite loop
+                                function applyAnimationStyles() {
+                                    // Use explicit infinite animation with no delay
+                                    parentG.style.setProperty('animation', 'checkEnginePath 1s ease-in-out infinite, pulseCheckEngine 1s ease-in-out infinite', 'important');
+                                    parentG.style.setProperty('animation-iteration-count', 'infinite', 'important');
+                                    parentG.style.setProperty('animation-fill-mode', 'both', 'important');
+                                    parentG.style.setProperty('transform-origin', 'center', 'important');
+                                    parentG.style.setProperty('will-change', 'transform, opacity, filter', 'important');
+                                    
+                                    img.style.setProperty('animation', 'pulseCheckEngine 1s ease-in-out infinite', 'important');
+                                    img.style.setProperty('animation-iteration-count', 'infinite', 'important');
+                                    img.style.setProperty('animation-fill-mode', 'both', 'important');
+                                    img.style.setProperty('transform-origin', 'center', 'important');
+                                    img.style.setProperty('will-change', 'transform, opacity, filter', 'important');
+                                }
+                                
+                                // Apply immediately
+                                applyAnimationStyles();
+                                
+                                // Set up periodic check to re-apply if removed
+                                const animationCheckInterval = setInterval(() => {
+                                    if (!parentG.style.animation || parentG.style.animation === '') {
+                                        console.log('Animation missing, re-applying...');
+                                        applyAnimationStyles();
+                                    }
+                                    if (!img.style.animation || img.style.animation === '') {
+                                        console.log('Image animation missing, re-applying...');
+                                        applyAnimationStyles();
+                                    }
+                                }, 500); // Check every 500ms
+                                
+                                // Store interval reference
+                                parentG._animationInterval = animationCheckInterval;
+                                
+                                // Add a class for easier targeting
+                                parentG.setAttribute('class', (parentG.getAttribute('class') || '') + ' check-engine-light-animated');
+                                img.setAttribute('class', (img.getAttribute('class') || '') + ' check-engine-light-image');
+                                
+                                console.log('✅ Successfully animated check engine light!', {
+                                    group: parentG,
+                                    image: img,
+                                    groupAnimation: parentG.style.animation,
+                                    imageAnimation: img.style.animation
+                                });
+                                
+                                // Use MutationObserver to prevent styles from being removed
+                                const observer = new MutationObserver(function(mutations) {
+                                    mutations.forEach(function(mutation) {
+                                        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                                            // If animation was removed, re-apply it
+                                            if (!parentG.style.animation || parentG.style.animation === '') {
+                                                console.log('MutationObserver: Animation was removed, re-applying...');
+                                                applyAnimationStyles();
+                                            }
+                                            if (!img.style.animation || img.style.animation === '') {
+                                                console.log('MutationObserver: Image animation was removed, re-applying...');
+                                                applyAnimationStyles();
+                                            }
+                                        }
+                                    });
+                                });
+                                
+                                // Observe both the group and image for style changes
+                                observer.observe(parentG, { attributes: true, attributeFilter: ['style'] });
+                                observer.observe(img, { attributes: true, attributeFilter: ['style'] });
+                                
+                                // Store observer reference so it doesn't get garbage collected
+                                parentG._animationObserver = observer;
+                                img._animationObserver = observer;
+                            }
+                        }
+                    });
+                    
+                    // Also try to animate groups with images that might be check engine lights
+                    groupsArray.forEach(g => {
+                        const hasImage = g.querySelector('image');
+                        const transform = g.getAttribute('transform') || '';
+                        
+                        // If group has an image and matches the transform pattern
+                        if (hasImage && (transform.includes('0.110714') || 
+                                         transform.includes('235.282381') ||
+                                         transform.includes('133.954118'))) {
+                            // Always re-apply animation to ensure it persists
+                            console.log('Animating group with check engine light image:', g);
+                            g.style.setProperty('animation', 'checkEnginePath 1s ease-in-out infinite, pulseCheckEngine 1s ease-in-out infinite', 'important');
+                            g.style.setProperty('transform-origin', 'center', 'important');
+                            g.style.setProperty('will-change', 'transform, opacity, filter', 'important');
+                            
+                            // Also animate the image inside
+                            const img = g.querySelector('image');
+                            if (img) {
+                                img.style.setProperty('animation', 'pulseCheckEngine 1s ease-in-out infinite', 'important');
+                                img.style.setProperty('transform-origin', 'center', 'important');
+                                img.style.setProperty('will-change', 'transform, opacity, filter', 'important');
+                            }
+                        }
+                    });
+                    
+                    // Log animated elements for debugging
+                    const animatedElements = svgDoc.querySelectorAll('[style*="animation"]');
+                    console.log(`SVG animation styles injected successfully. Found ${animatedElements.length} animated elements.`);
+                    if (animatedElements.length > 0) {
+                        console.log('Animated elements:', Array.from(animatedElements).map(el => ({
+                            tag: el.tagName,
+                            id: el.getAttribute('id') || 'no-id',
+                            class: el.getAttribute('class') || 'no-class',
+                            fill: el.getAttribute('fill') || 'no-fill',
+                            transform: el.getAttribute('transform')?.substring(0, 80) || 'no-transform',
+                            style: el.getAttribute('style')?.substring(0, 100) || 'no-style',
+                            element: el
+                        })));
+                        
+                        // Verify animations are actually applied
+                        Array.from(animatedElements).forEach(el => {
+                            const computedStyle = svgDoc.defaultView?.getComputedStyle(el);
+                            console.log(`Element ${el.tagName} animation:`, {
+                                animation: computedStyle?.animation || el.style.animation,
+                                transform: computedStyle?.transform || el.style.transform,
+                                opacity: computedStyle?.opacity || el.style.opacity
+                            });
+                        });
+                    }
                 } catch (e) {
                     console.error('Error animating SVG:', e);
                 }
             }
             
             if (svgObject) {
+                console.log('SVG object found, setting up animation...');
+                
                 // Try immediately if already loaded
                 if (svgObject.contentDocument && svgObject.contentDocument.readyState === 'complete') {
+                    console.log('SVG already loaded, animating immediately');
                     animateSVG();
                 } else {
+                    console.log('Waiting for SVG load event...');
                     // Wait for load event
-                    svgObject.addEventListener('load', animateSVG);
+                    svgObject.addEventListener('load', function() {
+                        console.log('SVG load event fired');
+                        animateSVG();
+                    });
+                    
+                    // Also listen for error
+                    svgObject.addEventListener('error', function(e) {
+                        console.error('SVG failed to load:', e);
+                    });
                 }
                 
-                // Also try after a short delay as fallback
-                setTimeout(animateSVG, 500);
+                // Try multiple times with increasing delays as fallback
+                setTimeout(() => {
+                    console.log('First fallback attempt (500ms)');
+                    animateSVG();
+                }, 500);
+                
+                setTimeout(() => {
+                    console.log('Second fallback attempt (1000ms)');
+                    animateSVG();
+                }, 1000);
+                
+                setTimeout(() => {
+                    console.log('Third fallback attempt (2000ms)');
+                    animateSVG();
+                }, 2000);
+            } else {
+                console.warn('SVG object (.auto-banner-svg) not found in DOM');
             }
         });
     </script>
