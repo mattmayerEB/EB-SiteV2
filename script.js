@@ -22,10 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const menuLinks = navLinks.querySelectorAll('a:not(.dropdown > a)');
         menuLinks.forEach(link => {
             link.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                const icon = hamburgerMenu.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                if (window.innerWidth <= 960) {
+                    navLinks.classList.remove('active');
+                    navLinks.style.display = 'none';
+                    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                    if (mobileMenuBtn) {
+                        const icon = mobileMenuBtn.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                }
             });
         });
     }
@@ -96,45 +104,55 @@ document.addEventListener('DOMContentLoaded', function() {
     const createMobileMenu = () => {
         const nav = document.querySelector('.main-nav');
         const navContent = document.querySelector('.nav-content');
-        const navLinks = document.querySelector('.nav-links');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (!navLinks) return;
         
         if (window.innerWidth <= 960) {
             // Create mobile menu button if it doesn't exist
-            if (!document.querySelector('.mobile-menu-btn')) {
-                const mobileMenuBtn = document.createElement('button');
+            let mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            if (!mobileMenuBtn) {
+                mobileMenuBtn = document.createElement('button');
                 mobileMenuBtn.className = 'mobile-menu-btn';
+                mobileMenuBtn.setAttribute('aria-label', 'Toggle menu');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                mobileMenuBtn.style.cssText = `
-                    display: block;
-                    background: none;
-                    border: none;
-                    font-size: 24px;
-                    color: #333;
-                    cursor: pointer;
-                    padding: 10px;
-                `;
                 
-                navContent.insertBefore(mobileMenuBtn, navLinks);
+                if (navContent) {
+                    navContent.insertBefore(mobileMenuBtn, navLinks);
+                }
                 
                 // Toggle mobile menu
-                mobileMenuBtn.addEventListener('click', function() {
-                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    
+                    const isActive = navLinks.classList.contains('active');
+                    
+                    if (isActive) {
+                        navLinks.classList.remove('active');
+                        navLinks.style.display = 'none';
+                    } else {
+                        navLinks.classList.add('active');
+                        navLinks.style.display = 'flex';
+                    }
+                    
+                    // Change icon
+                    const icon = this.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
                 });
             }
             
-            // Hide nav links by default on mobile
-            navLinks.style.display = 'none';
-            navLinks.style.cssText += `
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                padding: 20px;
-                z-index: 1000;
-            `;
+            // Ensure nav links are hidden by default on mobile (CSS handles this, but ensure it's set)
+            if (!navLinks.classList.contains('active')) {
+                // CSS already handles display: none, but we'll ensure it's not overridden
+                navLinks.style.display = '';
+            }
         } else {
             // Remove mobile menu button and reset styles
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -142,7 +160,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenuBtn.remove();
             }
             
-            navLinks.style.display = 'flex';
+            navLinks.classList.remove('active');
+            navLinks.style.display = '';
             navLinks.style.cssText = '';
         }
     };
@@ -152,6 +171,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update mobile menu on resize
     window.addEventListener('resize', createMobileMenu);
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        const navLinks = document.getElementById('navLinks');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        
+        if (navLinks && mobileMenuBtn && window.innerWidth <= 960) {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                navLinks.style.display = 'none';
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+    });
 
     // Add scroll effect to header
     let lastScrollTop = 0;

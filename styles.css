@@ -2320,10 +2320,47 @@ body {
         filter: drop-shadow(0 0 10px #ff6b00) drop-shadow(0 0 20px #ff6b00) drop-shadow(0 0 30px #ff6b00);
     }
     50% {
-        opacity: 0.8;
-        transform: scale(0.95);
+        opacity: 0.7;
+        transform: scale(1.15);
         filter: drop-shadow(0 0 20px #ff6b00) drop-shadow(0 0 40px #ff6b00) drop-shadow(0 0 60px #ff6b00);
     }
+}
+
+/* SVG Check Engine Light Animation */
+.plans-hero svg,
+.plans-hero object,
+.plans-hero .auto-banner-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Animate check engine light elements within SVG (works when SVG is embedded inline) */
+.plans-hero svg circle[fill*="#ff6b00"],
+.plans-hero svg circle[fill*="#FF6B00"],
+.plans-hero svg circle[fill*="orange"],
+.plans-hero svg circle[fill*="Orange"],
+.plans-hero svg circle[fill*="#ff0000"],
+.plans-hero svg circle[fill*="#FF0000"],
+.plans-hero svg circle[fill*="red"],
+.plans-hero svg path[fill*="#ff6b00"],
+.plans-hero svg path[fill*="#FF6B00"],
+.plans-hero svg path[fill*="orange"],
+.plans-hero svg path[fill*="Orange"],
+.plans-hero svg path[fill*="#ff0000"],
+.plans-hero svg path[fill*="#FF0000"],
+.plans-hero svg path[fill*="red"],
+.plans-hero svg g[id*="check"],
+.plans-hero svg g[id*="engine"],
+.plans-hero svg g[id*="light"],
+.plans-hero svg g[class*="check"],
+.plans-hero svg g[class*="engine"],
+.plans-hero svg g[class*="light"],
+.plans-hero svg [id*="check"],
+.plans-hero svg [id*="engine"],
+.plans-hero svg [id*="light"] {
+    animation: flashCheckEngine 1s ease-in-out infinite;
+    transform-origin: center;
 }
 
 .plans-hero .container {
@@ -4923,7 +4960,7 @@ body {
     }
     
     .nav-links.active {
-        display: flex;
+        display: flex !important;
     }
     
     .nav-links li {
