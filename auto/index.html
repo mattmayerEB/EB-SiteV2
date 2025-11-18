@@ -985,16 +985,6 @@
                             transform-box: fill-box;
                         }
                         
-                        /* Animate groups containing image elements - fade from light to full color */
-                        g image,
-                        g > image {
-                            animation: fadePulse 2s ease-in-out infinite;
-                        }
-                        
-                        /* Target specific group with image by transform matrix */
-                        g[transform*="0.110714"] {
-                            animation: fadePulse 2s ease-in-out infinite;
-                        }
                     `;
                     
                     // Function to animate transform attribute directly (like lemonade.com)
@@ -1074,24 +1064,6 @@
                             // animateTransformAttribute(el, transform);
                         }
                         
-                        // Check if group contains an image element (for fade pulse animation)
-                        const hasImage = el.querySelector('image');
-                        if (hasImage && transform.includes('0.110714')) {
-                            if (!el.style.animation) {
-                                el.style.animation = 'fadePulse 2s ease-in-out infinite';
-                            }
-                        }
-                    });
-                    
-                    // Also target image elements directly
-                    const imageElements = svgDoc.querySelectorAll('image');
-                    imageElements.forEach(img => {
-                        const parentG = img.closest('g');
-                        if (parentG && parentG.getAttribute('transform') && parentG.getAttribute('transform').includes('0.110714')) {
-                            if (!parentG.style.animation) {
-                                parentG.style.animation = 'fadePulse 2s ease-in-out infinite';
-                            }
-                        }
                     });
                     
                     console.log('SVG animation styles injected successfully');
