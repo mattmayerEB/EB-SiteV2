@@ -2340,7 +2340,11 @@ body {
 /* SVG Check Engine Light Animation */
 .plans-hero svg,
 .plans-hero object,
-.plans-hero .auto-banner-svg {
+.plans-hero .auto-banner-svg,
+.plans-hero .auto-banner-video,
+.plans-hero .home-banner-video,
+.plans-hero .electronics-banner-video,
+.plans-hero video {
     width: 100%;
     height: auto;
     display: block;
