@@ -2813,12 +2813,48 @@ body {
     margin-top: 40px;
 }
 
+/* Rotating Carousel Styles */
+.values-carousel-wrapper {
+    overflow: hidden;
+    margin-top: 40px;
+    position: relative;
+    width: 100%;
+}
+
+.values-carousel {
+    display: flex;
+    gap: 30px;
+    animation: slideRotate 15s linear infinite;
+    width: fit-content;
+}
+
+.values-carousel:hover {
+    animation-play-state: paused;
+}
+
+@keyframes slideRotate {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 15px));
+    }
+}
+
 .value-card {
     background: white;
     padding: 40px 30px;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    flex: 0 0 calc(33.333% - 20px);
+    min-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 
 .value-icon {
@@ -2832,6 +2868,30 @@ body {
     margin: 0 auto 20px;
     color: white;
     font-size: 32px;
+}
+
+/* Responsive styles for values carousel */
+@media (max-width: 1024px) {
+    .value-card {
+        flex: 0 0 calc(50% - 15px);
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .values-carousel-wrapper {
+        margin-top: 30px;
+    }
+    
+    .value-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+        padding: 30px 20px;
+    }
+    
+    .values-carousel {
+        gap: 20px;
+    }
 }
 
 .leadership-team {
