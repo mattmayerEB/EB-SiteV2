@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Preview - EverythingBreaks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #1e293b;
+        }
+        .font-option {
+            margin-bottom: 50px;
+            padding: 30px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .font-option:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+        }
+        .font-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #3b82f6;
+        }
+        .font-preview {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .font-heading {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .font-body {
+            font-size: 16px;
+            color: #374151;
+        }
+        .font-code {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+        .apply-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        .apply-btn:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Font Options for EverythingBreaks</h1>
+        
+        <!-- Option 1: Inter -->
+        <div class="font-option" style="font-family: 'Inter', sans-serif;">
+            <div class="font-name">1. Inter</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"&gt;<br>
+                font-family: 'Inter', sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('Inter', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap')">Apply This Font</button>
+        </div>
+
+        <!-- Option 2: Poppins -->
+        <div class="font-option" style="font-family: 'Poppins', sans-serif;">
+            <div class="font-name">2. Poppins</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                &lt;link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"&gt;<br>
+                font-family: 'Poppins', sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('Poppins', 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap')">Apply This Font</button>
+        </div>
+
+        <!-- Option 3: Montserrat -->
+        <div class="font-option" style="font-family: 'Montserrat', sans-serif;">
+            <div class="font-name">3. Montserrat</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                &lt;link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"&gt;<br>
+                font-family: 'Montserrat', sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('Montserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap')">Apply This Font</button>
+        </div>
+
+        <!-- Option 4: Open Sans -->
+        <div class="font-option" style="font-family: 'Open Sans', sans-serif;">
+            <div class="font-name">4. Open Sans</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                &lt;link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"&gt;<br>
+                font-family: 'Open Sans', sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('Open Sans', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap')">Apply This Font</button>
+        </div>
+
+        <!-- Option 5: Roboto -->
+        <div class="font-option" style="font-family: 'Roboto', sans-serif;">
+            <div class="font-name">5. Roboto</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                &lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"&gt;<br>
+                font-family: 'Roboto', sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('Roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap')">Apply This Font</button>
+        </div>
+
+        <!-- Option 6: Lato -->
+        <div class="font-option" style="font-family: 'Lato', sans-serif;">
+            <div class="font-name">6. Lato</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                &lt;link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"&gt;<br>
+                font-family: 'Lato', sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('Lato', 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap')">Apply This Font</button>
+        </div>
+
+        <!-- Option 7: Nunito -->
+        <div class="font-option" style="font-family: 'Nunito', sans-serif;">
+            <div class="font-name">7. Nunito</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                &lt;link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"&gt;<br>
+                font-family: 'Nunito', sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('Nunito', 'https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap')">Apply This Font</button>
+        </div>
+
+        <!-- Option 8: Work Sans -->
+        <div class="font-option" style="font-family: 'Work Sans', sans-serif;">
+            <div class="font-name">8. Work Sans</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                &lt;link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"&gt;<br>
+                font-family: 'Work Sans', sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('Work Sans', 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap')">Apply This Font</button>
+        </div>
+
+        <!-- Option 9: DM Sans -->
+        <div class="font-option" style="font-family: 'DM Sans', sans-serif;">
+            <div class="font-name">9. DM Sans</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                &lt;link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"&gt;<br>
+                font-family: 'DM Sans', sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('DM Sans', 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap')">Apply This Font</button>
+        </div>
+
+        <!-- Option 10: Plus Jakarta Sans -->
+        <div class="font-option" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+            <div class="font-name">10. Plus Jakarta Sans</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                &lt;link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"&gt;<br>
+                font-family: 'Plus Jakarta Sans', sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('Plus Jakarta Sans', 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap')">Apply This Font</button>
+        </div>
+
+        <!-- Option 11: System Font (Current) -->
+        <div class="font-option" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+            <div class="font-name">11. System Font (Current - Apple Style)</div>
+            <div class="font-preview">
+                <div class="font-heading">See Why We're The Fastest Growing Auto Protection Plan Provider</div>
+                <div class="font-body">Coverage up to 250,000 miles • Free rental coverage • 30 days money back guarantee • Cancel online any time • Fast and easy claims process • No middlemen</div>
+            </div>
+            <div class="font-code">
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            </div>
+            <button class="apply-btn" onclick="applyFont('System', '')">Apply This Font</button>
+        </div>
+    </div>
+
+    <!-- Load all fonts for preview -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        function applyFont(fontName, fontUrl) {
+            if (fontName === 'System') {
+                alert('System font is already applied!');
+                return;
+            }
+            
+            const fontFamily = fontName === 'System' 
+                ? '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+                : `'${fontName}', sans-serif`;
+            
+            const message = `To apply ${fontName}:\n\n1. Add this to all HTML files in the <head> section:\n${fontUrl ? `<link href="${fontUrl}" rel="stylesheet">` : '(No link needed for system font)'}\n\n2. Replace font-family in styles.css with:\nfont-family: ${fontFamily};\n\nWould you like me to apply this font now?`;
+            
+            if (confirm(message)) {
+                // This would need to be done manually or through the assistant
+                alert('Please tell me which font you want to use and I\'ll apply it!');
+            }
+        }
+    </script>
+</body>
+</html>
+
