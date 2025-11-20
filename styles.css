@@ -30,7 +30,7 @@ body {
     width: 100%;
     max-width: 100vw;
     font-size: clamp(14px, 1vw + 0.5rem, 16px);
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .container {
@@ -73,7 +73,7 @@ body {
 }
 
 .phone, .support {
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .phone i {
@@ -99,10 +99,11 @@ body {
 .info-kit-text {
     color: #87ceeb;
     font-size: clamp(14px, 1.2vw + 0.3rem, 18px);
-    font-weight: 400;
+    font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap;
+    text-shadow: 0 0 10px rgba(135, 206, 235, 0.8), 0 0 20px rgba(135, 206, 235, 0.6), 0 0 30px rgba(135, 206, 235, 0.4);
 }
 
 .info-kit-form {
@@ -163,7 +164,7 @@ body {
     padding: clamp(10px, 1.2vh, 12px) clamp(15px, 2vw, 20px);
     border-radius: 6px;
     font-size: clamp(12px, 0.9vw + 0.2rem, 14px);
-    font-weight: 400;
+    font-weight: 300;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-family: 'Inter', sans-serif;
@@ -233,7 +234,7 @@ body {
 .nav-links a {
     text-decoration: none;
     color: #333333;
-    font-weight: 300;
+    font-weight: 200;
     transition: color 0.3s ease;
     font-size: clamp(14px, 0.9vw + 0.2rem, 16px);
     padding: 8px 4px;
@@ -272,7 +273,7 @@ body {
     padding: 8px 12px;
     border-radius: 6px;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 200;
     transition: all 0.3s ease;
     white-space: nowrap;
 }
@@ -325,7 +326,7 @@ body {
     padding: 10px 20px;
     color: #374151;
     text-decoration: none;
-    font-weight: 300;
+    font-weight: 200;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -340,7 +341,7 @@ body {
     border: none;
     padding: clamp(10px, 1.2vh, 12px) clamp(18px, 2.5vw, 24px);
     border-radius: 6px;
-    font-weight: 300;
+    font-weight: 200;
     cursor: pointer;
     transition: background 0.3s ease;
     text-decoration: none;
@@ -376,7 +377,7 @@ body {
 
 .hero-text h1 {
     font-size: 48px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 20px;
     line-height: 1.2;
@@ -399,7 +400,7 @@ body {
     border: none;
     padding: clamp(10px, 1.2vh, 12px) clamp(18px, 2.5vw, 20px);
     border-radius: 8px;
-    font-weight: 300;
+    font-weight: 200;
     font-size: clamp(13px, 0.9vw + 0.2rem, 14px);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -422,7 +423,7 @@ body {
     border: 2px solid #333;
     padding: clamp(11px, 1.3vh, 13px) clamp(25px, 3vw, 30px);
     border-radius: 8px;
-    font-weight: 300;
+    font-weight: 200;
     font-size: clamp(14px, 1vw + 0.2rem, 16px);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -500,7 +501,7 @@ body {
 
 .hero-cta-title {
     font-size: clamp(24px, 3.5vw + 0.5rem, 48px);
-    font-weight: 400;
+    font-weight: 300;
     color: #1e3a8a;
     margin-bottom: 15px;
     line-height: 1.2;
@@ -518,7 +519,7 @@ body {
     color: white;
     padding: clamp(12px, 2vh, 15px) clamp(30px, 4vw, 40px);
     font-size: clamp(15px, 2vw, 18px);
-    font-weight: 300;
+    font-weight: 200;
     text-decoration: none;
     border-radius: 50px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -655,7 +656,7 @@ body {
 
 .odds-section h2 {
     font-size: 42px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     text-align: center;
     margin-bottom: 15px;
@@ -725,7 +726,7 @@ body {
 
 .odds-number {
     font-size: 48px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 12px;
 }
@@ -796,7 +797,7 @@ body {
 
 .how-it-works h2 {
     font-size: clamp(28px, 3vw + 1rem, 42px);
-    font-weight: 400;
+    font-weight: 300;
     color: #ffffff;
     margin-bottom: clamp(30px, 4vh, 50px);
 }
@@ -836,7 +837,7 @@ body {
 
 .step h3 {
     font-size: clamp(16px, 1.5vw + 0.5rem, 20px);
-    font-weight: 300;
+    font-weight: 200;
     color: #ffffff;
     text-align: center;
     width: 100%;
@@ -851,7 +852,7 @@ body {
 
 .protection-plans h2 {
     font-size: clamp(28px, 3vw + 1rem, 42px);
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     text-align: center;
     margin-bottom: clamp(30px, 4vh, 50px);
@@ -1091,7 +1092,7 @@ body {
 
 .plan-card h3 {
     font-size: clamp(16px, 1.5vw + 0.3rem, 18px);
-    font-weight: 300;
+    font-weight: 200;
     color: #1e293b;
     margin-bottom: clamp(8px, 1vh, 10px);
     line-height: 1.2;
@@ -1135,7 +1136,7 @@ body {
 
 .why-section h2 {
     font-size: 36px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 30px;
 }
@@ -1155,7 +1156,7 @@ body {
 
 .feature h4 {
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 200;
     color: #1e293b;
     margin: 0;
 }
@@ -1212,7 +1213,7 @@ body {
 
 .rating-text {
     display: block;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 18px;
     margin-bottom: 5px;
 }
@@ -1238,7 +1239,7 @@ body {
 }
 
 .review-author {
-    font-weight: 300;
+    font-weight: 200;
     font-size: 14px;
     opacity: 0.9;
 }
@@ -1246,7 +1247,7 @@ body {
 /* Quote Section */
 .quote-section h2 {
     font-size: 36px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 30px;
 }
@@ -1273,7 +1274,7 @@ body {
 .quote-form .form-group label {
     display: block;
     margin-bottom: clamp(8px, 1.2vh, 12px);
-    font-weight: 300;
+    font-weight: 200;
     color: #374151;
     font-size: clamp(14px, 1vw + 0.2rem, 16px);
 }
@@ -1304,7 +1305,7 @@ body {
 
 .need-help h2 {
     font-size: 36px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 30px;
 }
@@ -1339,7 +1340,7 @@ body {
 .footer-column h4 {
     color: #3498db;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 200;
     margin-bottom: 20px;
     letter-spacing: 0.5px;
     text-align: center;
@@ -1508,7 +1509,7 @@ body {
     color: #1e293b;
     font-size: 24px;
     margin-bottom: 10px;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .major-systems-section p {
@@ -1549,7 +1550,7 @@ body {
 .system-item h4 {
     color: #1e293b;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     margin-bottom: 15px;
 }
 
@@ -1564,7 +1565,7 @@ body {
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 200;
     color: white;
 }
 
@@ -1638,7 +1639,7 @@ body {
     color: #1e293b;
     font-size: clamp(20px, 2vw + 0.5rem, 24px);
     margin-bottom: clamp(20px, 2.5vh, 25px);
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .table-wrapper {
@@ -1658,7 +1659,7 @@ body {
 .coverage-table th {
     padding: 12px 10px;
     text-align: center;
-    font-weight: 300;
+    font-weight: 200;
     color: white;
     font-size: 13px;
     border: 1px solid #e2e8f0;
@@ -1714,7 +1715,7 @@ body {
 
 .coverage-table .component-name {
     text-align: left;
-    font-weight: 300;
+    font-weight: 200;
     background: #f8fafc;
     color: #374151;
     padding-left: 20px;
@@ -1730,7 +1731,7 @@ body {
 
 .checkmark {
     color: #059669;
-    font-weight: bold;
+    font-weight: 400;
     font-size: 18px;
 }
 
@@ -1812,7 +1813,7 @@ body {
     border: 2px solid white;
     border-radius: 6px;
     font-size: 9px;
-    font-weight: 300;
+    font-weight: 200;
     cursor: pointer;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -1867,7 +1868,7 @@ body {
 }
 
 .appliance-name {
-    font-weight: 300;
+    font-weight: 200;
 }
 
 /* Vehicle Form Styles */
@@ -1910,7 +1911,7 @@ body {
 }
 
 .form-field label {
-    font-weight: 300;
+    font-weight: 200;
     color: #374151;
     font-size: 14px;
 }
@@ -1967,7 +1968,7 @@ body {
     padding: 12px 40px;
     border-radius: 6px;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     cursor: pointer;
     transition: background 0.3s ease;
     text-transform: uppercase;
@@ -2015,7 +2016,7 @@ body {
     border-radius: 0;
     color: white;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 200;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -2401,7 +2402,7 @@ body {
 .contact-hero h1,
 .signin-hero h1 {
     font-size: clamp(32px, 4vw + 1rem, 48px);
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: clamp(15px, 2vh, 20px);
 }
@@ -2443,7 +2444,7 @@ body {
 
 .section-header h2 {
     font-size: clamp(28px, 3vw + 0.5rem, 36px);
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: clamp(10px, 1.5vh, 15px);
 }
@@ -2458,7 +2459,7 @@ body {
 /* Active Navigation Link */
 .nav-links a.active {
     color: #2563eb;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 /* Plans Page Styles */
@@ -2472,29 +2473,50 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    align-items: stretch;
 }
 
 .plan-card.detailed {
     background: white;
     border-radius: 12px;
-    padding: 40px 30px;
+    padding: 50px 30px 35px 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     position: relative;
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
-    min-height: auto;
+    min-height: 400px;
+    max-width: 300px;
+    margin: 0 auto;
     overflow: visible;
     height: 100%;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.plan-card.detailed .plan-header {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 .plan-card.detailed:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
 }
 
 .plan-card.featured {
     border: 3px solid #f97316;
     transform: scale(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card.featured:hover {
+    transform: scale(1.08) translateY(-5px);
+    box-shadow: 0 8px 30px rgba(249, 115, 22, 0.4);
 }
 
 .plan-badge {
@@ -2507,52 +2529,102 @@ body {
     padding: 8px 20px;
     border-radius: 20px;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .plan-header {
     text-align: center;
-    margin-bottom: 0;
+    margin: 0 auto;
+    padding: 0;
+    padding-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.plan-card.detailed .plan-header h3 {
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 200;
+    text-align: center;
+    margin: 0;
+    margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.3;
+}
+
+.plan-description {
+    font-size: clamp(11px, 1.2vw, 13px);
+    font-weight: 200;
+    color: #64748b;
+    text-align: center;
+    margin: 12px 0 0 0;
+    padding: 0;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.4;
 }
 
 .plan-price {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 300;
     color: #f97316;
     margin-top: 5px;
     margin-bottom: 0;
 }
 
+.plan-features,
+.plan-benefits {
+    text-align: left;
+    width: 100%;
+    margin: 10px 0;
+    flex: 0 0 auto;
+}
+
 .plan-features h4,
 .plan-benefits h4 {
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 200;
     color: #1e293b;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    text-align: left;
 }
 
 .plan-features ul,
 .plan-benefits ul {
     list-style: none;
-    margin-bottom: 8px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
 
 .plan-card.detailed .btn-primary {
-    margin-top: auto;
+    margin-top: 20px;
     width: 100%;
-    padding: 8px 15px;
+    padding: 10px 15px;
     font-size: 13px;
     flex-shrink: 0;
+    flex: 0 0 auto;
 }
 
 .plan-features li,
 .plan-benefits li {
-    padding: 2px 0;
+    padding: 4px 0;
     display: flex;
-    align-items: center;
-    gap: 4px;
+    align-items: flex-start;
+    gap: 8px;
     font-size: 11px;
-    line-height: 1.2;
+    line-height: 1.4;
+    text-align: left;
 }
 
 .comparison-section {
@@ -2583,7 +2655,7 @@ body {
 .comparison-table th {
     background: #2563eb;
     color: white;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .comparison-table tr:hover {
@@ -2656,13 +2728,13 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     flex-shrink: 0;
 }
 
 .step-content h3 {
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 200;
     color: #1e293b;
     margin-bottom: 10px;
 }
@@ -2742,7 +2814,7 @@ body {
 
 .faq-item h4 {
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 200;
     color: #1e293b;
     margin-bottom: 10px;
 }
@@ -2756,7 +2828,7 @@ body {
 
 .emergency-phone {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     margin: 20px 0;
     display: flex;
     align-items: center;
@@ -2791,7 +2863,7 @@ body {
 
 .stat-number {
     font-size: 36px;
-    font-weight: 400;
+    font-weight: 300;
     color: #2563eb;
     margin-bottom: 10px;
 }
@@ -2799,7 +2871,7 @@ body {
 .stat-label {
     font-size: 14px;
     color: #64748b;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .mission-values {
@@ -3016,7 +3088,7 @@ body {
 
 .member-title {
     color: #2563eb;
-    font-weight: 300;
+    font-weight: 200;
     margin-bottom: 10px;
 }
 
@@ -3079,7 +3151,7 @@ body {
     border: none;
     border-radius: 8px;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -3108,7 +3180,7 @@ body {
 
 .event-header h2 {
     font-size: 42px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 10px;
 }
@@ -3133,7 +3205,7 @@ body {
 
 .event-intro h3 {
     font-size: 28px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 20px;
 }
@@ -3154,7 +3226,7 @@ body {
 .event-videos h4,
 .event-images h4 {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 25px;
     text-align: center;
@@ -3195,7 +3267,7 @@ body {
 
 .video-placeholder p {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     margin-bottom: 5px;
 }
 
@@ -3244,7 +3316,7 @@ body {
 
 .image-placeholder p {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     margin-bottom: 5px;
 }
 
@@ -3259,7 +3331,7 @@ body {
 
 .event-partners h4 {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 30px;
     text-align: center;
@@ -3433,7 +3505,7 @@ body {
 
 .contact-form-wrapper h2 {
     font-size: 48px;
-    font-weight: 400;
+    font-weight: 300;
     color: white;
     margin-bottom: 40px;
     text-align: left;
@@ -3481,7 +3553,7 @@ body {
     border: none;
     border-radius: 10px;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 200;
     cursor: pointer;
     transition: background 0.3s ease;
 }
@@ -3541,7 +3613,7 @@ body {
 
 .faq-title {
     font-size: 48px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: center;
     color: white;
     margin-bottom: 15px;
@@ -3561,7 +3633,7 @@ body {
     border: none;
     border-radius: 8px;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 200;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -3642,7 +3714,7 @@ body {
 
 .auto-faq .faq-question h4 {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     color: #1e293b;
     margin: 0;
     flex: 1;
@@ -3745,7 +3817,7 @@ body {
 
 .signin-form-header h2 {
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 10px;
 }
@@ -3762,7 +3834,7 @@ body {
 .signin-form .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 300;
+    font-weight: 200;
     color: #374151;
     font-size: 14px;
 }
@@ -3785,7 +3857,7 @@ body {
 .signin-link {
     color: #2563eb;
     text-decoration: none;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .register-link:hover,
@@ -3911,7 +3983,7 @@ body {
 
 .benefit-item h4 {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     color: #1e293b;
     margin-bottom: 5px;
 }
@@ -3967,7 +4039,7 @@ body {
 
 .video-text h2 {
     font-size: 48px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 20px;
     line-height: 1.2;
@@ -4020,7 +4092,7 @@ body {
     padding: 8px 16px;
     border-radius: 6px;
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 200;
     letter-spacing: 0.5px;
 }
 
@@ -4070,12 +4142,12 @@ body {
 }
 
 .video-brand b {
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .video-cta {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 /* Video Modal */
@@ -4230,7 +4302,7 @@ body {
 
 .cta-content h2 {
     font-size: 36px;
-    font-weight: 400;
+    font-weight: 300;
     margin-bottom: 20px;
 }
 
@@ -4257,7 +4329,7 @@ body {
 .home-repairs-section h2 {
     color: white;
     font-size: 36px;
-    font-weight: 400;
+    font-weight: 300;
     margin-bottom: 15px;
 }
 
@@ -4290,7 +4362,7 @@ body {
 .home-repairs-section .repair-cost-item h3 {
     color: white;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 200;
     margin: 10px 0;
     text-align: center;
 }
@@ -4298,7 +4370,7 @@ body {
 .home-repairs-section .repair-cost {
     color: white;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     margin: 0;
 }
 
@@ -4311,12 +4383,12 @@ body {
 .total-cost-section p {
     color: white;
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .total-cost-section strong {
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 @media (max-width: 1024px) {
@@ -4352,7 +4424,7 @@ body {
 .testimonials-section h2 {
     text-align: center;
     font-size: 36px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 50px;
 }
@@ -4408,7 +4480,7 @@ body {
 .testimonial-author strong {
     color: #1e293b;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .testimonial-author span {
@@ -4497,7 +4569,7 @@ body {
 
 .platform-item h3 {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 15px;
 }
@@ -4673,7 +4745,7 @@ body {
 .disclaimer-modal-content h3 {
     color: #1e40af;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -4720,7 +4792,7 @@ body {
     padding: 12px 30px;
     border-radius: 6px;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     cursor: pointer;
     transition: all 0.3s ease;
     border: none;
@@ -4865,7 +4937,7 @@ body {
 
 .choose-plan-modal-content h2 {
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 300;
     color: #1e293b;
     margin-bottom: 15px;
 }
@@ -4882,7 +4954,7 @@ body {
     top: 20px;
     right: 25px;
     font-size: 32px;
-    font-weight: 300;
+    font-weight: 200;
     color: #94a3b8;
     cursor: pointer;
     line-height: 1;
@@ -5594,7 +5666,7 @@ body {
     font-size: clamp(20px, 2.5vw + 0.5rem, 32px);
     line-height: 1.5;
     color: white;
-    font-weight: 300;
+    font-weight: 200;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 clamp(15px, 3vw, 20px);
@@ -5661,7 +5733,7 @@ body {
 .main__heading {
     font-size: 36px;
     color: #333;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .mb-2 {
@@ -5697,7 +5769,7 @@ body {
     padding: 20px 25px;
     margin: 0;
     cursor: pointer;
-    font-weight: 300;
+    font-weight: 200;
     background: #f8f9fa;
     transition: background 0.3s ease;
     position: relative;
@@ -5715,7 +5787,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     color: #667eea;
     transition: transform 0.3s ease;
 }
@@ -5778,7 +5850,7 @@ body {
 .privacy-hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .privacy-hero p {
@@ -5857,7 +5929,7 @@ body {
 
 .privacy-section strong {
     color: #333;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .contact-box {
@@ -6070,7 +6142,7 @@ body {
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -6092,7 +6164,7 @@ body {
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -6165,7 +6237,7 @@ body {
     font-size: 28px;
     color: #333;
     margin-bottom: 15px;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .quote-success-modal-content p {
@@ -6182,7 +6254,7 @@ body {
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -6256,7 +6328,7 @@ body {
     font-size: 28px;
     color: #333;
     margin-bottom: 15px;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .state-unavailable-modal-content p {
@@ -6273,7 +6345,7 @@ body {
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -6347,7 +6419,7 @@ body {
     font-size: 28px;
     color: #333;
     margin-bottom: 15px;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .state-custom-modal-content p {
@@ -6388,7 +6460,7 @@ body {
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -6592,6 +6664,13 @@ body {
     border: 3px solid #28a745 !important;
     box-shadow: 0 0 20px rgba(40, 167, 69, 0.3) !important;
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-width 0.3s ease;
+}
+
+.best-value-card:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 0 30px rgba(40, 167, 69, 0.5) !important;
+    border-width: 4px !important;
 }
 
 .best-value-badge {
@@ -6603,7 +6682,7 @@ body {
     color: white;
     padding: 8px 20px;
     border-radius: 20px;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 14px;
     text-transform: uppercase;
     box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
@@ -6652,7 +6731,7 @@ body {
     color: white;
     padding: 8px 20px;
     border-radius: 20px;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 14px;
     text-transform: uppercase;
     box-shadow: 0 4px 10px rgba(255, 107, 53, 0.4);
