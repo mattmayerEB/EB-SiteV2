@@ -22,7 +22,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333333;
     background-color: rgba(255, 255, 255, 1);
@@ -126,7 +126,7 @@ body {
     border: none;
     border-radius: 6px;
     font-size: clamp(10px, 0.8vw + 0.2rem, 14px);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: white;
     color: #333;
     vertical-align: middle;
@@ -167,7 +167,7 @@ body {
     font-weight: 300;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     white-space: nowrap;
@@ -1931,7 +1931,7 @@ body {
     border: 2px solid #e5e7eb;
     border-radius: 6px;
     font-size: 14px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     transition: border-color 0.3s ease;
 }
 
@@ -2359,6 +2359,22 @@ body {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: contain;
+}
+
+@media (min-width: 768px) {
+    .plans-hero .auto-banner-video,
+    .plans-hero .home-banner-video,
+    .plans-hero .electronics-banner-video,
+    .plans-hero video {
+        max-height: 500px;
+        object-fit: cover;
+    }
+    
+    .plans-hero {
+        max-height: 500px;
+        overflow: hidden;
+    }
 }
 
 /* Animate check engine light elements within SVG (works when SVG is embedded inline) */
@@ -3554,7 +3570,7 @@ body {
     border: none;
     border-radius: 10px;
     background: white;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     color: #333;
 }
@@ -5745,7 +5761,7 @@ body {
     color: #666;
     line-height: 1.6;
     font-size: 16px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -5835,7 +5851,7 @@ body {
     color: #666;
     line-height: 1.6;
     font-size: 16px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .acc__card.active .acc__panel {
@@ -5911,7 +5927,7 @@ body {
     padding: 60px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .privacy-section {
@@ -5941,7 +5957,7 @@ body {
     line-height: 1.6;
     margin-bottom: 15px;
     font-size: 16px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .privacy-section ul {
@@ -5954,7 +5970,7 @@ body {
     line-height: 1.6;
     margin-bottom: 10px;
     font-size: 16px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .privacy-section strong {
