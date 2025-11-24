@@ -223,15 +223,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observe elements for animation
+    // Observe elements for animation (skip on auto page - using SVG animations)
+    const isAutoPage = window.location.pathname.includes('/auto/');
     const animatedElements = document.querySelectorAll('.step, .plan-card, .why-section, .quote-section');
     
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
+    if (!isAutoPage) {
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    } else {
+        // On auto page, ensure elements are visible without animation
+        animatedElements.forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+        });
+    }
 
     // Add hover effects for plan cards
     const planCards = document.querySelectorAll('.plan-card');
