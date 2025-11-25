@@ -2325,6 +2325,7 @@ body {
     background-color: white !important;
 }
 
+
 /* Allow SVG to display fully - override overflow when SVG wrapper is present */
 .plans-hero .svg-wrapper {
     overflow: visible !important;
@@ -4282,9 +4283,14 @@ section.plans-hero:has(.home-banner-svg) {
 
 /* Allow HTML width attribute to control auto banner SVG width */
 .plans-hero .svg-wrapper svg.auto-banner-svg {
-    max-width: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
+    max-height: 600px !important;
     display: block;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    object-fit: contain;
 }
 
 /* Allow overflow for auto banner wrapper */
