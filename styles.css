@@ -2297,6 +2297,8 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background: white !important;
+    background-color: white !important;
 }
 
 /* Allow SVG to display fully - override overflow when SVG wrapper is present */
@@ -2372,10 +2374,14 @@ section.plans-hero:has(.svg-wrapper) {
 
 /* SVG Check Engine Light Animation */
 .plans-hero svg {
-    width: 100%;
     height: auto;
     display: block;
     pointer-events: all;
+}
+
+/* Only apply default width if not set in HTML */
+.plans-hero svg:not([width]) {
+    width: 100%;
 }
 
 .plans-hero svg image[width="138"] {
@@ -4179,11 +4185,15 @@ section.plans-hero:has(.svg-wrapper) {
 }
 
 .plans-hero .video-wrapper.svg-wrapper svg {
-    width: 100%;
     height: auto;
     display: block;
-    max-width: 100%;
     position: relative;
+}
+
+/* Allow HTML width attribute to work - only apply default if not set in HTML */
+.plans-hero .video-wrapper.svg-wrapper svg:not([width]) {
+    width: 100%;
+    max-width: 100%;
 }
 
 /* Override plans-hero constraints when it contains SVG */
@@ -4193,6 +4203,75 @@ section.plans-hero:has(.svg-wrapper) {
 
 .plans-hero .svg-wrapper svg {
     max-height: none !important;
+}
+
+/* Constrain electronics banner SVG height */
+.plans-hero .electronics-banner-svg {
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Apply same constraints to SVG elements */
+.plans-hero .svg-wrapper svg.electronics-banner-svg {
+    max-height: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Constrain home banner SVG height */
+.plans-hero .svg-wrapper svg.home-banner-svg {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Make sure the SVG wrapper fits within the section */
+.plans-hero .svg-wrapper {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure the section can contain the full SVG */
+section.plans-hero:has(.home-banner-svg) {
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+/* Override any max-height constraints for home banner SVG */
+.plans-hero .svg-wrapper svg.home-banner-svg {
+    max-height: none !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Allow HTML width attribute to control auto banner SVG width */
+.plans-hero .svg-wrapper svg.auto-banner-svg {
+    max-width: none !important;
+    height: auto !important;
+    display: block;
+}
+
+/* Allow overflow for auto banner wrapper */
+.plans-hero .svg-wrapper:has(.auto-banner-svg) {
+    overflow: visible !important;
+    width: 100%;
+}
+
+/* Ensure section allows overflow for wider auto banner */
+section.plans-hero:has(.auto-banner-svg) {
+    overflow: visible !important;
 }
 
 .video-content {
