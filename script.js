@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (callBtn) {
         callBtn.addEventListener('click', function() {
             // Open phone dialer
-            window.location.href = 'tel:300-535-6789';
+            window.location.href = 'tel:800-895-0842';
         });
     }
 

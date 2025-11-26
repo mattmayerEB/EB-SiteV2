@@ -456,6 +456,7 @@ body {
     justify-content: center;
     min-height: 44px;
     touch-action: manipulation;
+    text-decoration: none;
 }
 
 .btn-secondary:hover {
