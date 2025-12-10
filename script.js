@@ -914,3 +914,91 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Animate statistics numbers
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                const suffix = entry.target.getAttribute('data-suffix') || '';
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+                const isMobile = window.innerWidth <= 768;
+                
+                const formatNumber = (num) => {
+                    if (isMobile && num >= 1000) {
+                        // Format as K on mobile for numbers >= 1000
+                        const kValue = (num / 1000).toFixed(num >= 100000 ? 0 : 1);
+                        return kValue.replace(/\.0$/, '') + 'K';
+                    }
+                    return num.toLocaleString();
+                };
+                
+                const updateNumber = () => {
+                    current += increment;
+                    if (current < target) {
+                        entry.target.textContent = formatNumber(Math.floor(current)) + suffix;
+                        requestAnimationFrame(updateNumber);
+                    } else {
+                        entry.target.textContent = formatNumber(target) + suffix;
+                    }
+                };
+                
+                updateNumber();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    statNumbers.forEach(stat => {
+        observer.observe(stat);
+    });
+}
+
+// Format existing stat numbers on load/resize
+function formatStatNumbers() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const isMobile = window.innerWidth <= 768;
+    
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const suffix = stat.getAttribute('data-suffix') || '';
+        const currentText = stat.textContent;
+        
+        // Only format if number is already displayed (animation completed)
+        if (currentText && !isNaN(parseInt(currentText.replace(/[^0-9]/g, '')))) {
+            if (isMobile && target >= 1000) {
+                const kValue = (target / 1000).toFixed(target >= 100000 ? 0 : 1);
+                stat.textContent = kValue.replace(/\.0$/, '') + 'K' + suffix;
+            } else {
+                stat.textContent = target.toLocaleString() + suffix;
+            }
+        }
+    });
+}
+
+// Initialize stats animation when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        animateStats();
+        formatStatNumbers();
+    });
+} else {
+    animateStats();
+    formatStatNumbers();
+}
+
+// Update format on window resize
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        formatStatNumbers();
+        // Re-animate if needed
+        animateStats();
+    }, 250);
+});
+
