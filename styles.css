@@ -1134,6 +1134,16 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+a.stat-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+a.stat-card:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
 .warranty-statistics .stat-number {
     font-size: clamp(36px, 5vw, 64px);
     font-weight: 700;
@@ -1620,7 +1630,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .need-help h2 {
     font-size: 36px;
-    font-weight: 400;
+    font-weight: bold;
     color: #1e293b;
     margin-bottom: 30px;
 }
