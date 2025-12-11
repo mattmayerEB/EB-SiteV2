@@ -573,6 +573,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const dots = document.querySelectorAll('.dot');
     
     if (grid && dots.length > 0) {
+        // Center the testimonials grid on initial load
+        function centerTestimonials() {
+            const cards = grid.querySelectorAll('.testimonial-card');
+            if (cards.length === 0) return;
+            
+            const cardWidth = cards[0].offsetWidth;
+            const gap = parseInt(window.getComputedStyle(grid).gap) || 30;
+            const containerWidth = grid.clientWidth;
+            const scrollWidth = grid.scrollWidth;
+            
+            // Only center if content is wider than container (not on mobile)
+            if (scrollWidth > containerWidth && containerWidth > 768) {
+                // Center the first card in the viewport
+                // Position scroll so first card's center aligns with container's center
+                const scrollPosition = Math.max(0, (cardWidth / 2) - (containerWidth / 2));
+                grid.scrollLeft = scrollPosition;
+            }
+        }
+        
+        // Center on load and after a short delay to ensure cards are rendered
+        setTimeout(centerTestimonials, 100);
+        // Also center after images load
+        window.addEventListener('load', centerTestimonials);
+        
         grid.addEventListener('scroll', function() {
             const cards = grid.querySelectorAll('.testimonial-card');
             if (cards.length === 0) return;
@@ -921,7 +945,22 @@ function animateStats() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const target = parseInt(entry.target.getAttribute('data-target'));
+                const targetAttr = entry.target.getAttribute('data-target');
+                
+                // Skip animation if no data-target attribute (preserve existing text)
+                if (!targetAttr) {
+                    observer.unobserve(entry.target);
+                    return;
+                }
+                
+                const target = parseInt(targetAttr);
+                
+                // Skip if target is not a valid number
+                if (isNaN(target)) {
+                    observer.unobserve(entry.target);
+                    return;
+                }
+                
                 const suffix = entry.target.getAttribute('data-suffix') || '';
                 const duration = 2000; // 2 seconds
                 const increment = target / (duration / 16); // 60fps

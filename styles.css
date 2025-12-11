@@ -883,13 +883,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: row;
     gap: clamp(30px, 4vw, 50px);
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     padding: 0 clamp(15px, 3vw, 40px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .testimonial-card {
@@ -897,6 +903,9 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 0 0 calc(33.333% - clamp(20px, 3vw, 33px));
+    min-width: 280px;
+    max-width: 100%;
 }
 
 .testimonial-avatar {
@@ -984,22 +993,29 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1024px) {
     .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 calc(50% - 15px);
+        min-width: 280px;
     }
 }
 
 @media (max-width: 768px) {
     .testimonials-grid {
         display: flex !important;
-        flex-direction: column !important;
-        grid-template-columns: none !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
         gap: 30px;
     }
     
     .testimonial-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: none !important;
+        flex: 0 0 85% !important;
+        min-width: 280px !important;
+        max-width: 85% !important;
     }
     
     .testimonial-quote {
@@ -5029,25 +5045,31 @@ section.plans-hero:has(.auto-banner-svg) {
 }
 
 .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: row;
     gap: 30px;
     width: 100%;
     max-width: 100%;
     padding: 20px clamp(15px, 3vw, 40px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 @media (max-width: 768px) {
     .testimonials-grid {
         display: flex !important;
-        flex-direction: column !important;
-        grid-template-columns: none !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
     }
     
     .testimonial-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: none !important;
+        flex: 0 0 85% !important;
+        min-width: 280px !important;
+        max-width: 85% !important;
     }
 }
 
