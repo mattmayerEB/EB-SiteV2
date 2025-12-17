@@ -1003,9 +1003,21 @@ function formatStatNumbers() {
     const isMobile = window.innerWidth <= 768;
     
     statNumbers.forEach(stat => {
-        const target = parseInt(stat.getAttribute('data-target'));
+        const targetAttr = stat.getAttribute('data-target');
+        
+        // Skip if no data-target attribute (preserve existing text like "500K+", "99%", etc.)
+        if (!targetAttr) {
+            return;
+        }
+        
+        const target = parseInt(targetAttr);
         const suffix = stat.getAttribute('data-suffix') || '';
         const currentText = stat.textContent;
+        
+        // Skip if target is not a valid number
+        if (isNaN(target)) {
+            return;
+        }
         
         // Only format if number is already displayed (animation completed)
         if (currentText && !isNaN(parseInt(currentText.replace(/[^0-9]/g, '')))) {
