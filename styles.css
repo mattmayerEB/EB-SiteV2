@@ -563,7 +563,7 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     padding: clamp(12px, 2vh, 15px) clamp(30px, 4vw, 40px);
     font-size: clamp(15px, 2vw, 18px);
-    font-weight: 400;
+    font-weight: 700;
     text-decoration: none;
     border-radius: 50px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
