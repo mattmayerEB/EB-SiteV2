@@ -244,9 +244,58 @@
 
     <!-- Breakdown Costs Section -->
     <section class="breakdown-costs-section" style="padding: 80px 20px; background-color: #ffffff; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+        <style>
+            @media (max-width: 1024px) {
+                .breakdown-costs-section {
+                    overflow: visible !important;
+                    position: relative !important;
+                    border-bottom: none !important;
+                }
+                .vehicle-images-container {
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    padding-bottom: 0 !important;
+                    overflow: visible !important;
+                    min-height: fit-content !important;
+                }
+                #partDetailsModal {
+                    width: calc(100% - 40px) !important;
+                    max-width: 700px !important;
+                    min-height: 380px !important;
+                    margin-top: 0 !important;
+                    margin-bottom: 0 !important;
+                    left: 50% !important;
+                    transform: translateX(-50%) !important;
+                    position: absolute !important;
+                    max-height: calc(100vh - 200px) !important;
+                    overflow-y: auto !important;
+                }
+                #partDetailsModal #modalImageContainer {
+                    height: 200px !important;
+                    padding: 20px !important;
+                }
+                #partDetailsModal #modalPriceSection {
+                    min-height: 80px !important;
+                    padding: 0 20px 20px 20px !important;
+                }
+            }
+            
+            /* SVG icon animation styles */
+            #jetta-svg path[data-part="radiator"],
+            #jetta-svg object path[data-part="radiator"] {
+                transition: fill 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+            }
+            
+            #jetta-svg circle[data-part="radiator"],
+            #jetta-svg object circle[data-part="radiator"] {
+                transition: fill 0.3s ease;
+            }
+            
+            /* Modal slide-in animation handled via transitions */
+        </style>
         <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
-            <h1 style="font-size: clamp(32px, 4vw, 48px); font-weight: 400; color: #1e293b; margin-bottom: 20px; line-height: 1.3;">Breakdowns happen. Will you be prepared?</h1>
-            <p style="font-size: clamp(16px, 2vw, 20px); color: #64748b; max-width: 800px; margin: 0 auto; margin-bottom: 30px;">Select a model to reveal the average costs of repair per part without Endurance coverage.</p>
+            <h1 style="font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: #1e293b; margin-bottom: 20px; line-height: 1.3;">Breakdowns happen. Will you be prepared?</h1>
+            <p style="font-size: clamp(14px, 1.5vw, 18px); color: #64748b; max-width: 800px; margin: 0 auto; margin-bottom: 30px;">Select a model to reveal the average costs of repair per part without EverythingBreaks.</p>
             
             <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
                 <button class="vehicle-type-btn" data-type="car" style="padding: 0; font-size: clamp(20px, 2.5vw, 28px); font-weight: 400; color: #1e293b; background: none; border: none; border-bottom: 2px solid #1e3a8a; cursor: pointer; transition: all 0.3s ease;">Car</button>
@@ -254,18 +303,37 @@
                 <button class="vehicle-type-btn" data-type="truck" style="padding: 0; font-size: clamp(20px, 2.5vw, 28px); font-weight: 400; color: #64748b; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.3s ease;">Truck</button>
             </div>
             
-            <div class="vehicle-images-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; padding: 20px 0;">
-                <div class="vehicle-image" data-vehicle-type="suv" style="cursor: pointer; transition: transform 0.3s ease; display: none;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                    <img src="images/CRV White.png" alt="Honda CRV" style="width: 100%; max-width: 200px; height: auto; display: block; margin: 0 auto;">
+            <div class="vehicle-images-container" style="display: flex; justify-content: flex-start; align-items: center; gap: 50px; max-width: 1400px; margin: 0 auto; padding: 20px 0; position: relative;">
+                <div class="vehicle-image" data-vehicle-type="car" style="flex-shrink: 0;">
+                    <object data="images/Jetta_With_Plus_Sign.svg" type="image/svg+xml" id="jetta-svg" style="width: 100%; max-width: 700px; height: auto; display: block; cursor: default;">
+                        <img src="images/Jetta_With_Plus_Sign.svg" alt="Volkswagen Jetta" style="width: 100%; max-width: 700px; height: auto; display: block;">
+                    </object>
                 </div>
-                <div class="vehicle-image" data-vehicle-type="truck" style="cursor: pointer; transition: transform 0.3s ease; display: none;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                    <img src="images/F150 White.png" alt="Ford F150" style="width: 100%; max-width: 200px; height: auto; display: block; margin: 0 auto;">
+                <div class="vehicle-image" data-vehicle-type="suv" style="display: none;">
+                    <img src="images/CRV White.png" alt="Honda CRV" style="width: 100%; max-width: 400px; height: auto; display: block;">
                 </div>
-                <div class="vehicle-image" data-vehicle-type="car" style="cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                    <img src="images/VW White.png" alt="Volkswagen" style="width: 100%; max-width: 200px; height: auto; display: block; margin: 0 auto;">
+                <div class="vehicle-image" data-vehicle-type="suv" style="display: none;">
+                    <img src="images/Rav4.png" alt="Toyota Rav4" style="width: 100%; max-width: 400px; height: auto; display: block;">
                 </div>
-                <div class="vehicle-image" data-vehicle-type="suv" style="cursor: pointer; transition: transform 0.3s ease; display: none;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                    <img src="images/Rav4.png" alt="Toyota Rav4" style="width: 100%; max-width: 200px; height: auto; display: block; margin: 0 auto;">
+                <div class="vehicle-image" data-vehicle-type="truck" style="display: none;">
+                    <img src="images/F150 White.png" alt="Ford F150" style="width: 100%; max-width: 400px; height: auto; display: block;">
+                </div>
+                
+                <!-- Part Details Panel (appears to the right of clicked plus sign) -->
+                <div id="partDetailsModal" style="display: none; position: absolute; width: 350px; min-height: 450px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); z-index: 1000; transform: translateX(100%); opacity: 0; transition: transform 0.4s ease-out, opacity 0.4s ease-out, translateX 0.4s ease-out, translateY 0.4s ease-out;">
+                    <!-- Header Section -->
+                    <div id="modalHeader" style="background: #006699; padding: 20px; text-align: center; min-height: 64px; display: flex; align-items: center; justify-content: center;">
+                        <h3 id="modalPartName" style="margin: 0; color: #FFFFFF; font-size: 24px; font-weight: bold; font-family: Arial, sans-serif;">Part Name</h3>
+                    </div>
+                    <!-- Image Section -->
+                    <div id="modalImageContainer" style="padding: 30px 20px; text-align: center; background: white; height: 260px; display: flex; align-items: center; justify-content: center;">
+                        <img id="modalImage" src="" alt="Part Image" style="max-width: 280px; max-height: 200px; width: auto; height: auto; display: block; margin: 0 auto; object-fit: contain;">
+                    </div>
+                    <!-- Price Section -->
+                    <div id="modalPriceSection" style="padding: 0 20px 30px 20px; text-align: center; background: white; min-height: 100px;">
+                        <div id="modalPrice" style="font-size: 40px; font-weight: bold; color: #FF6600; margin: 0 0 10px 0; font-family: Arial, sans-serif;">$0*</div>
+                        <div id="modalPriceDescription" style="font-size: 14px; color: #333333; line-height: 1.5; font-family: Arial, sans-serif;">Average out-of-pocket cost<br>without EverythingBreaks</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -643,10 +711,14 @@
 
     <script src="script.js"></script>
     <script>
-        // Vehicle type button selection
+        // Vehicle type button selection and modal functionality
         document.addEventListener('DOMContentLoaded', function() {
             const vehicleButtons = document.querySelectorAll('.vehicle-type-btn');
             const vehicleImages = document.querySelectorAll('.vehicle-image');
+            const modal = document.getElementById('partDetailsModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const modalImage = document.getElementById('modalImage');
+            const modalDescription = document.getElementById('modalDescription');
             
             function filterVehicles(type) {
                 vehicleImages.forEach(img => {
@@ -656,6 +728,14 @@
                         img.style.display = 'none';
                     }
                 });
+                
+                // For car type, ensure the container shows only the car
+                const container = document.querySelector('.vehicle-images-container');
+                if (type === 'car') {
+                    container.style.justifyContent = 'flex-start';
+                } else {
+                    container.style.justifyContent = 'center';
+                }
             }
             
             // Set default to car
@@ -679,6 +759,598 @@
                     filterVehicles(selectedType);
                 });
             });
+            
+            
+            // Close modal when clicking outside of it
+            document.addEventListener('click', function(e) {
+                const modal = document.getElementById('partDetailsModal');
+                if (modal && modal.style.display === 'block') {
+                    // Check if click is outside the modal and not on a plus sign
+                    if (!modal.contains(e.target) && 
+                        !e.target.closest('path[fill="#3498db"]') && 
+                        !e.target.closest('path[fill="#ffffff"]')) {
+                        hidePartModal();
+                        // Also reset any active circle
+                        if (window.currentActiveReset) {
+                            window.currentActiveReset();
+                            window.currentActiveReset = null;
+                        }
+                    }
+                }
+            });
+            
+            // Part information data structure
+            const partInfo = {
+                '655.183594_320.410156': {
+                    name: 'A/C Compressor',
+                    image: 'images/AC_Compressor_Car.png',
+                    price: '$1,077'
+                },
+                '820.820312_527.320312': {
+                    name: 'Part Name',
+                    image: '',
+                    price: '$0'
+                },
+                '437.828125_441.609375': {
+                    name: 'Radiator',
+                    image: 'images/Radiator_Auto.png',
+                    price: '$450'
+                },
+                '986.964844_347.714844': {
+                    name: 'Part Name',
+                    image: '',
+                    price: '$0'
+                },
+                '986.964844_490.707031': {
+                    name: 'Part Name',
+                    image: '',
+                    price: '$0'
+                },
+                '771.960938_283.792969': {
+                    name: 'Part Name',
+                    image: '',
+                    price: '$0'
+                },
+                '1140.957031_283.792969': {
+                    name: 'Part Name',
+                    image: '',
+                    price: '$0'
+                },
+                '538.261719_347.714844': {
+                    name: 'Part Name',
+                    image: '',
+                    price: '$0'
+                }
+            };
+            
+            // Function to show part details modal
+            function showPartModal(partKey, clickX, clickY) {
+                const modal = document.getElementById('partDetailsModal');
+                const part = partInfo[partKey] || { name: 'Part Name', image: '', price: '$0' };
+                
+                // Populate modal content
+                document.getElementById('modalPartName').textContent = part.name;
+                const modalImage = document.getElementById('modalImage');
+                if (part.image) {
+                    modalImage.src = part.image;
+                    modalImage.style.display = 'block';
+                } else {
+                    modalImage.style.display = 'none';
+                }
+                document.getElementById('modalPrice').textContent = part.price + '*';
+                
+                // Check if mobile (viewport width <= 1024px)
+                const isMobile = window.innerWidth <= 1024;
+                
+                // Position modal to the right of the SVG inside the container
+                const container = document.querySelector('.vehicle-images-container');
+                const svgObject = document.getElementById('jetta-svg');
+                const containerRect = container.getBoundingClientRect();
+                const svgRect = svgObject.getBoundingClientRect();
+                
+                if (isMobile) {
+                    // Mobile: Position below the SVG, centered horizontally
+                    // Get the SVG element's actual bottom position within the container
+                    const svgElement = svgObject.closest('.vehicle-image');
+                    const svgElementRect = svgElement.getBoundingClientRect();
+                    const svgBottomRelative = svgElementRect.bottom - containerRect.top;
+                    
+                    // Get section boundaries to ensure modal stays within
+                    const section = container.closest('.breakdown-costs-section');
+                    const sectionRect = section ? section.getBoundingClientRect() : null;
+                    const containerBottom = containerRect.bottom;
+                    
+                    // Center horizontally
+                    const svgCenterX = (svgRect.left + svgRect.right) / 2 - containerRect.left;
+                    const modalWidth = Math.min(350, containerRect.width - 40); // Modal width, constrained to container
+                    const leftPosition = svgCenterX - (modalWidth / 2);
+                    
+                    // Ensure modal doesn't go beyond container bounds
+                    const constrainedLeft = Math.max(20, Math.min(leftPosition, containerRect.width - modalWidth - 20));
+                    
+                    modal.style.width = modalWidth + 'px';
+                    modal.style.left = constrainedLeft + 'px';
+                    modal.style.top = svgBottomRelative + 'px'; // Position directly at bottom of SVG
+                    
+                    // Reset animation state - start below (slide up from bottom)
+                    modal.style.transform = 'translateY(100%)';
+                    modal.style.opacity = '0';
+                    modal.style.display = 'block';
+                    
+                    // Force a reflow to ensure the initial state is applied
+                    void modal.offsetHeight;
+                    
+                    // Get actual modal height after it's rendered
+                    const actualModalHeight = modal.offsetHeight;
+                    
+                    // Get section boundaries to ensure modal doesn't extend past section
+                    const sectionBottom = sectionRect ? (sectionRect.bottom - containerRect.top) : containerRect.height;
+                    const maxModalBottom = sectionBottom - 20; // Leave 20px margin from section bottom
+                    const modalBottom = svgBottomRelative + actualModalHeight;
+                    
+                    // If modal would extend past section, adjust its position
+                    let finalTopPosition = svgBottomRelative;
+                    if (modalBottom > maxModalBottom) {
+                        // Move modal up so it stays within section
+                        finalTopPosition = maxModalBottom - actualModalHeight;
+                        // Ensure it doesn't go above the SVG
+                        finalTopPosition = Math.max(svgBottomRelative - 50, finalTopPosition);
+                    }
+                    
+                    modal.style.top = finalTopPosition + 'px';
+                    
+                    // Calculate padding needed to prevent overlap with testimonials section
+                    // Add extra spacing (120px) to ensure clear separation
+                    const spacing = 120;
+                    const neededPadding = actualModalHeight + spacing;
+                    
+                    // Apply padding to container to push testimonials section down
+                    // This is critical since modal is absolutely positioned
+                    container.style.paddingBottom = neededPadding + 'px';
+                    
+                    // Also add margin-bottom to the section to push testimonials down
+                    if (section) {
+                        const currentPadding = parseInt(window.getComputedStyle(section).paddingBottom) || 80;
+                        section.style.paddingBottom = (currentPadding + spacing) + 'px';
+                        // Also add margin-bottom to ensure testimonials are pushed down
+                        section.style.marginBottom = spacing + 'px';
+                        // Hide border-bottom to remove the line
+                        section.style.borderBottom = 'none';
+                    }
+                    
+                    // Wait for layout to update, then verify spacing
+                    setTimeout(() => {
+                        const containerAfter = container.getBoundingClientRect();
+                        const modalAfter = modal.getBoundingClientRect();
+                        const testimonialsSection = document.querySelector('.testimonials-section');
+                        const sectionAfter = section ? section.getBoundingClientRect() : null;
+                        
+                        // Check if modal extends past section
+                        if (sectionAfter && modalAfter.bottom > sectionAfter.bottom) {
+                            // Constrain modal to stay within section
+                            const maxTop = sectionAfter.bottom - containerAfter.top - actualModalHeight - 20;
+                            modal.style.top = Math.min(parseFloat(modal.style.top), maxTop) + 'px';
+                        }
+                        
+                        if (testimonialsSection) {
+                            const testimonialsRect = testimonialsSection.getBoundingClientRect();
+                            const gap = testimonialsRect.top - containerAfter.bottom;
+                            // If there's still overlap or insufficient gap, add more padding
+                            if (gap < spacing) {
+                                const additionalPadding = (spacing - gap) + 40; // Extra buffer
+                                container.style.paddingBottom = (neededPadding + additionalPadding) + 'px';
+                                if (section) {
+                                    const currentSectionPadding = parseInt(window.getComputedStyle(section).paddingBottom) || 80;
+                                    section.style.paddingBottom = (currentSectionPadding + additionalPadding) + 'px';
+                                    section.style.marginBottom = (spacing + additionalPadding) + 'px';
+                                }
+                            }
+                        }
+                    }, 200);
+                    
+                    // Trigger animation on next frame (slide up)
+                    requestAnimationFrame(() => {
+                        modal.style.transform = 'translateY(0)';
+                        modal.style.opacity = '1';
+                    });
+                } else {
+                    // Desktop: Position to the right of the SVG
+                    const offsetX = 30; // Space between SVG and modal
+                    const svgRight = svgRect.right - containerRect.left; // SVG right edge relative to container
+                    
+                    // Vertical positioning: try to align with the click, but keep within container bounds
+                    const clickYRelative = clickY - containerRect.top;
+                    const modalHeight = 400; // Approximate modal height
+                    const containerHeight = containerRect.height;
+                    
+                    // Center vertically if click is near top/bottom, otherwise align with click
+                    let topPosition;
+                    if (clickYRelative < modalHeight / 2) {
+                        topPosition = 0; // Align to top if click is near top
+                    } else if (clickYRelative > containerHeight - modalHeight / 2) {
+                        topPosition = containerHeight - modalHeight; // Align to bottom if click is near bottom
+                    } else {
+                        topPosition = clickYRelative - modalHeight / 2; // Center on click
+                    }
+                    
+                    modal.style.left = (svgRight + offsetX) + 'px';
+                    modal.style.top = topPosition + 'px';
+                    
+                    // Reset animation state - ensure modal starts off-screen (from right)
+                    modal.style.transform = 'translateX(100%)';
+                    modal.style.opacity = '0';
+                    modal.style.display = 'block';
+                    
+                    // Force a reflow to ensure the initial state is applied
+                    void modal.offsetHeight;
+                    
+                    // Trigger animation on next frame (slide in from right)
+                    requestAnimationFrame(() => {
+                        modal.style.transform = 'translateX(0)';
+                        modal.style.opacity = '1';
+                    });
+                }
+            }
+            
+            // Track any pending hide timeout
+            let hideModalTimeout = null;
+            
+            // Function to hide part details modal
+            function hidePartModal(immediate = false) {
+                const modal = document.getElementById('partDetailsModal');
+                
+                // Clear any pending hide timeout
+                if (hideModalTimeout) {
+                    clearTimeout(hideModalTimeout);
+                    hideModalTimeout = null;
+                }
+                
+                // Check if mobile
+                const isMobile = window.innerWidth <= 1024;
+                
+                // Remove padding from container and section when hiding modal (mobile only)
+                if (isMobile) {
+                    const container = document.querySelector('.vehicle-images-container');
+                    container.style.paddingBottom = '';
+                    
+                    // Reset section padding and margin
+                    const section = container.closest('.breakdown-costs-section');
+                    if (section) {
+                        section.style.paddingBottom = '';
+                        section.style.marginBottom = '';
+                        // Restore border-bottom when modal is hidden
+                        section.style.borderBottom = '';
+                    }
+                }
+                
+                if (immediate) {
+                    // Immediately hide without animation (for switching between modals)
+                    modal.style.display = 'none';
+                    if (isMobile) {
+                        modal.style.transform = 'translateY(100%)';
+                    } else {
+                        modal.style.transform = 'translateX(100%)';
+                    }
+                    modal.style.opacity = '0';
+                } else {
+                    // Slide out animation
+                    if (isMobile) {
+                        modal.style.transform = 'translateY(100%)'; // Slide down on mobile
+                    } else {
+                        modal.style.transform = 'translateX(100%)'; // Slide right on desktop
+                    }
+                    modal.style.opacity = '0';
+                    // Hide after animation completes
+                    hideModalTimeout = setTimeout(() => {
+                        modal.style.display = 'none';
+                        hideModalTimeout = null;
+                    }, 400); // Match animation duration
+                }
+            }
+            
+            // Handle SVG icon click functionality
+            function setupSVGIconClick() {
+                const svgObject = document.getElementById('jetta-svg');
+                if (!svgObject) return;
+                
+                // Helper function to get path bounds
+                function getPathBounds(d) {
+                    const coords = d.match(/[\d.]+/g);
+                    if (!coords || coords.length < 2) {
+                        return { minX: 0, maxX: 0, minY: 0, maxY: 0 };
+                    }
+                    const xs = [];
+                    const ys = [];
+                    for (let i = 0; i < coords.length - 1; i += 2) {
+                        xs.push(parseFloat(coords[i]));
+                        ys.push(parseFloat(coords[i + 1]));
+                    }
+                    return {
+                        minX: Math.min(...xs),
+                        maxX: Math.max(...xs),
+                        minY: Math.min(...ys),
+                        maxY: Math.max(...ys)
+                    };
+                }
+                
+                // Track the currently active circle's reset function (make it accessible globally)
+                window.currentActiveReset = null;
+                let currentActiveReset = window.currentActiveReset;
+                
+                // Generic function to setup click handler for a circle
+                function setupCircleClick(svgDoc, coord1, coord2) {
+                    // Find the specific path element by its coordinates
+                    const allPaths = svgDoc.querySelectorAll('path');
+                    let targetPath = null;
+                    
+                    for (const path of allPaths) {
+                        const d = path.getAttribute('d') || '';
+                        const fill = path.getAttribute('fill') || '';
+                        
+                        // Check if this is our target circle (blue circle at those coordinates)
+                        if (fill === '#3498db' && 
+                            d.includes(coord1) && 
+                            d.includes(coord2)) {
+                            targetPath = path;
+                            break;
+                        }
+                    }
+                    
+                    if (!targetPath) return;
+                    
+                    // Extract coordinates from path to calculate center and radius
+                    const coords = targetPath.getAttribute('d').match(/[\d.]+/g);
+                    if (!coords || coords.length < 4) return;
+                    
+                    // Find the main coordinates (usually the first two are the key ones)
+                    const x1 = parseFloat(coord1);
+                    const y1 = parseFloat(coord2);
+                    
+                    // Find the corresponding min/max coordinates to calculate center
+                    const allX = [];
+                    const allY = [];
+                    for (let i = 0; i < coords.length - 1; i += 2) {
+                        allX.push(parseFloat(coords[i]));
+                        allY.push(parseFloat(coords[i + 1]));
+                    }
+                    const minX = Math.min(...allX);
+                    const maxX = Math.max(...allX);
+                    const minY = Math.min(...allY);
+                    const maxY = Math.max(...allY);
+                    
+                    const centerX = (minX + maxX) / 2;
+                    const centerY = (minY + maxY) / 2;
+                    const radius = (maxX - minX) / 2;
+                    
+                    // Store original state
+                    const originalFill = targetPath.getAttribute('fill');
+                    let isClicked = false;
+                    
+                    // Find the parent group
+                    let parentGroup = targetPath.parentElement;
+                    if (!parentGroup || parentGroup.tagName !== 'g') {
+                        parentGroup = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'g');
+                        targetPath.parentElement.insertBefore(parentGroup, targetPath);
+                        parentGroup.appendChild(targetPath);
+                    }
+                    
+                    // Find plus sign lines (horizontal and vertical white paths) near this circle
+                    let plusHorizontal = null;
+                    let plusVertical = null;
+                    
+                    // Look for white paths nearby
+                    const allWhitePaths = svgDoc.querySelectorAll('path[fill="#ffffff"], path[fill="white"]');
+                    
+                    for (const path of allWhitePaths) {
+                        const d = path.getAttribute('d') || '';
+                        // Check if path is near our circle center (within radius * 1.5)
+                        const pathCoords = d.match(/[\d.]+/g);
+                        if (pathCoords && pathCoords.length >= 2) {
+                            for (let i = 0; i < pathCoords.length - 1; i += 2) {
+                                const x = parseFloat(pathCoords[i]);
+                                const y = parseFloat(pathCoords[i + 1]);
+                                const distX = Math.abs(x - centerX);
+                                const distY = Math.abs(y - centerY);
+                                
+                                // Check if this path is within the circle's area
+                                if (distX < radius * 1.2 && distY < radius * 1.2) {
+                                    // Determine if it's horizontal or vertical based on path shape
+                                    const pathBounds = getPathBounds(d);
+                                    const width = pathBounds.maxX - pathBounds.minX;
+                                    const height = pathBounds.maxY - pathBounds.minY;
+                                    
+                                    if (width > height && !plusHorizontal) {
+                                        plusHorizontal = path;
+                                    } else if (height > width && !plusVertical) {
+                                        plusVertical = path;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Create X lines (will be added/removed on click)
+                    let xLine1 = null;
+                    let xLine2 = null;
+                    
+                    function createX() {
+                        if (xLine1 && xLine2) return; // X already exists
+                        
+                        // Hide plus sign lines
+                        if (plusHorizontal) {
+                            plusHorizontal.style.opacity = '0';
+                            plusHorizontal.style.pointerEvents = 'none';
+                        }
+                        if (plusVertical) {
+                            plusVertical.style.opacity = '0';
+                            plusVertical.style.pointerEvents = 'none';
+                        }
+                        
+                        const offset = radius * 0.5;
+                        
+                        // Create first diagonal line
+                        xLine1 = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        xLine1.setAttribute('d', `M ${centerX - offset} ${centerY - offset} L ${centerX + offset} ${centerY + offset}`);
+                        xLine1.setAttribute('stroke', '#3498db');
+                        xLine1.setAttribute('stroke-width', '4');
+                        xLine1.setAttribute('stroke-linecap', 'round');
+                        xLine1.setAttribute('fill', 'none');
+                        xLine1.style.pointerEvents = 'none';
+                        
+                        // Create second diagonal line
+                        xLine2 = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        xLine2.setAttribute('d', `M ${centerX - offset} ${centerY + offset} L ${centerX + offset} ${centerY - offset}`);
+                        xLine2.setAttribute('stroke', '#3498db');
+                        xLine2.setAttribute('stroke-width', '4');
+                        xLine2.setAttribute('stroke-linecap', 'round');
+                        xLine2.setAttribute('fill', 'none');
+                        xLine2.style.pointerEvents = 'none';
+                        
+                        // Append to parent group so they appear on top
+                        parentGroup.appendChild(xLine1);
+                        parentGroup.appendChild(xLine2);
+                    }
+                    
+                    function removeX() {
+                        // Show plus sign lines again
+                        if (plusHorizontal) {
+                            plusHorizontal.style.opacity = '1';
+                            plusHorizontal.style.pointerEvents = 'auto';
+                        }
+                        if (plusVertical) {
+                            plusVertical.style.opacity = '1';
+                            plusVertical.style.pointerEvents = 'auto';
+                        }
+                        
+                        // Remove X lines
+                        if (xLine1 && xLine1.parentElement) {
+                            xLine1.parentElement.removeChild(xLine1);
+                            xLine1 = null;
+                        }
+                        if (xLine2 && xLine2.parentElement) {
+                            xLine2.parentElement.removeChild(xLine2);
+                            xLine2 = null;
+                        }
+                    }
+                    
+                    // Create reset function for this circle
+                    function resetCircle() {
+                        targetPath.setAttribute('fill', originalFill);
+                        removeX();
+                        isClicked = false;
+                        // Clear the active reset if this was the active circle
+                        if (currentActiveReset === resetCircle) {
+                            currentActiveReset = null;
+                            window.currentActiveReset = null;
+                        }
+                        // Hide modal when resetting
+                        hidePartModal();
+                    }
+                    
+                    // Create click handler function
+                    function handleClick(e) {
+                        e.stopPropagation();
+                        
+                        // Get click position for modal positioning
+                        const clickX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+                        const clickY = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+                        
+                        // Create part key from coordinates
+                        const partKey = coord1 + '_' + coord2;
+                        
+                        if (isClicked) {
+                            // Reset to original state and hide modal
+                            resetCircle();
+                            hidePartModal();
+                        } else {
+                            // Close any other open circle first
+                            if (window.currentActiveReset && window.currentActiveReset !== resetCircle) {
+                                window.currentActiveReset();
+                            }
+                            currentActiveReset = window.currentActiveReset;
+                            
+                            // If modal is already open, hide it immediately (no animation) before showing new one
+                            const modal = document.getElementById('partDetailsModal');
+                            if (modal && modal.style.display === 'block') {
+                                // Immediately reset modal state without animation
+                                hidePartModal(true);
+                            }
+                            
+                            // Change to white and add X
+                            targetPath.setAttribute('fill', '#ffffff');
+                            createX();
+                            isClicked = true;
+                            currentActiveReset = resetCircle;
+                            window.currentActiveReset = resetCircle;
+                            
+                            // Show modal with part information (use requestAnimationFrame to ensure state is reset)
+                            requestAnimationFrame(() => {
+                                showPartModal(partKey, clickX, clickY);
+                            });
+                        }
+                    }
+                    
+                    // Add click handler to the circle
+                    targetPath.style.cursor = 'pointer';
+                    targetPath.style.transition = 'fill 0.3s ease';
+                    targetPath.addEventListener('click', handleClick);
+                    
+                    // Also make plus sign paths clickable
+                    if (plusHorizontal) {
+                        plusHorizontal.style.cursor = 'pointer';
+                        plusHorizontal.style.pointerEvents = 'auto';
+                        plusHorizontal.addEventListener('click', handleClick);
+                    }
+                    if (plusVertical) {
+                        plusVertical.style.cursor = 'pointer';
+                        plusVertical.style.pointerEvents = 'auto';
+                        plusVertical.addEventListener('click', handleClick);
+                    }
+                }
+                
+                function initSVG() {
+                    try {
+                        const svgDoc = svgObject.contentDocument;
+                        if (!svgDoc) return;
+                        
+                        // Setup click handlers for all circles
+                        // Circle 1: coordinates "655.183594" and "320.410156"
+                        setupCircleClick(svgDoc, '655.183594', '320.410156');
+                        
+                        // Circle 2: coordinates "820.820312" and "527.320312"
+                        setupCircleClick(svgDoc, '820.820312', '527.320312');
+                        
+                        // Circle 3: coordinates "437.828125" and "441.609375"
+                        setupCircleClick(svgDoc, '437.828125', '441.609375');
+                        
+                        // Circle 4: coordinates "986.964844" and "347.714844"
+                        setupCircleClick(svgDoc, '986.964844', '347.714844');
+                        
+                        // Circle 5: coordinates "986.964844" and "490.707031"
+                        setupCircleClick(svgDoc, '986.964844', '490.707031');
+                        
+                        // Circle 6: coordinates "771.960938" and "283.792969"
+                        setupCircleClick(svgDoc, '771.960938', '283.792969');
+                        
+                        // Circle 7: coordinates "1140.957031" and "283.792969"
+                        setupCircleClick(svgDoc, '1140.957031', '283.792969');
+                        
+                        // Circle 8: coordinates "538.261719" and "347.714844"
+                        setupCircleClick(svgDoc, '538.261719', '347.714844');
+                    } catch (e) {
+                        console.log('Could not access SVG content:', e);
+                    }
+                }
+                
+                // Try immediately if already loaded
+                initSVG();
+                
+                // Also try on load event
+                svgObject.addEventListener('load', initSVG);
+            }
+            
+            // Setup SVG icon click after a short delay
+            setTimeout(setupSVGIconClick, 500);
         });
     </script>
 </body>
