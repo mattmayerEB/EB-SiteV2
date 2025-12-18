@@ -146,7 +146,7 @@
     <!-- Popular Protection Plans Section -->
     <section class="protection-plans" id="plans">
         <div class="container">
-            <h2>What We Offer</h2>
+            <h2><strong>What We Offer</strong></h2>
             <div class="plans-grid">
                 <div class="plan-card" onclick="window.location.href='auto/index.html'" style="cursor: pointer;">
                     <div class="plan-icon">
@@ -175,7 +175,7 @@
     <!-- Warranty Statistics Section -->
     <section class="warranty-statistics">
         <div class="container">
-            <h2>Here's our statline</h2>
+            <h2><strong>Here's our statline</strong></h2>
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number" data-target="145000" data-suffix="+">0</div>
@@ -200,7 +200,7 @@
     <!-- How It Works Section -->
     <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <h2>How It Works</h2>
+            <h2><strong>How It Works</strong></h2>
             <div class="steps">
                 <div class="step">
                     <div class="step-icon">
@@ -243,7 +243,7 @@
     </section>
 
     <!-- Breakdown Costs Section -->
-    <section class="breakdown-costs-section" style="padding: 80px 20px; background-color: #ffffff; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+    <section class="breakdown-costs-section" style="padding: 80px 20px; background-color: #ffffff; border-bottom: 1px solid #e2e8f0;">
         <style>
             @media (max-width: 1024px) {
                 .breakdown-costs-section {
@@ -294,7 +294,7 @@
             /* Modal slide-in animation handled via transitions */
         </style>
         <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
-            <h1 style="font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: #1e293b; margin-bottom: 20px; line-height: 1.3;">Breakdowns happen. Will you be prepared?</h1>
+            <h1 style="font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: #1e293b; margin-bottom: 20px; line-height: 1.3;">Are you prepared for a breakdown?</h1>
             <p style="font-size: clamp(14px, 1.5vw, 18px); color: #64748b; max-width: 800px; margin: 0 auto; margin-bottom: 30px;">Select a model to reveal the average costs of repair per part without EverythingBreaks.</p>
             
             <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
@@ -309,11 +309,10 @@
                         <img src="images/Jetta_With_Plus_Sign.svg" alt="Volkswagen Jetta" style="width: 100%; max-width: 700px; height: auto; display: block;">
                     </object>
                 </div>
-                <div class="vehicle-image" data-vehicle-type="suv" style="display: none;">
-                    <img src="images/CRV White.png" alt="Honda CRV" style="width: 100%; max-width: 400px; height: auto; display: block;">
-                </div>
-                <div class="vehicle-image" data-vehicle-type="suv" style="display: none;">
-                    <img src="images/Rav4.png" alt="Toyota Rav4" style="width: 100%; max-width: 400px; height: auto; display: block;">
+                <div class="vehicle-image" data-vehicle-type="suv" style="flex-shrink: 0; display: none;">
+                    <object data="images/Honda_CRV.svg" type="image/svg+xml" id="crv-svg" style="width: 100%; max-width: 700px; height: auto; display: block; cursor: default;">
+                        <img src="images/Honda_CRV.svg" alt="Honda CRV" style="width: 100%; max-width: 700px; height: auto; display: block;">
+                    </object>
                 </div>
                 <div class="vehicle-image" data-vehicle-type="truck" style="display: none;">
                     <img src="images/F150 White.png" alt="Ford F150" style="width: 100%; max-width: 400px; height: auto; display: block;">
@@ -322,7 +321,7 @@
                 <!-- Part Details Panel (appears to the right of clicked plus sign) -->
                 <div id="partDetailsModal" style="display: none; position: absolute; width: 350px; min-height: 450px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); z-index: 1000; transform: translateX(100%); opacity: 0; transition: transform 0.4s ease-out, opacity 0.4s ease-out, translateX 0.4s ease-out, translateY 0.4s ease-out;">
                     <!-- Header Section -->
-                    <div id="modalHeader" style="background: #006699; padding: 20px; text-align: center; min-height: 64px; display: flex; align-items: center; justify-content: center;">
+                    <div id="modalHeader" style="background: #1e3a8a; padding: 20px; text-align: center; min-height: 64px; display: flex; align-items: center; justify-content: center;">
                         <h3 id="modalPartName" style="margin: 0; color: #FFFFFF; font-size: 24px; font-weight: bold; font-family: Arial, sans-serif;">Part Name</h3>
                     </div>
                     <!-- Image Section -->
@@ -729,9 +728,9 @@
                     }
                 });
                 
-                // For car type, ensure the container shows only the car
+                // For car and SUV types, align to the left to make room for popup
                 const container = document.querySelector('.vehicle-images-container');
-                if (type === 'car') {
+                if (type === 'car' || type === 'suv') {
                     container.style.justifyContent = 'flex-start';
                 } else {
                     container.style.justifyContent = 'center';
@@ -784,49 +783,100 @@
                 '655.183594_320.410156': {
                     name: 'A/C Compressor',
                     image: 'images/AC_Compressor_Car.png',
-                    price: '$1,077'
+                    price: '$1,258'
                 },
                 '820.820312_527.320312': {
-                    name: 'Part Name',
-                    image: '',
-                    price: '$0'
+                    name: 'Suspension',
+                    image: 'images/Suspension_Car.png',
+                    price: '$1,682'
                 },
                 '437.828125_441.609375': {
                     name: 'Radiator',
                     image: 'images/Radiator_Auto.png',
-                    price: '$450'
+                    price: '$1,147'
                 },
                 '986.964844_347.714844': {
-                    name: 'Part Name',
-                    image: '',
-                    price: '$0'
+                    name: 'Power Window Motor',
+                    image: 'images/Power_Window_Motor_Car.png',
+                    price: '$663'
                 },
                 '986.964844_490.707031': {
-                    name: 'Part Name',
-                    image: '',
-                    price: '$0'
+                    name: 'Driveshaft',
+                    image: 'images/Driveshaft_Car.png',
+                    price: '$1,531'
                 },
                 '771.960938_283.792969': {
                     name: 'Power Steering',
                     image: 'images/Power_Steering_Car.png',
-                    price: '$0'
+                    price: '$896'
                 },
                 '1140.957031_283.792969': {
-                    name: 'Part Name',
-                    image: '',
-                    price: '$0'
+                    name: 'Wiring Harness',
+                    image: 'images/Wiring_Harness_Car.png',
+                    price: '$1,353'
                 },
                 '538.261719_347.714844': {
                     name: 'Engine',
                     image: 'images/Engine_Car.png',
-                    price: '$0'
+                    price: '$3,582'
+                }
+            };
+            
+            // SUV part information (Honda CRV)
+            const suvPartInfo = {
+                '0b8086c7f7': {
+                    name: 'Radiator',
+                    image: 'images/Radiator_Auto.png',
+                    price: '$1,147'
+                },
+                '5155cc51e5': {
+                    name: 'Engine',
+                    image: 'images/Engine_Car.png',
+                    price: '$3,582'
+                },
+                '54ae20345e': {
+                    name: 'Power Steering',
+                    image: 'images/Power_Steering_Car.png',
+                    price: '$896'
+                },
+                '3f9613836c': {
+                    name: 'Suspension',
+                    image: 'images/Suspension_Car.png',
+                    price: '$1,682'
+                },
+                '5b52ad7fcd': {
+                    name: 'Transmission',
+                    image: 'images/Transmission_Car.png',
+                    price: '$3,291'
+                },
+                '8f7ac5965c': {
+                    name: 'Generator',
+                    image: 'images/Generator_Car.png',
+                    price: '$5,698'
+                },
+                'd7a8c634a7': {
+                    name: 'Brake Caliper',
+                    image: 'images/Brake_Caliper_Car.png',
+                    price: '$213'
+                },
+                'c74a54530c': {
+                    name: 'Fuel Tank',
+                    image: 'images/Fuel_Tank_Car.png',
+                    price: '$1,694'
                 }
             };
             
             // Function to show part details modal
             function showPartModal(partKey, clickX, clickY) {
                 const modal = document.getElementById('partDetailsModal');
-                const part = partInfo[partKey] || { name: 'Part Name', image: '', price: '$0' };
+                // Check if it's an SUV part (prefixed with 'suv_')
+                let part;
+                if (partKey.startsWith('suv_')) {
+                    const suvKey = partKey.substring(4); // Remove 'suv_' prefix
+                    part = suvPartInfo[suvKey] || { name: 'Part Name', image: '', price: '$0' };
+                } else {
+                    part = partInfo[partKey] || { name: 'Part Name', image: '', price: '$0' };
+                }
                 
                 // Populate modal content
                 document.getElementById('modalPartName').textContent = part.name;
@@ -844,7 +894,18 @@
                 
                 // Position modal to the right of the SVG inside the container
                 const container = document.querySelector('.vehicle-images-container');
-                const svgObject = document.getElementById('jetta-svg');
+                // Determine which SVG is currently visible (Jetta or CRV)
+                let svgObject = document.getElementById('jetta-svg');
+                const jettaDiv = document.querySelector('[data-vehicle-type="car"]');
+                const crvDiv = document.querySelector('[data-vehicle-type="suv"]');
+                
+                // Check which vehicle is currently displayed
+                if (crvDiv && crvDiv.style.display !== 'none' && crvDiv.style.display !== '') {
+                    svgObject = document.getElementById('crv-svg');
+                }
+                
+                if (!svgObject) return; // No SVG found
+                
                 const containerRect = container.getBoundingClientRect();
                 const svgRect = svgObject.getBoundingClientRect();
                 
@@ -1351,6 +1412,321 @@
             
             // Setup SVG icon click after a short delay
             setTimeout(setupSVGIconClick, 500);
+            
+            // Handle SUV (Honda CRV) SVG icon click functionality
+            function setupSUVIconClick() {
+                const svgObject = document.getElementById('crv-svg');
+                if (!svgObject) return;
+                
+                // Helper function to get path bounds
+                function getPathBounds(d) {
+                    const coords = d.match(/[\d.]+/g);
+                    if (!coords || coords.length < 2) {
+                        return { minX: 0, maxX: 0, minY: 0, maxY: 0 };
+                    }
+                    const xs = [];
+                    const ys = [];
+                    for (let i = 0; i < coords.length - 1; i += 2) {
+                        xs.push(parseFloat(coords[i]));
+                        ys.push(parseFloat(coords[i + 1]));
+                    }
+                    return {
+                        minX: Math.min(...xs),
+                        maxX: Math.max(...xs),
+                        minY: Math.min(...ys),
+                        maxY: Math.max(...ys)
+                    };
+                }
+                
+                // Track the currently active circle's reset function (make it accessible globally)
+                let currentActiveReset = null;
+                
+                // Generic function to setup click handler for a circle by clip-path URL
+                function setupCircleClickByClipPath(svgDoc, clipPathId) {
+                    // Find the group element with the specific clip-path
+                    const allGroups = svgDoc.querySelectorAll('g[clip-path]');
+                    let targetPath = null;
+                    let targetGroup = null;
+                    
+                    for (const group of allGroups) {
+                        const clipPath = group.getAttribute('clip-path') || '';
+                        // Check if this group uses the target clip-path
+                        if (clipPath.includes(clipPathId)) {
+                            targetGroup = group;
+                            // Look for the blue circle path inside this group
+                            const paths = group.querySelectorAll('path');
+                            for (const path of paths) {
+                                const fill = path.getAttribute('fill') || '';
+                                if (fill === '#3498db') {
+                                    targetPath = path;
+                                    break;
+                                }
+                            }
+                            if (targetPath) break;
+                        }
+                    }
+                    
+                    if (!targetPath) {
+                        console.log('Could not find target path for clip-path:', clipPathId);
+                        return;
+                    }
+                    
+                    // Extract coordinates from path to calculate center and radius
+                    const coords = targetPath.getAttribute('d').match(/[\d.]+/g);
+                    if (!coords || coords.length < 4) return;
+                    
+                    // Find the corresponding min/max coordinates to calculate center
+                    const allX = [];
+                    const allY = [];
+                    for (let i = 0; i < coords.length - 1; i += 2) {
+                        allX.push(parseFloat(coords[i]));
+                        allY.push(parseFloat(coords[i + 1]));
+                    }
+                    const minX = Math.min(...allX);
+                    const maxX = Math.max(...allX);
+                    const minY = Math.min(...allY);
+                    const maxY = Math.max(...allY);
+                    
+                    const centerX = (minX + maxX) / 2;
+                    const centerY = (minY + maxY) / 2;
+                    const radius = (maxX - minX) / 2;
+                    
+                    // Store original state
+                    const originalFill = targetPath.getAttribute('fill');
+                    let isClicked = false;
+                    
+                    // Find the parent group (use targetGroup if found, otherwise use parent)
+                    let parentGroup = targetGroup || targetPath.parentElement;
+                    if (!parentGroup || parentGroup.tagName !== 'g') {
+                        parentGroup = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'g');
+                        targetPath.parentElement.insertBefore(parentGroup, targetPath);
+                        parentGroup.appendChild(targetPath);
+                    }
+                    
+                    // Find plus sign lines (horizontal and vertical white paths) near this circle
+                    // Look within the target group first, then search nearby
+                    let plusHorizontal = null;
+                    let plusVertical = null;
+                    
+                    // First, check within the same group
+                    if (targetGroup) {
+                        const groupPaths = targetGroup.querySelectorAll('path');
+                        for (const path of groupPaths) {
+                            const fill = path.getAttribute('fill') || '';
+                            if (fill === '#ffffff' || fill === 'white') {
+                                const d = path.getAttribute('d') || '';
+                                const pathBounds = getPathBounds(d);
+                                const width = pathBounds.maxX - pathBounds.minX;
+                                const height = pathBounds.maxY - pathBounds.minY;
+                                
+                                if (width > height && !plusHorizontal) {
+                                    plusHorizontal = path;
+                                } else if (height > width && !plusVertical) {
+                                    plusVertical = path;
+                                }
+                            }
+                        }
+                    }
+                    
+                    // If not found in group, search nearby
+                    if (!plusHorizontal || !plusVertical) {
+                        const allWhitePaths = svgDoc.querySelectorAll('path[fill="#ffffff"], path[fill="white"]');
+                        
+                        for (const path of allWhitePaths) {
+                            const d = path.getAttribute('d') || '';
+                            // Check if path is near our circle center (within radius * 1.5)
+                            const pathCoords = d.match(/[\d.]+/g);
+                            if (pathCoords && pathCoords.length >= 2) {
+                                for (let i = 0; i < pathCoords.length - 1; i += 2) {
+                                    const x = parseFloat(pathCoords[i]);
+                                    const y = parseFloat(pathCoords[i + 1]);
+                                    const distX = Math.abs(x - centerX);
+                                    const distY = Math.abs(y - centerY);
+                                    
+                                    // Check if this path is within the circle's area
+                                    if (distX < radius * 1.2 && distY < radius * 1.2) {
+                                        // Determine if it's horizontal or vertical based on path shape
+                                        const pathBounds = getPathBounds(d);
+                                        const width = pathBounds.maxX - pathBounds.minX;
+                                        const height = pathBounds.maxY - pathBounds.minY;
+                                        
+                                        if (width > height && !plusHorizontal) {
+                                            plusHorizontal = path;
+                                        } else if (height > width && !plusVertical) {
+                                            plusVertical = path;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Create X lines (will be added/removed on click)
+                    let xLine1 = null;
+                    let xLine2 = null;
+                    
+                    function createX() {
+                        if (xLine1 && xLine2) return; // X already exists
+                        
+                        // Hide plus sign lines
+                        if (plusHorizontal) {
+                            plusHorizontal.style.opacity = '0';
+                            plusHorizontal.style.pointerEvents = 'none';
+                        }
+                        if (plusVertical) {
+                            plusVertical.style.opacity = '0';
+                            plusVertical.style.pointerEvents = 'none';
+                        }
+                        
+                        const offset = radius * 0.5;
+                        
+                        // Create first diagonal line
+                        xLine1 = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        xLine1.setAttribute('d', `M ${centerX - offset} ${centerY - offset} L ${centerX + offset} ${centerY + offset}`);
+                        xLine1.setAttribute('stroke', '#3498db');
+                        xLine1.setAttribute('stroke-width', '4');
+                        xLine1.setAttribute('stroke-linecap', 'round');
+                        xLine1.setAttribute('fill', 'none');
+                        xLine1.style.pointerEvents = 'none';
+                        
+                        // Create second diagonal line
+                        xLine2 = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        xLine2.setAttribute('d', `M ${centerX - offset} ${centerY + offset} L ${centerX + offset} ${centerY - offset}`);
+                        xLine2.setAttribute('stroke', '#3498db');
+                        xLine2.setAttribute('stroke-width', '4');
+                        xLine2.setAttribute('stroke-linecap', 'round');
+                        xLine2.setAttribute('fill', 'none');
+                        xLine2.style.pointerEvents = 'none';
+                        
+                        // Append to parent group so they appear on top
+                        parentGroup.appendChild(xLine1);
+                        parentGroup.appendChild(xLine2);
+                    }
+                    
+                    function removeX() {
+                        // Show plus sign lines again
+                        if (plusHorizontal) {
+                            plusHorizontal.style.opacity = '1';
+                            plusHorizontal.style.pointerEvents = 'auto';
+                        }
+                        if (plusVertical) {
+                            plusVertical.style.opacity = '1';
+                            plusVertical.style.pointerEvents = 'auto';
+                        }
+                        
+                        // Remove X lines
+                        if (xLine1 && xLine1.parentElement) {
+                            xLine1.parentElement.removeChild(xLine1);
+                            xLine1 = null;
+                        }
+                        if (xLine2 && xLine2.parentElement) {
+                            xLine2.parentElement.removeChild(xLine2);
+                            xLine2 = null;
+                        }
+                    }
+                    
+                    // Create reset function for this circle
+                    function resetCircle() {
+                        targetPath.setAttribute('fill', originalFill);
+                        removeX();
+                        isClicked = false;
+                        // Clear the active reset if this was the active circle
+                        if (currentActiveReset === resetCircle) {
+                            currentActiveReset = null;
+                        }
+                        // Hide modal when resetting
+                        hidePartModal();
+                    }
+                    
+                    // Create click handler function
+                    function handleClick(e) {
+                        e.stopPropagation();
+                        
+                        // Get click position for modal positioning
+                        const clickX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+                        const clickY = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+                        
+                        // Create part key from clip-path ID (prefix with 'suv_' to distinguish from car parts)
+                        const partKey = 'suv_' + clipPathId;
+                        
+                        if (isClicked) {
+                            // Reset to original state and hide modal
+                            resetCircle();
+                            hidePartModal();
+                        } else {
+                            // Close any other open circle first (check both car and SUV)
+                            if (window.currentActiveReset && window.currentActiveReset !== resetCircle) {
+                                window.currentActiveReset();
+                            }
+                            currentActiveReset = resetCircle;
+                            
+                            // If modal is already open, hide it immediately (no animation) before showing new one
+                            const modal = document.getElementById('partDetailsModal');
+                            if (modal && modal.style.display === 'block') {
+                                // Immediately reset modal state without animation
+                                hidePartModal(true);
+                            }
+                            
+                            // Change to white and add X
+                            targetPath.setAttribute('fill', '#ffffff');
+                            createX();
+                            isClicked = true;
+                            currentActiveReset = resetCircle;
+                            window.currentActiveReset = resetCircle;
+                            
+                            // Show modal with part information (use requestAnimationFrame to ensure state is reset)
+                            requestAnimationFrame(() => {
+                                showPartModal(partKey, clickX, clickY);
+                            });
+                        }
+                    }
+                    
+                    // Add click handler to the circle
+                    targetPath.style.cursor = 'pointer';
+                    targetPath.style.transition = 'fill 0.3s ease';
+                    targetPath.addEventListener('click', handleClick);
+                    
+                    // Also make plus sign paths clickable
+                    if (plusHorizontal) {
+                        plusHorizontal.style.cursor = 'pointer';
+                        plusHorizontal.style.pointerEvents = 'auto';
+                        plusHorizontal.addEventListener('click', handleClick);
+                    }
+                    if (plusVertical) {
+                        plusVertical.style.cursor = 'pointer';
+                        plusVertical.style.pointerEvents = 'auto';
+                        plusVertical.addEventListener('click', handleClick);
+                    }
+                }
+                
+                function initSVG() {
+                    try {
+                        const svgDoc = svgObject.contentDocument;
+                        if (!svgDoc) return;
+                        
+                        // Setup click handlers for all circles in CRV SVG using clip-path URLs
+                        setupCircleClickByClipPath(svgDoc, '54ae20345e');
+                        setupCircleClickByClipPath(svgDoc, '5155cc51e5');
+                        setupCircleClickByClipPath(svgDoc, '0b8086c7f7');
+                        setupCircleClickByClipPath(svgDoc, '5b52ad7fcd');
+                        setupCircleClickByClipPath(svgDoc, '3f9613836c');
+                        setupCircleClickByClipPath(svgDoc, '8f7ac5965c');
+                        setupCircleClickByClipPath(svgDoc, 'c74a54530c');
+                        setupCircleClickByClipPath(svgDoc, 'd7a8c634a7');
+                    } catch (e) {
+                        console.log('Could not access CRV SVG content:', e);
+                    }
+                }
+                
+                // Try immediately if already loaded
+                initSVG();
+                
+                // Also try on load event
+                svgObject.addEventListener('load', initSVG);
+            }
+            
+            // Setup SUV SVG icon click after a short delay
+            setTimeout(setupSUVIconClick, 500);
         });
     </script>
 </body>
