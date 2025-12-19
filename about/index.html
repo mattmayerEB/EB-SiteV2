@@ -21,6 +21,56 @@
         })(window,document,'script','dataLayer','GTM-KQ22FWR');</script>
         
         <!-- End Google Tag Manager -->
+    
+    <!-- Protect phone number from being changed by GTM or other scripts -->
+    <script>
+        (function() {
+            const correctPhone = '888-994-0914';
+            const correctHref = 'tel:888-994-0914';
+            
+            function lockPhoneNumber() {
+                const link = document.getElementById('customer-service-phone');
+                if (link && !link._locked) {
+                    link._locked = true;
+                    link.href = correctHref;
+                    link.setAttribute('data-phone', correctPhone);
+                    link.setAttribute('class', 'protected-phone');
+                    
+                    const observer = new MutationObserver(function() {
+                        if (link.href !== correctHref) link.href = correctHref;
+                        link.setAttribute('data-phone', correctPhone);
+                    });
+                    
+                    observer.observe(link, {
+                        childList: true,
+                        characterData: true,
+                        subtree: true,
+                        attributes: true,
+                        attributeFilter: ['href']
+                    });
+                    
+                    function checkAndFix() {
+                        const currentLink = document.getElementById('customer-service-phone');
+                        if (currentLink) {
+                            if (currentLink.href !== correctHref) currentLink.href = correctHref;
+                            currentLink.setAttribute('data-phone', correctPhone);
+                        }
+                        requestAnimationFrame(checkAndFix);
+                    }
+                    requestAnimationFrame(checkAndFix);
+                }
+            }
+            
+            lockPhoneNumber();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', lockPhoneNumber);
+            }
+            setTimeout(lockPhoneNumber, 0);
+            setTimeout(lockPhoneNumber, 50);
+            setTimeout(lockPhoneNumber, 500);
+            window.addEventListener('load', lockPhoneNumber);
+        })();
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -35,7 +85,7 @@
                 <div class="top-bar-content">
                     <span class="top-bar-text" data-translate="topbar-text">Protection Plans for Auto, Home & Electronics — Get Covered Today!</span>
                     <div class="top-bar-right">
-                        <span class="phone"><i class="fas fa-phone"></i> <a href="tel:888-994-0914">888-994-0914</a> <span class="phone-label" data-translate="topbar-customer-service">Customer Service</span></span>
+                        <span class="phone"><i class="fas fa-phone"></i> <a href="tel:888-994-0914" id="customer-service-phone" data-phone="888-994-0914" class="protected-phone">888-994-0914</a> <span class="phone-label" data-translate="topbar-customer-service">Customer Service</span></span>
                         <span class="phone"><i class="fas fa-phone"></i> <a href="tel:800-895-0842">800-895-0842</a> <span class="phone-label" data-translate="topbar-sales">Sales</span></span>
                         <span class="support"><a href="mailto:support@everythingbreaks.com">support@everythingbreaks.com</a></span>
                     </div>
@@ -48,7 +98,7 @@
                 <div class="nav-content">
                     <div class="logo">
                         <a href="../index.html">
-                            <img src="../images/logo.png" alt="Everything Breaks" class="logo-img">
+                            <img src="../images/Christmas_Logo2.svg" alt="Everything Breaks" class="logo-img">
                         </a>
                     </div>
                     
@@ -348,7 +398,7 @@
         <div class="container">
             <div class="footer-content">
                 <div style="text-align: center; margin-bottom: 40px;">
-                    <img src="../images/logo.png" alt="Everything Breaks" style="max-width: 200px; height: auto; display: block; margin: 0 auto;">
+                    <img src="../images/Christmas_Logo2.svg" alt="Everything Breaks" style="max-width: 200px; height: auto; display: block; margin: 0 auto;">
                 </div>
                 <div class="footer-columns">
                     <div class="footer-column">
@@ -429,268 +479,5 @@
             75% { transform: rotate(5deg); }
         }
     </style>
-</body>
-</html>
-            en: {
-                // Navigation
-                'nav-home': 'Home',
-                'nav-plans': 'Plans',
-                'nav-auto': 'Auto',
-                'nav-home-plan': 'Home',
-                'nav-electronics': 'Electronics',
-                'nav-claims': 'Claims',
-                'nav-about': 'About',
-                'nav-contact': 'Contact',
-                'nav-signin': 'Sign In',
-                'nav-get-quote': 'Get a Quote',
-                // Top bar
-                'topbar-text': 'Protection Plans for Auto, Home & Electronics — Get Covered Today!',
-                'topbar-customer-service': 'Customer Service',
-                'topbar-sales': 'Sales',
-                // Info kit
-                'info-kit-text': 'GET A FREE INFO KIT!',
-                'info-kit-firstname': 'First Name',
-                'info-kit-lastname': 'Last Name',
-                'info-kit-email': 'Email',
-                'info-kit-phone': 'Phone',
-                'info-kit-download': 'DOWNLOAD NOW',
-                // Modals
-                'modal-privacy-title': 'Privacy & Consent Notice',
-                'modal-privacy-text': 'We respect your privacy and want to make sure you are aware of a few things. By filling out this form you explicitly agree to be contacted by Everything Breaks Inc. about their products or services by phone call, pre-recorded message, email, and/or text message at the telephone/mobile number/email that you entered above. These calls/messages may be sent using automated telephone technology, even if your telephone or mobile number is currently listed on any state, federal, or corporate "Do Not Call" list. Message and data rates may apply. You are not required to give your consent here as a condition of any purchase.',
-                'modal-privacy-agree': 'I have read and agree to the terms above',
-                'modal-accept-download': 'Accept & Download',
-                'modal-cancel': 'Cancel',
-                // About page
-                'about-hero-title': 'Protecting What Matters Most',
-                'about-hero-text': 'Everything Breaks has been providing comprehensive protection plans for homes, electronics, and vehicles since 2019. We understand that when things break, you need fast, reliable service to get back to normal.',
-                'about-story-title': 'Our Story',
-                'about-story-text1': 'With 20 years of experience working in the Protection Plan business, the head honchos at Everything Breaks know that traditional extended warranties don\'t always work in the consumer\'s favor.',
-                'about-story-text2': 'Paying a large sum upfront for extended coverage isn\'t consumer-friendly, and being bound to a contract for up to 72 months is just plain unreasonable.',
-                'about-story-text3': 'So, they created a monthly protection program that works for you by alleviating hefty upfront payments and long-term commitments. At Everything Breaks, we always keep the customer in mind when developing new protection plans. It\'s our mission and pleasure to offer great coverage at an affordable price.',
-                'about-stat-families': 'Families Protected',
-                'about-stat-claims': 'Claims Processed',
-                'about-stat-satisfaction': 'Customer Satisfaction',
-                'about-stat-paid': 'Claims Paid',
-                'about-mission-title': 'Our Mission & Values',
-                'about-value-reliable-title': 'Reliable Protection',
-                'about-value-reliable-text': 'We provide comprehensive coverage that actually works when you need it most. No fine print, no surprises.',
-                'about-value-fast-title': 'Fast Response',
-                'about-value-fast-text': 'When something breaks, time matters. Our average response time is under 4 minutes for emergency claims.',
-                'about-value-transparent-title': 'Transparent Service',
-                'about-value-transparent-text': 'Clear pricing, honest communication, and no hidden fees. What you see is what you get.',
-                'about-value-customer-title': 'Customer First',
-                'about-value-customer-text': 'Every decision we make is guided by what\'s best for our customers and their families.',
-                'about-value-quality-title': 'Quality Repairs',
-                'about-value-quality-text': 'We work with certified, licensed professionals who stand behind their work with guarantees.',
-                'about-value-peace-title': 'Peace of Mind',
-                'about-value-peace-text': 'Our goal is to give you confidence that when things break, you\'re covered and taken care of.',
-                'about-sponsor-title': 'Our Latest Sponsorship',
-                'about-sponsor-subtitle': 'Everything Breaks at Texas Motorplex NHRA Event',
-                'about-sponsor-heading': 'Everything Breaks Sponsors Drag Race Team at Texas Motorplex',
-                'about-sponsor-text1': 'We\'re thrilled to share our latest partnership - sponsoring Paul Lee at the prestigious Texas Motorplex NHRA event. As a company that protects everything that breaks, we understand the importance of high-performance equipment and reliability, even at 300+ mph!',
-                'about-sponsor-text2': 'This sponsorship reflects our commitment to supporting high-performance motorsports and the incredible athletes who push the limits of speed and engineering.',
-                'about-event-highlights': 'Event Highlights',
-                'about-event-partners': 'Our Partners',
-                'about-event-photos': 'Event Photos',
-                'about-cta-title': 'Ready to Join Our Family?',
-                'about-cta-text': 'Experience the Everything Breaks difference. Get protected today and enjoy the peace of mind that comes with comprehensive coverage.',
-                'about-cta-quote': 'Get Your Quote',
-                'about-cta-call': 'Call Us Today',
-                // Footer
-                'footer-auto': 'AUTO',
-                'footer-auto-critical': 'Critical Coverage',
-                'footer-auto-standard': 'Standard Powertrain',
-                'footer-auto-enhanced': 'Enhanced Powertrain',
-                'footer-auto-deluxe': 'Deluxe',
-                'footer-auto-topline': 'Topline',
-                'footer-electronics': 'ELECTRONICS',
-                'footer-electronics-tech': 'Technology Plan',
-                'footer-electronics-consumer': 'Consumer Electronics Plan',
-                'footer-home': 'HOME'
-            },
-            es: {
-                // Navigation
-                'nav-home': 'Inicio',
-                'nav-plans': 'Planes',
-                'nav-auto': 'Auto',
-                'nav-home-plan': 'Hogar',
-                'nav-electronics': 'Electrónicos',
-                'nav-claims': 'Reclamos',
-                'nav-about': 'Acerca de',
-                'nav-contact': 'Contacto',
-                'nav-signin': 'Iniciar Sesión',
-                'nav-get-quote': 'Obtener Cotización',
-                // Top bar
-                'topbar-text': 'Planes de Protección para Auto, Hogar y Electrónicos — ¡Protéjase Hoy!',
-                'topbar-customer-service': 'Servicio al Cliente',
-                'topbar-sales': 'Ventas',
-                // Info kit
-                'info-kit-text': '¡OBTENGA UN KIT DE INFORMACIÓN GRATIS!',
-                'info-kit-firstname': 'Nombre',
-                'info-kit-lastname': 'Apellido',
-                'info-kit-email': 'Correo Electrónico',
-                'info-kit-phone': 'Teléfono',
-                'info-kit-download': 'DESCARGAR AHORA',
-                // Modals
-                'modal-privacy-title': 'Aviso de Privacidad y Consentimiento',
-                'modal-privacy-text': 'Respetamos su privacidad y queremos asegurarnos de que esté al tanto de algunas cosas. Al completar este formulario, acepta explícitamente ser contactado por Everything Breaks Inc. sobre sus productos o servicios por llamada telefónica, mensaje pregrabado, correo electrónico y/o mensaje de texto en el número de teléfono/móvil/correo electrónico que ingresó arriba. Estas llamadas/mensajes pueden enviarse utilizando tecnología telefónica automatizada, incluso si su número de teléfono o móvil está actualmente en cualquier lista estatal, federal o corporativa de "No Llamar". Pueden aplicarse tarifas de mensajes y datos. No se requiere que dé su consentimiento aquí como condición de ninguna compra.',
-                'modal-privacy-agree': 'He leído y acepto los términos anteriores',
-                'modal-accept-download': 'Aceptar y Descargar',
-                'modal-cancel': 'Cancelar',
-                // About page
-                'about-hero-title': 'Protegiendo Lo Que Más Importa',
-                'about-hero-text': 'Everything Breaks ha estado proporcionando planes de protección integrales para hogares, electrónicos y vehículos desde 2019. Entendemos que cuando las cosas se descomponen, necesita un servicio rápido y confiable para volver a la normalidad.',
-                'about-story-title': 'Nuestra Historia',
-                'about-story-text1': 'Con 20 años de experiencia trabajando en el negocio de Planes de Protección, los jefes de Everything Breaks saben que las garantías extendidas tradicionales no siempre funcionan a favor del consumidor.',
-                'about-story-text2': 'Pagar una gran suma por adelantado para una cobertura extendida no es favorable para el consumidor, y estar vinculado a un contrato por hasta 72 meses es simplemente irrazonable.',
-                'about-story-text3': 'Entonces, crearon un programa de protección mensual que funciona para usted aliviar los pagos iniciales considerables y los compromisos a largo plazo. En Everything Breaks, siempre tenemos al cliente en mente al desarrollar nuevos planes de protección. Es nuestra misión y placer ofrecer una gran cobertura a un precio asequible.',
-                'about-stat-families': 'Familias Protegidas',
-                'about-stat-claims': 'Reclamos Procesados',
-                'about-stat-satisfaction': 'Satisfacción del Cliente',
-                'about-stat-paid': 'Reclamos Pagados',
-                'about-mission-title': 'Nuestra Misión y Valores',
-                'about-value-reliable-title': 'Protección Confiable',
-                'about-value-reliable-text': 'Proporcionamos una cobertura integral que realmente funciona cuando más la necesita. Sin letra pequeña, sin sorpresas.',
-                'about-value-fast-title': 'Respuesta Rápida',
-                'about-value-fast-text': 'Cuando algo se descompone, el tiempo importa. Nuestro tiempo promedio de respuesta es inferior a 4 minutos para reclamos de emergencia.',
-                'about-value-transparent-title': 'Servicio Transparente',
-                'about-value-transparent-text': 'Precios claros, comunicación honesta y sin tarifas ocultas. Lo que ves es lo que obtienes.',
-                'about-value-customer-title': 'El Cliente Primero',
-                'about-value-customer-text': 'Cada decisión que tomamos está guiada por lo que es mejor para nuestros clientes y sus familias.',
-                'about-value-quality-title': 'Reparaciones de Calidad',
-                'about-value-quality-text': 'Trabajamos con profesionales certificados y con licencia que respaldan su trabajo con garantías.',
-                'about-value-peace-title': 'Tranquilidad',
-                'about-value-peace-text': 'Nuestro objetivo es darle confianza de que cuando las cosas se descomponen, está cubierto y atendido.',
-                'about-sponsor-title': 'Nuestro Último Patrocinio',
-                'about-sponsor-subtitle': 'Everything Breaks en el Evento NHRA de Texas Motorplex',
-                'about-sponsor-heading': 'Everything Breaks Patrocina Equipo de Carreras en Texas Motorplex',
-                'about-sponsor-text1': '¡Estamos emocionados de compartir nuestra última asociación: patrocinar a Paul Lee en el prestigioso evento NHRA de Texas Motorplex! Como una empresa que protege todo lo que se descompone, entendemos la importancia del equipo de alto rendimiento y la confiabilidad, ¡incluso a más de 300 mph!',
-                'about-sponsor-text2': 'Este patrocinio refleja nuestro compromiso de apoyar los deportes de motor de alto rendimiento y los increíbles atletas que empujan los límites de la velocidad y la ingeniería.',
-                'about-event-highlights': 'Destacados del Evento',
-                'about-event-partners': 'Nuestros Socios',
-                'about-event-photos': 'Fotos del Evento',
-                'about-cta-title': '¿Listo para Unirse a Nuestra Familia?',
-                'about-cta-text': 'Experimente la diferencia de Everything Breaks. Protéjase hoy y disfrute de la tranquilidad que viene con una cobertura integral.',
-                'about-cta-quote': 'Obtenga Su Cotización',
-                'about-cta-call': 'Llámenos Hoy',
-                // Footer
-                'footer-auto': 'AUTO',
-                'footer-auto-critical': 'Cobertura Crítica',
-                'footer-auto-standard': 'Tren de Potencia Estándar',
-                'footer-auto-enhanced': 'Tren de Potencia Mejorado',
-                'footer-auto-deluxe': 'De Lujo',
-                'footer-auto-topline': 'Línea Superior',
-                'footer-electronics': 'ELECTRÓNICOS',
-                'footer-electronics-tech': 'Plan de Tecnología',
-                'footer-electronics-consumer': 'Plan de Electrónicos de Consumo',
-                'footer-home': 'HOGAR'
-            }
-        };
-        
-        let currentLanguage = localStorage.getItem('language') || 'en';
-        
-        function translatePage(lang) {
-            currentLanguage = lang;
-            localStorage.setItem('language', lang);
-            
-            const trans = translations[lang];
-            if (!trans) return;
-            
-            // Update all elements with data-translate attribute
-            document.querySelectorAll('[data-translate]').forEach(el => {
-                const key = el.getAttribute('data-translate');
-                if (trans[key]) {
-                    if ((el.tagName === 'INPUT' && el.type !== 'submit' && el.type !== 'button') || el.tagName === 'TEXTAREA') {
-                        el.placeholder = trans[key];
-                    } else if (el.tagName === 'LABEL') {
-                        el.textContent = trans[key];
-                    } else if (el.tagName === 'BUTTON') {
-                        if (trans[key].includes('<')) {
-                            el.innerHTML = trans[key];
-                        } else {
-                            el.textContent = trans[key];
-                        }
-                    } else if (el.tagName === 'OPTION') {
-                        el.textContent = trans[key];
-                    } else if (el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'H2' || el.tagName === 'H1') {
-                        if (trans[key].includes('<')) {
-                            el.innerHTML = trans[key];
-                        } else {
-                            el.textContent = trans[key];
-                        }
-                    } else {
-                        const icon = el.querySelector('i, svg, img');
-                        if (icon && el.tagName === 'A') {
-                            const iconHTML = icon.outerHTML;
-                            const translationText = trans[key].replace(/<[^>]+>/g, '').trim();
-                            el.innerHTML = translationText + ' ' + iconHTML;
-                        } else {
-                            el.innerHTML = trans[key];
-                        }
-                    }
-                }
-            });
-            
-            updateLanguageSelector();
-        }
-        
-        function updateLanguageSelector() {
-            const languageCurrentText = document.getElementById('languageCurrentText');
-            const languageOptions = document.querySelectorAll('.language-option');
-            
-            if (languageCurrentText) {
-                languageCurrentText.textContent = currentLanguage === 'en' ? 'EN' : 'ES';
-            }
-            
-            languageOptions.forEach(option => {
-                const lang = option.getAttribute('data-lang');
-                if (lang === currentLanguage) {
-                    option.classList.add('active');
-                } else {
-                    option.classList.remove('active');
-                }
-            });
-        }
-        
-        // Initialize language on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                if (currentLanguage === 'es') {
-                    translatePage('es');
-                }
-                updateLanguageSelector();
-                
-                // Language selector handlers
-                const languageCurrent = document.getElementById('languageCurrent');
-                const languageDropdown = document.getElementById('languageDropdown');
-                const languageSelector = languageCurrent ? languageCurrent.closest('.language-selector') : null;
-                
-                if (languageCurrent && languageSelector) {
-                    languageCurrent.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        languageSelector.classList.toggle('open');
-                    });
-                    
-                    if (languageDropdown) {
-                        languageDropdown.querySelectorAll('.language-option').forEach(option => {
-                            option.addEventListener('click', function(e) {
-                                e.stopPropagation();
-                                const lang = this.getAttribute('data-lang');
-                                translatePage(lang);
-                                updateLanguageSelector();
-                                languageSelector.classList.remove('open');
-                            });
-                        });
-                    }
-                    
-                    document.addEventListener('click', function(e) {
-                        if (languageSelector && !languageSelector.contains(e.target)) {
-                            languageSelector.classList.remove('open');
-                        }
-                    });
-                }
-            }, 100);
-        });
-    </script>
 </body>
 </html>

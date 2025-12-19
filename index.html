@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,6 +25,140 @@
     })(window,document,'script','dataLayer','GTM-KQ22FWR');</script>
     
     <!-- End Google Tag Manager -->
+    
+    <!-- Protect phone number from being changed by GTM or other scripts -->
+    <script>
+        (function() {
+            const correctPhone = '888-994-0914';
+            const correctHref = 'tel:888-994-0914';
+            
+            // Override textContent and innerHTML setters globally for this element
+            function lockPhoneNumber() {
+                const link = document.getElementById('customer-service-phone');
+                if (link && !link._locked) {
+                    link._locked = true;
+                    
+                    // Store original setters
+                    const originalTextContent = Object.getOwnPropertyDescriptor(Node.prototype, 'textContent') || 
+                                               Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'textContent');
+                    const originalInnerHTML = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+                    
+                    // Override textContent for this element
+                    Object.defineProperty(link, 'textContent', {
+                        get: function() { return correctPhone; },
+                        set: function(value) { 
+                            // Ignore any attempts to set it
+                            return correctPhone;
+                        },
+                        configurable: false,
+                        enumerable: true
+                    });
+                    
+                    // Override innerHTML for this element
+                    Object.defineProperty(link, 'innerHTML', {
+                        get: function() { return correctPhone; },
+                        set: function(value) { 
+                            // Ignore any attempts to set it
+                            return correctPhone;
+                        },
+                        configurable: false,
+                        enumerable: true
+                    });
+                    
+                    // Force correct values
+                    link.href = correctHref;
+                    link.setAttribute('data-phone', correctPhone);
+                    link.setAttribute('class', 'protected-phone');
+                    // Don't set textContent - let CSS handle it via data attribute
+                    
+                    // Continuous monitoring
+                    const observer = new MutationObserver(function() {
+                        if (link.textContent !== correctPhone) {
+                            if (link.firstChild && link.firstChild.nodeType === 3) {
+                                link.firstChild.nodeValue = correctPhone;
+                            } else {
+                                link.textContent = correctPhone;
+                            }
+                        }
+                        if (link.href !== correctHref) {
+                            link.href = correctHref;
+                        }
+                    });
+                    
+                    observer.observe(link, {
+                        childList: true,
+                        characterData: true,
+                        subtree: true,
+                        attributes: true,
+                        attributeFilter: ['href']
+                    });
+                    
+                    // Monitor parent element too in case entire element is replaced
+                    const parent = link.parentElement;
+                    if (parent) {
+                        const parentObserver = new MutationObserver(function(mutations) {
+                            mutations.forEach(function(mutation) {
+                                if (mutation.type === 'childList') {
+                                    mutation.addedNodes.forEach(function(node) {
+                                        if (node.nodeType === 1 && (node.id === 'customer-service-phone' || node.querySelector && node.querySelector('#customer-service-phone'))) {
+                                            setTimeout(lockPhoneNumber, 0);
+                                        }
+                                    });
+                                }
+                            });
+                            // Re-check the phone number
+                            const currentLink = document.getElementById('customer-service-phone');
+                            if (currentLink && currentLink !== link) {
+                                setTimeout(lockPhoneNumber, 0);
+                            }
+                        });
+                        parentObserver.observe(parent, {
+                            childList: true,
+                            subtree: true
+                        });
+                    }
+                    
+                    // Aggressive interval check using requestAnimationFrame for better performance
+                    function checkAndFix() {
+                        const currentLink = document.getElementById('customer-service-phone');
+                        if (currentLink) {
+                            if (currentLink.href !== correctHref) {
+                                currentLink.href = correctHref;
+                            }
+                            const text = currentLink.textContent || currentLink.innerText || '';
+                            const cleanText = text.replace(/\s+/g, '').trim();
+                            const cleanCorrect = correctPhone.replace(/\s+/g, '').trim();
+                            if (cleanText !== cleanCorrect && text !== correctPhone && text.trim() !== correctPhone) {
+                                // Clear and set correct text
+                                while (currentLink.firstChild) {
+                                    currentLink.removeChild(currentLink.firstChild);
+                                }
+                                currentLink.appendChild(document.createTextNode(correctPhone));
+                            }
+                        }
+                        requestAnimationFrame(checkAndFix);
+                    }
+                    requestAnimationFrame(checkAndFix);
+                }
+            }
+            
+            // Run immediately and repeatedly
+            lockPhoneNumber();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', lockPhoneNumber);
+            }
+            setTimeout(lockPhoneNumber, 0);
+            setTimeout(lockPhoneNumber, 10);
+            setTimeout(lockPhoneNumber, 50);
+            setTimeout(lockPhoneNumber, 100);
+            setTimeout(lockPhoneNumber, 500);
+            setTimeout(lockPhoneNumber, 1000);
+            setTimeout(lockPhoneNumber, 2000);
+            
+            // Also run on window load
+            window.addEventListener('load', lockPhoneNumber);
+        })();
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -39,7 +173,7 @@
                 <div class="top-bar-content">
                     <span class="top-bar-text" data-translate="topbar-text">Protection Plans for Auto, Home & Electronics — Get Covered Today!</span>
                     <div class="top-bar-right">
-                        <span class="phone"><i class="fas fa-phone"></i> <a href="tel:888-994-0914">888-994-0914</a> <span class="phone-label" data-translate="topbar-customer-service">Customer Service</span></span>
+                        <span class="phone"><i class="fas fa-phone"></i> <a href="tel:888-994-0914" id="customer-service-phone" data-phone="888-994-0914" data-locked="true" class="protected-phone">888-994-0914</a> <span class="phone-label" data-translate="topbar-customer-service">Customer Service</span></span>
                         <span class="phone"><i class="fas fa-phone"></i> <a href="tel:800-895-0842">800-895-0842</a> <span class="phone-label" data-translate="topbar-sales">Sales</span></span>
                         <span class="support"><a href="mailto:support@everythingbreaks.com">support@everythingbreaks.com</a></span>
                     </div>
@@ -52,7 +186,7 @@
                 <div class="nav-content">
                     <div class="logo">
                         <a href="index.html">
-                            <img src="images/logo.png" alt="Everything Breaks" class="logo-img">
+                            <img src="images/Christmas_Logo2.svg" alt="Everything Breaks" class="logo-img">
                         </a>
                     </div>
                     
@@ -119,10 +253,8 @@
             <a href="about/index.html" class="hero-learn-more-btn" data-translate="hero-learn-more">Learn More</a>
         </div>
     </div>
+    <img src="images/Christmas_Lights.svg" alt="Christmas Lights" style="display: block; margin: 0 auto; max-width: 100%; height: auto; position: relative; z-index: 2;">
     <div style="background-color: #1e3a8a; padding: 20px; display: block; margin: 20px auto; max-width: 100%; position: relative;">
-        <div class="roof-with-lights">
-            <img src="images/CHRISTMAS.png" alt="Christmas Lights Garland" class="christmas-lights-image">
-        </div>
         <img src="images/CRED2.svg" alt="Credibility badges" style="display: block; margin: 0 auto; max-width: 100%; height: auto; position: relative; z-index: 2;">
     </div>
 
@@ -317,8 +449,10 @@
                         <img src="images/Honda_CRV.svg" alt="Honda CRV" style="width: 100%; max-width: 700px; height: auto; display: block;">
                     </object>
                 </div>
-                <div class="vehicle-image" data-vehicle-type="truck" style="display: none;">
-                    <img src="images/F150 White.png" alt="Ford F150" style="width: 100%; max-width: 400px; height: auto; display: block;">
+                <div class="vehicle-image" data-vehicle-type="truck" style="flex-shrink: 0; display: none;">
+                    <object data="images/F150.svg" type="image/svg+xml" id="f150-svg" style="width: 100%; max-width: 700px; height: auto; display: block; cursor: default;">
+                        <img src="images/F150.svg" alt="Ford F150" style="width: 100%; max-width: 700px; height: auto; display: block;">
+                    </object>
                 </div>
                 
                 <!-- Part Details Panel (appears to the right of clicked plus sign) -->
@@ -388,7 +522,7 @@
                 
                 <div class="testimonial-card">
                     <div class="testimonial-avatar">
-                        <img src="images/emma.jpg" alt="Customer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="images/SARAH_IMAGE.jpg" alt="Customer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div class="avatar-placeholder" style="display: none;">👤</div>
                     </div>
                     <div class="testimonial-content">
@@ -638,7 +772,7 @@
         <div class="container">
             <div class="footer-content">
                 <div style="text-align: center; margin-bottom: 40px;">
-                    <img src="images/logo.png" alt="Everything Breaks" style="max-width: 200px; height: auto; display: block; margin: 0 auto;">
+                    <img src="images/Christmas_Logo2.svg" alt="Everything Breaks" style="max-width: 200px; height: auto; display: block; margin: 0 auto;">
                 </div>
                 <div class="footer-columns">
                     <div class="footer-column">
@@ -733,7 +867,7 @@
                 
                 // For car and SUV types, align to the left to make room for popup
                 const container = document.querySelector('.vehicle-images-container');
-                if (type === 'car' || type === 'suv') {
+                if (type === 'car' || type === 'suv' || type === 'truck') {
                     container.style.justifyContent = 'flex-start';
                 } else {
                     container.style.justifyContent = 'center';
@@ -869,14 +1003,61 @@
                 }
             };
             
+            // Truck part information (F150)
+            const truckPartInfo = {
+                '09e9eef3a3': {
+                    name: 'Radiator',
+                    image: 'images/Radiator_Auto.png',
+                    price: '$1,147'
+                },
+                'e8d9c692dd': {
+                    name: 'Engine',
+                    image: 'images/Engine_Car.png',
+                    price: '$3,582'
+                },
+                '462e0ed110': {
+                    name: 'A/C Compressor',
+                    image: 'images/AC_Compressor_Car.png',
+                    price: '$1,258'
+                },
+                '74dded1d72': {
+                    name: 'Power Steering',
+                    image: 'images/Power_Steering_Car.png',
+                    price: '$896'
+                },
+                '071fc85414': {
+                    name: 'Suspension',
+                    image: 'images/Suspension_Car.png',
+                    price: '$1,682'
+                },
+                '0f880f27b8': {
+                    name: 'Power Window Motor',
+                    image: 'images/Power_Window_Motor_Car.png',
+                    price: '$663'
+                },
+                '31daa4a2b3': {
+                    name: 'Fuel Tank',
+                    image: 'images/Fuel_Tank_Car.png',
+                    price: '$1,694'
+                },
+                'd6ed35221e': {
+                    name: 'Brake Caliper',
+                    image: 'images/Brake_Caliper_Car.png',
+                    price: '$213'
+                }
+            };
+            
             // Function to show part details modal
             function showPartModal(partKey, clickX, clickY) {
                 const modal = document.getElementById('partDetailsModal');
-                // Check if it's an SUV part (prefixed with 'suv_')
+                // Check if it's an SUV part (prefixed with 'suv_') or truck part (prefixed with 'truck_')
                 let part;
                 if (partKey.startsWith('suv_')) {
                     const suvKey = partKey.substring(4); // Remove 'suv_' prefix
                     part = suvPartInfo[suvKey] || { name: 'Part Name', image: '', price: '$0' };
+                } else if (partKey.startsWith('truck_')) {
+                    const truckKey = partKey.substring(6); // Remove 'truck_' prefix
+                    part = truckPartInfo[truckKey] || { name: 'Part Name', image: '', price: '$0' };
                 } else {
                     part = partInfo[partKey] || { name: 'Part Name', image: '', price: '$0' };
                 }
@@ -897,14 +1078,17 @@
                 
                 // Position modal to the right of the SVG inside the container
                 const container = document.querySelector('.vehicle-images-container');
-                // Determine which SVG is currently visible (Jetta or CRV)
+                // Determine which SVG is currently visible (Jetta, CRV, or F150)
                 let svgObject = document.getElementById('jetta-svg');
                 const jettaDiv = document.querySelector('[data-vehicle-type="car"]');
                 const crvDiv = document.querySelector('[data-vehicle-type="suv"]');
+                const f150Div = document.querySelector('[data-vehicle-type="truck"]');
                 
                 // Check which vehicle is currently displayed
                 if (crvDiv && crvDiv.style.display !== 'none' && crvDiv.style.display !== '') {
                     svgObject = document.getElementById('crv-svg');
+                } else if (f150Div && f150Div.style.display !== 'none' && f150Div.style.display !== '') {
+                    svgObject = document.getElementById('f150-svg');
                 }
                 
                 if (!svgObject) return; // No SVG found
@@ -1730,7 +1914,407 @@
             
             // Setup SUV SVG icon click after a short delay
             setTimeout(setupSUVIconClick, 500);
+            
+            // Handle F150 (Ford F150) SVG icon click functionality
+            function setupF150IconClick() {
+                const svgObject = document.getElementById('f150-svg');
+                if (!svgObject) return;
+                
+                // Helper function to get path bounds
+                function getPathBounds(d) {
+                    const coords = d.match(/[\d.]+/g);
+                    if (!coords || coords.length < 2) {
+                        return { minX: 0, maxX: 0, minY: 0, maxY: 0 };
+                    }
+                    const xs = [];
+                    const ys = [];
+                    for (let i = 0; i < coords.length - 1; i += 2) {
+                        xs.push(parseFloat(coords[i]));
+                        ys.push(parseFloat(coords[i + 1]));
+                    }
+                    return {
+                        minX: Math.min(...xs),
+                        maxX: Math.max(...xs),
+                        minY: Math.min(...ys),
+                        maxY: Math.max(...ys)
+                    };
+                }
+                
+                // Track the currently active circle's reset function
+                let currentActiveReset = null;
+                
+                // Generic function to setup click handler for a circle by clip-path URL
+                function setupCircleClickByClipPath(svgDoc, clipPathId) {
+                    // Find the group element with the specific clip-path
+                    const allGroups = svgDoc.querySelectorAll('g[clip-path]');
+                    let targetPath = null;
+                    let targetGroup = null;
+                    
+                    for (const group of allGroups) {
+                        const clipPath = group.getAttribute('clip-path') || '';
+                        // Check if this group uses the target clip-path
+                        if (clipPath.includes(clipPathId)) {
+                            targetGroup = group;
+                            // Look for the blue circle path inside this group
+                            const paths = group.querySelectorAll('path');
+                            for (const path of paths) {
+                                const fill = path.getAttribute('fill') || '';
+                                if (fill === '#3498db') {
+                                    targetPath = path;
+                                    break;
+                                }
+                            }
+                            if (targetPath) break;
+                        }
+                    }
+                    
+                    if (!targetPath) {
+                        console.log('Could not find target path for clip-path:', clipPathId);
+                        return;
+                    }
+                    
+                    // Extract coordinates from path to calculate center and radius
+                    const coords = targetPath.getAttribute('d').match(/[\d.]+/g);
+                    if (!coords || coords.length < 4) return;
+                    
+                    // Find the corresponding min/max coordinates to calculate center
+                    const allX = [];
+                    const allY = [];
+                    for (let i = 0; i < coords.length - 1; i += 2) {
+                        allX.push(parseFloat(coords[i]));
+                        allY.push(parseFloat(coords[i + 1]));
+                    }
+                    const minX = Math.min(...allX);
+                    const maxX = Math.max(...allX);
+                    const minY = Math.min(...allY);
+                    const maxY = Math.max(...allY);
+                    
+                    const centerX = (minX + maxX) / 2;
+                    const centerY = (minY + maxY) / 2;
+                    const radius = (maxX - minX) / 2;
+                    
+                    // Store original state
+                    const originalFill = targetPath.getAttribute('fill');
+                    let isClicked = false;
+                    
+                    // Find the parent group
+                    let parentGroup = targetGroup || targetPath.parentElement;
+                    if (!parentGroup || parentGroup.tagName !== 'g') {
+                        parentGroup = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'g');
+                        targetPath.parentElement.insertBefore(parentGroup, targetPath);
+                        parentGroup.appendChild(targetPath);
+                    }
+                    
+                    // Find plus sign lines (horizontal and vertical white paths) near this circle
+                    let plusHorizontal = null;
+                    let plusVertical = null;
+                    
+                    // First, check within the same group
+                    if (targetGroup) {
+                        const groupPaths = targetGroup.querySelectorAll('path');
+                        for (const path of groupPaths) {
+                            const fill = path.getAttribute('fill') || '';
+                            if (fill === '#ffffff' || fill === 'white') {
+                                const d = path.getAttribute('d') || '';
+                                const bounds = getPathBounds(d);
+                                const pathCenterX = (bounds.minX + bounds.maxX) / 2;
+                                const pathCenterY = (bounds.minY + bounds.maxY) / 2;
+                                
+                                // Check if path is horizontal (width > height)
+                                if (Math.abs(bounds.maxX - bounds.minX) > Math.abs(bounds.maxY - bounds.minY)) {
+                                    if (Math.abs(pathCenterY - centerY) < radius * 1.5 && !plusHorizontal) {
+                                        plusHorizontal = path;
+                                    }
+                                } else {
+                                    if (Math.abs(pathCenterX - centerX) < radius * 1.5 && !plusVertical) {
+                                        plusVertical = path;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // If not found in group, search nearby
+                    if (!plusHorizontal || !plusVertical) {
+                        const allWhitePaths = svgDoc.querySelectorAll('path[fill="#ffffff"], path[fill="white"]');
+                        for (const path of allWhitePaths) {
+                            if (path === plusHorizontal || path === plusVertical) continue;
+                            
+                            const d = path.getAttribute('d') || '';
+                            const bounds = getPathBounds(d);
+                            const pathCenterX = (bounds.minX + bounds.maxX) / 2;
+                            const pathCenterY = (bounds.minY + bounds.maxY) / 2;
+                            
+                            const distance = Math.sqrt(Math.pow(pathCenterX - centerX, 2) + Math.pow(pathCenterY - centerY, 2));
+                            
+                            if (distance < radius * 2) {
+                                if (Math.abs(bounds.maxX - bounds.minX) > Math.abs(bounds.maxY - bounds.minY)) {
+                                    if (!plusHorizontal) plusHorizontal = path;
+                                } else {
+                                    if (!plusVertical) plusVertical = path;
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Variables for X lines
+                    let xLine1 = null;
+                    let xLine2 = null;
+                    
+                    // Function to create X mark
+                    function createX() {
+                        // Hide plus sign lines
+                        if (plusHorizontal) {
+                            plusHorizontal.style.opacity = '0';
+                            plusHorizontal.style.pointerEvents = 'none';
+                        }
+                        if (plusVertical) {
+                            plusVertical.style.opacity = '0';
+                            plusVertical.style.pointerEvents = 'none';
+                        }
+                        
+                        const offset = radius * 0.5;
+                        
+                        // Create first diagonal line
+                        xLine1 = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        xLine1.setAttribute('d', `M ${centerX - offset} ${centerY - offset} L ${centerX + offset} ${centerY + offset}`);
+                        xLine1.setAttribute('stroke', '#3498db');
+                        xLine1.setAttribute('stroke-width', '4');
+                        xLine1.setAttribute('stroke-linecap', 'round');
+                        xLine1.setAttribute('fill', 'none');
+                        xLine1.style.pointerEvents = 'none';
+                        
+                        // Create second diagonal line
+                        xLine2 = svgDoc.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        xLine2.setAttribute('d', `M ${centerX - offset} ${centerY + offset} L ${centerX + offset} ${centerY - offset}`);
+                        xLine2.setAttribute('stroke', '#3498db');
+                        xLine2.setAttribute('stroke-width', '4');
+                        xLine2.setAttribute('stroke-linecap', 'round');
+                        xLine2.setAttribute('fill', 'none');
+                        xLine2.style.pointerEvents = 'none';
+                        
+                        // Append to parent group so they appear on top
+                        parentGroup.appendChild(xLine1);
+                        parentGroup.appendChild(xLine2);
+                    }
+                    
+                    function removeX() {
+                        // Show plus sign lines again
+                        if (plusHorizontal) {
+                            plusHorizontal.style.opacity = '1';
+                            plusHorizontal.style.pointerEvents = 'auto';
+                        }
+                        if (plusVertical) {
+                            plusVertical.style.opacity = '1';
+                            plusVertical.style.pointerEvents = 'auto';
+                        }
+                        
+                        // Remove X lines
+                        if (xLine1 && xLine1.parentElement) {
+                            xLine1.parentElement.removeChild(xLine1);
+                            xLine1 = null;
+                        }
+                        if (xLine2 && xLine2.parentElement) {
+                            xLine2.parentElement.removeChild(xLine2);
+                            xLine2 = null;
+                        }
+                    }
+                    
+                    // Create reset function for this circle
+                    function resetCircle() {
+                        targetPath.setAttribute('fill', originalFill);
+                        removeX();
+                        isClicked = false;
+                        // Clear the active reset if this was the active circle
+                        if (currentActiveReset === resetCircle) {
+                            currentActiveReset = null;
+                        }
+                        // Hide modal when resetting
+                        hidePartModal();
+                    }
+                    
+                    // Create click handler function
+                    function handleClick(e) {
+                        e.stopPropagation();
+                        
+                        // Get click position for modal positioning
+                        const clickX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+                        const clickY = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+                        
+                        // Create part key from clip-path ID (prefix with 'truck_' to distinguish from car/suv parts)
+                        const partKey = 'truck_' + clipPathId;
+                        
+                        if (isClicked) {
+                            // Reset to original state and hide modal
+                            resetCircle();
+                            hidePartModal();
+                        } else {
+                            // Close any other open circle first
+                            if (window.currentActiveReset && window.currentActiveReset !== resetCircle) {
+                                window.currentActiveReset();
+                            }
+                            currentActiveReset = resetCircle;
+                            
+                            // If modal is already open, hide it immediately (no animation) before showing new one
+                            const modal = document.getElementById('partDetailsModal');
+                            if (modal && modal.style.display === 'block') {
+                                // Immediately reset modal state without animation
+                                hidePartModal(true);
+                            }
+                            
+                            // Change to white and add X
+                            targetPath.setAttribute('fill', '#ffffff');
+                            createX();
+                            isClicked = true;
+                            currentActiveReset = resetCircle;
+                            window.currentActiveReset = resetCircle;
+                            
+                            // Show modal with part information (use requestAnimationFrame to ensure state is reset)
+                            requestAnimationFrame(() => {
+                                showPartModal(partKey, clickX, clickY);
+                            });
+                        }
+                    }
+                    
+                    // Add click handler to the circle
+                    targetPath.style.cursor = 'pointer';
+                    targetPath.style.transition = 'fill 0.3s ease';
+                    targetPath.addEventListener('click', handleClick);
+                    
+                    // Also make plus sign paths clickable
+                    if (plusHorizontal) {
+                        plusHorizontal.style.cursor = 'pointer';
+                        plusHorizontal.style.pointerEvents = 'auto';
+                        plusHorizontal.addEventListener('click', handleClick);
+                    }
+                    if (plusVertical) {
+                        plusVertical.style.cursor = 'pointer';
+                        plusVertical.style.pointerEvents = 'auto';
+                        plusVertical.addEventListener('click', handleClick);
+                    }
+                }
+                
+                function initSVG() {
+                    try {
+                        const svgDoc = svgObject.contentDocument;
+                        if (!svgDoc) return;
+                        
+                        // Setup click handlers for specific parts in F150 SVG using clip-path URLs
+                        setupCircleClickByClipPath(svgDoc, '09e9eef3a3'); // Radiator
+                        setupCircleClickByClipPath(svgDoc, 'e8d9c692dd'); // Engine
+                        setupCircleClickByClipPath(svgDoc, '462e0ed110'); // A/C Compressor
+                        setupCircleClickByClipPath(svgDoc, '74dded1d72'); // Power Steering
+                        setupCircleClickByClipPath(svgDoc, '071fc85414'); // Suspension
+                        setupCircleClickByClipPath(svgDoc, '0f880f27b8'); // Power Window Motor
+                        setupCircleClickByClipPath(svgDoc, '31daa4a2b3'); // Fuel Tank
+                        setupCircleClickByClipPath(svgDoc, 'd6ed35221e'); // Brake Caliper
+                        
+                        // Also find any other blue circles (parts) in the F150 SVG
+                        const allBluePaths = svgDoc.querySelectorAll('path[fill="#3498db"]');
+                        
+                        // For each blue circle, try to find its clip-path group and set up click handler
+                        allBluePaths.forEach(function(bluePath) {
+                            let parentGroup = bluePath.parentElement;
+                            while (parentGroup && parentGroup.tagName !== 'g') {
+                                parentGroup = parentGroup.parentElement;
+                            }
+                            
+                            if (parentGroup) {
+                                const clipPath = parentGroup.getAttribute('clip-path') || '';
+                                if (clipPath) {
+                                    // Extract clip-path ID
+                                    const match = clipPath.match(/url\(#([^)]+)\)/);
+                                    if (match && match[1] && match[1] !== '09e9eef3a3' && match[1] !== 'e8d9c692dd' && match[1] !== '462e0ed110' && match[1] !== '74dded1d72' && match[1] !== '071fc85414' && match[1] !== '0f880f27b8' && match[1] !== '31daa4a2b3' && match[1] !== 'd6ed35221e') {
+                                        // Skip if already set up above
+                                        setupCircleClickByClipPath(svgDoc, match[1]);
+                                    }
+                                }
+                            }
+                        });
+                    } catch (e) {
+                        console.log('Could not access F150 SVG content:', e);
+                    }
+                }
+                
+                // Try immediately if already loaded
+                initSVG();
+                
+                // Also try on load event
+                svgObject.addEventListener('load', initSVG);
+            }
+            
+            // Setup F150 SVG icon click after a short delay
+            setTimeout(setupF150IconClick, 500);
         });
+        
+        // Prevent phone number from being modified by GTM or other scripts
+        (function() {
+            const correctPhone = '888-994-0914';
+            const correctHref = 'tel:888-994-0914';
+            
+            function protectPhoneNumber() {
+                const phoneLink = document.getElementById('customer-service-phone');
+                if (phoneLink) {
+                    // Force correct values immediately
+                    if (phoneLink.textContent !== correctPhone) {
+                        phoneLink.textContent = correctPhone;
+                    }
+                    if (phoneLink.href !== correctHref) {
+                        phoneLink.href = correctHref;
+                    }
+                    
+                    // Lock the properties using Object.defineProperty
+                    try {
+                        Object.defineProperty(phoneLink, 'textContent', {
+                            get: function() { return correctPhone; },
+                            set: function() { return correctPhone; },
+                            configurable: false
+                        });
+                    } catch(e) {}
+                    
+                    // Monitor for changes and restore if modified
+                    const observer = new MutationObserver(function(mutations) {
+                        mutations.forEach(function(mutation) {
+                            if (phoneLink.textContent !== correctPhone) {
+                                phoneLink.textContent = correctPhone;
+                            }
+                            if (phoneLink.href !== correctHref) {
+                                phoneLink.href = correctHref;
+                            }
+                        });
+                    });
+                    
+                    observer.observe(phoneLink, {
+                        childList: true,
+                        characterData: true,
+                        subtree: true,
+                        attributes: true,
+                        attributeFilter: ['href']
+                    });
+                    
+                    // Also check periodically
+                    setInterval(function() {
+                        if (phoneLink.textContent !== correctPhone) {
+                            phoneLink.textContent = correctPhone;
+                        }
+                        if (phoneLink.href !== correctHref) {
+                            phoneLink.href = correctHref;
+                        }
+                    }, 100);
+                }
+            }
+            
+            // Run immediately and on various events
+            protectPhoneNumber();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', protectPhoneNumber);
+            }
+            window.addEventListener('load', protectPhoneNumber);
+            setTimeout(protectPhoneNumber, 0);
+            setTimeout(protectPhoneNumber, 100);
+            setTimeout(protectPhoneNumber, 500);
+            setTimeout(protectPhoneNumber, 1000);
+        })();
     </script>
 </body>
 </html>

@@ -249,6 +249,19 @@ h1, h2, h3, h4, h5, h6 {
     transition: opacity 0.2s ease;
 }
 
+/* Protect phone number using CSS - display from data attribute */
+#customer-service-phone.protected-phone {
+    font-size: 0 !important;
+    position: relative;
+}
+
+#customer-service-phone.protected-phone::before {
+    content: attr(data-phone) !important;
+    font-size: clamp(12px, 0.8vw + 0.3rem, 14px) !important;
+    display: inline !important;
+    color: white !important;
+}
+
 .top-bar a:hover {
     opacity: 0.8;
     text-decoration: underline;

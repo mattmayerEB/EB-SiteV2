@@ -21,6 +21,56 @@
     })(window,document,'script','dataLayer','GTM-KQ22FWR');</script>
     
     <!-- End Google Tag Manager -->
+    
+    <!-- Protect phone number from being changed by GTM or other scripts -->
+    <script>
+        (function() {
+            const correctPhone = '888-994-0914';
+            const correctHref = 'tel:888-994-0914';
+            
+            function lockPhoneNumber() {
+                const link = document.getElementById('customer-service-phone');
+                if (link && !link._locked) {
+                    link._locked = true;
+                    link.href = correctHref;
+                    link.setAttribute('data-phone', correctPhone);
+                    link.setAttribute('class', 'protected-phone');
+                    
+                    const observer = new MutationObserver(function() {
+                        if (link.href !== correctHref) link.href = correctHref;
+                        link.setAttribute('data-phone', correctPhone);
+                    });
+                    
+                    observer.observe(link, {
+                        childList: true,
+                        characterData: true,
+                        subtree: true,
+                        attributes: true,
+                        attributeFilter: ['href']
+                    });
+                    
+                    function checkAndFix() {
+                        const currentLink = document.getElementById('customer-service-phone');
+                        if (currentLink) {
+                            if (currentLink.href !== correctHref) currentLink.href = correctHref;
+                            currentLink.setAttribute('data-phone', correctPhone);
+                        }
+                        requestAnimationFrame(checkAndFix);
+                    }
+                    requestAnimationFrame(checkAndFix);
+                }
+            }
+            
+            lockPhoneNumber();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', lockPhoneNumber);
+            }
+            setTimeout(lockPhoneNumber, 0);
+            setTimeout(lockPhoneNumber, 50);
+            setTimeout(lockPhoneNumber, 500);
+            window.addEventListener('load', lockPhoneNumber);
+        })();
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -35,7 +85,7 @@
                 <div class="top-bar-content">
                     <span class="top-bar-text">Protection Plans for Auto, Home & Electronics — Get Covered Today!</span>
                     <div class="top-bar-right">
-                        <span class="phone"><i class="fas fa-phone"></i> <a href="tel:888-994-0914">888-994-0914</a> <span class="phone-label">Customer Service</span></span>
+                        <span class="phone"><i class="fas fa-phone"></i> <a href="tel:888-994-0914" id="customer-service-phone" data-phone="888-994-0914" class="protected-phone">888-994-0914</a> <span class="phone-label">Customer Service</span></span>
                         <span class="phone"><i class="fas fa-phone"></i> <a href="tel:800-895-0842">800-895-0842</a> <span class="phone-label">Sales</span></span>
                         <span class="support"><a href="mailto:support@everythingbreaks.com">support@everythingbreaks.com</a></span>
                     </div>
@@ -48,7 +98,7 @@
                 <div class="nav-content">
                     <div class="logo">
                         <a href="index.html">
-                            <img src="images/logo.png" alt="Everything Breaks" class="logo-img">
+                            <img src="images/Christmas_Logo2.svg" alt="Everything Breaks" class="logo-img">
                         </a>
                     </div>
                     
@@ -321,7 +371,7 @@
         <div class="container">
             <div class="footer-content">
                 <div style="text-align: center; margin-bottom: 40px;">
-                    <img src="images/logo.png" alt="Everything Breaks" style="max-width: 200px; height: auto; display: block; margin: 0 auto;">
+                    <img src="images/Christmas_Logo2.svg" alt="Everything Breaks" style="max-width: 200px; height: auto; display: block; margin: 0 auto;">
                 </div>
                 <div class="footer-columns">
                     <div class="footer-column">
