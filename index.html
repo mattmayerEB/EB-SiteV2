@@ -392,17 +392,27 @@
                     overflow: visible !important;
                     min-height: fit-content !important;
                 }
-                #partDetailsModal {
-                    width: calc(100% - 40px) !important;
-                    max-width: 700px !important;
+                /* Mobile modal container - shown only on mobile */
+                #mobileModalContainer {
+                    display: block !important;
+                }
+                /* Modal styles when in mobile container */
+                #mobileModalContainer #partDetailsModal {
+                    width: 100% !important;
+                    max-width: 100% !important;
                     min-height: 380px !important;
-                    margin-top: 0 !important;
-                    margin-bottom: 0 !important;
-                    left: 50% !important;
-                    transform: translateX(-50%) !important;
-                    position: absolute !important;
-                    max-height: calc(100vh - 200px) !important;
+                    margin: 0 auto !important;
+                    position: relative !important;
+                    max-height: none !important;
                     overflow-y: auto !important;
+                    left: auto !important;
+                    top: auto !important;
+                    transform: translateY(100%) !important;
+                    opacity: 0 !important;
+                }
+                #mobileModalContainer #partDetailsModal.show {
+                    transform: translateY(0) !important;
+                    opacity: 1 !important;
                 }
                 #partDetailsModal #modalImageContainer {
                     height: 200px !important;
@@ -411,6 +421,13 @@
                 #partDetailsModal #modalPriceSection {
                     min-height: 80px !important;
                     padding: 0 20px 20px 20px !important;
+                }
+            }
+            
+            /* Hide mobile container on desktop */
+            @media (min-width: 1025px) {
+                #mobileModalContainer {
+                    display: none !important;
                 }
             }
             
@@ -470,6 +487,11 @@
                         <div id="modalPriceDescription" style="font-size: 14px; color: #333333; line-height: 1.5; font-family: 'CooperHewitt', sans-serif;" data-translate="modal-price-desc">Average out-of-pocket cost<br>without EverythingBreaks</div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Mobile Modal Container - appears below vehicle on mobile -->
+            <div id="mobileModalContainer" style="display: none; width: 100%; max-width: 700px; margin: 30px auto 0; padding: 0 20px;">
+                <!-- Modal will be moved here on mobile -->
             </div>
         </div>
     </section>
@@ -1096,109 +1118,52 @@
                 const svgRect = svgObject.getBoundingClientRect();
                 
                 if (isMobile) {
-                    // Mobile: Position below the SVG, centered horizontally
-                    // Get the SVG element's actual bottom position within the container
-                    const svgElement = svgObject.closest('.vehicle-image');
-                    const svgElementRect = svgElement.getBoundingClientRect();
-                    const svgBottomRelative = svgElementRect.bottom - containerRect.top;
+                    // Mobile: Move modal to dedicated container below vehicle
+                    const mobileContainer = document.getElementById('mobileModalContainer');
+                    if (!mobileContainer) {
+                        console.error('Mobile modal container not found');
+                        return;
+                    }
                     
-                    // Get section boundaries to ensure modal stays within
-                    const section = container.closest('.breakdown-costs-section');
-                    const sectionRect = section ? section.getBoundingClientRect() : null;
-                    const containerBottom = containerRect.bottom;
+                    // Move modal to mobile container (if not already there)
+                    if (modal.parentElement !== mobileContainer) {
+                        mobileContainer.appendChild(modal);
+                    }
                     
-                    // Center horizontally
-                    const svgCenterX = (svgRect.left + svgRect.right) / 2 - containerRect.left;
-                    const modalWidth = Math.min(350, containerRect.width - 40); // Modal width, constrained to container
-                    const leftPosition = svgCenterX - (modalWidth / 2);
-                    
-                    // Ensure modal doesn't go beyond container bounds
-                    const constrainedLeft = Math.max(20, Math.min(leftPosition, containerRect.width - modalWidth - 20));
-                    
-                    modal.style.width = modalWidth + 'px';
-                    modal.style.left = constrainedLeft + 'px';
-                    modal.style.top = svgBottomRelative + 'px'; // Position directly at bottom of SVG
-                    
-                    // Reset animation state - start below (slide up from bottom)
-                    modal.style.transform = 'translateY(100%)';
+                    // Reset all positioning styles - modal is now in document flow
+                    modal.style.position = 'relative';
+                    modal.style.top = 'auto';
+                    modal.style.left = 'auto';
+                    modal.style.width = '100%';
+                    modal.style.maxWidth = '100%';
+                    modal.style.margin = '0 auto';
+                    modal.style.zIndex = '1000';
                     modal.style.opacity = '0';
+                    modal.style.visibility = 'visible';
+                    
+                    // Set initial transform for slide-up animation
+                    const modalEstimatedHeight = 450;
+                    modal.style.transform = `translateY(${modalEstimatedHeight}px)`;
+                    modal.style.transition = 'transform 0.4s ease-out, opacity 0.4s ease-out';
+                    
+                    // Display the modal
                     modal.style.display = 'block';
                     
-                    // Force a reflow to ensure the initial state is applied
+                    // Force reflow
                     void modal.offsetHeight;
                     
                     // Get actual modal height after it's rendered
                     const actualModalHeight = modal.offsetHeight;
                     
-                    // Get section boundaries to ensure modal doesn't extend past section
-                    const sectionBottom = sectionRect ? (sectionRect.bottom - containerRect.top) : containerRect.height;
-                    const maxModalBottom = sectionBottom - 20; // Leave 20px margin from section bottom
-                    const modalBottom = svgBottomRelative + actualModalHeight;
+                    // Update transform to use actual height for animation
+                    modal.style.transform = `translateY(${actualModalHeight}px)`;
+                    void modal.offsetHeight; // Force reflow
                     
-                    // If modal would extend past section, adjust its position
-                    let finalTopPosition = svgBottomRelative;
-                    if (modalBottom > maxModalBottom) {
-                        // Move modal up so it stays within section
-                        finalTopPosition = maxModalBottom - actualModalHeight;
-                        // Ensure it doesn't go above the SVG
-                        finalTopPosition = Math.max(svgBottomRelative - 50, finalTopPosition);
-                    }
-                    
-                    modal.style.top = finalTopPosition + 'px';
-                    
-                    // Calculate padding needed to prevent overlap with testimonials section
-                    // Add extra spacing (120px) to ensure clear separation
-                    const spacing = 120;
-                    const neededPadding = actualModalHeight + spacing;
-                    
-                    // Apply padding to container to push testimonials section down
-                    // This is critical since modal is absolutely positioned
-                    container.style.paddingBottom = neededPadding + 'px';
-                    
-                    // Also add margin-bottom to the section to push testimonials down
-                    if (section) {
-                        const currentPadding = parseInt(window.getComputedStyle(section).paddingBottom) || 80;
-                        section.style.paddingBottom = (currentPadding + spacing) + 'px';
-                        // Also add margin-bottom to ensure testimonials are pushed down
-                        section.style.marginBottom = spacing + 'px';
-                        // Hide border-bottom to remove the line
-                        section.style.borderBottom = 'none';
-                    }
-                    
-                    // Wait for layout to update, then verify spacing
-                    setTimeout(() => {
-                        const containerAfter = container.getBoundingClientRect();
-                        const modalAfter = modal.getBoundingClientRect();
-                        const testimonialsSection = document.querySelector('.testimonials-section');
-                        const sectionAfter = section ? section.getBoundingClientRect() : null;
-                        
-                        // Check if modal extends past section
-                        if (sectionAfter && modalAfter.bottom > sectionAfter.bottom) {
-                            // Constrain modal to stay within section
-                            const maxTop = sectionAfter.bottom - containerAfter.top - actualModalHeight - 20;
-                            modal.style.top = Math.min(parseFloat(modal.style.top), maxTop) + 'px';
-                        }
-                        
-                        if (testimonialsSection) {
-                            const testimonialsRect = testimonialsSection.getBoundingClientRect();
-                            const gap = testimonialsRect.top - containerAfter.bottom;
-                            // If there's still overlap or insufficient gap, add more padding
-                            if (gap < spacing) {
-                                const additionalPadding = (spacing - gap) + 40; // Extra buffer
-                                container.style.paddingBottom = (neededPadding + additionalPadding) + 'px';
-                                if (section) {
-                                    const currentSectionPadding = parseInt(window.getComputedStyle(section).paddingBottom) || 80;
-                                    section.style.paddingBottom = (currentSectionPadding + additionalPadding) + 'px';
-                                    section.style.marginBottom = (spacing + additionalPadding) + 'px';
-                                }
-                            }
-                        }
-                    }, 200);
-                    
-                    // Trigger animation on next frame (slide up)
+                    // Trigger animation on next frame (slide up from below)
                     requestAnimationFrame(() => {
                         modal.style.transform = 'translateY(0)';
                         modal.style.opacity = '1';
+                        modal.classList.add('show');
                     });
                 } else {
                     // Desktop: Position to the right of the SVG
@@ -1255,24 +1220,21 @@
                 // Check if mobile
                 const isMobile = window.innerWidth <= 1024;
                 
-                // Remove padding from container and section when hiding modal (mobile only)
+                // On mobile, move modal back to original container if it's in mobile container
                 if (isMobile) {
-                    const container = document.querySelector('.vehicle-images-container');
-                    container.style.paddingBottom = '';
+                    const mobileContainer = document.getElementById('mobileModalContainer');
+                    const originalContainer = document.querySelector('.vehicle-images-container');
                     
-                    // Reset section padding and margin
-                    const section = container.closest('.breakdown-costs-section');
-                    if (section) {
-                        section.style.paddingBottom = '';
-                        section.style.marginBottom = '';
-                        // Restore border-bottom when modal is hidden
-                        section.style.borderBottom = '';
+                    if (modal.parentElement === mobileContainer && originalContainer) {
+                        // Move modal back to original container
+                        originalContainer.appendChild(modal);
                     }
                 }
                 
                 if (immediate) {
                     // Immediately hide without animation (for switching between modals)
                     modal.style.display = 'none';
+                    modal.classList.remove('show');
                     if (isMobile) {
                         modal.style.transform = 'translateY(100%)';
                     } else {
@@ -1281,8 +1243,10 @@
                     modal.style.opacity = '0';
                 } else {
                     // Slide out animation
+                    modal.classList.remove('show');
                     if (isMobile) {
-                        modal.style.transform = 'translateY(100%)'; // Slide down on mobile
+                        const actualModalHeight = modal.offsetHeight || 450;
+                        modal.style.transform = `translateY(${actualModalHeight}px)`; // Slide down on mobile
                     } else {
                         modal.style.transform = 'translateX(100%)'; // Slide right on desktop
                     }
