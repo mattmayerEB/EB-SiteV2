@@ -1159,9 +1159,18 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: row !important;
         overflow-x: auto !important;
         gap: 30px;
-        padding-left: 7.5% !important;
-        padding-right: 7.5% !important;
+        padding: 0 !important;
         box-sizing: border-box;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Add padding using pseudo-elements to center first and last cards */
+    .testimonials-grid::before,
+    .testimonials-grid::after {
+        content: '';
+        flex: 0 0 7.5%;
+        min-width: 7.5%;
     }
     
     .testimonial-card {
@@ -1169,6 +1178,7 @@ h1, h2, h3, h4, h5, h6 {
         min-width: 280px !important;
         max-width: 85% !important;
         box-sizing: border-box;
+        scroll-snap-align: center;
     }
     
     .testimonial-quote {
