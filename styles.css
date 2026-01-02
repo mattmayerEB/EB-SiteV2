@@ -1159,12 +1159,16 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: row !important;
         overflow-x: auto !important;
         gap: 30px;
+        padding-left: 7.5% !important;
+        padding-right: 7.5% !important;
+        box-sizing: border-box;
     }
     
     .testimonial-card {
         flex: 0 0 85% !important;
         min-width: 280px !important;
         max-width: 85% !important;
+        box-sizing: border-box;
     }
     
     .testimonial-quote {
