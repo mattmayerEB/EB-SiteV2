@@ -5815,7 +5815,7 @@ section.plans-hero:has(.auto-banner-svg) {
 @media (max-width: 960px) {
     /* Navigation */
     .main-nav {
-        padding: 10px 0 0 0;
+        padding: 10px 0 15px 0;
         overflow: visible;
     }
     
