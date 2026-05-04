@@ -471,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const cleanPhone = phone.replace(/\D/g, '');
                 
                 // Send data to API
-                const apiUrl = `http://api.automotiveservicescenter.com/live/addlead59.php?key=55ffesafe24try&l=650&ph=${cleanPhone}&fn=${encodeURIComponent(firstName)}&ln=${encodeURIComponent(lastName)}&email=${encodeURIComponent(email)}&vend=EB_infokit&subv=EB_infokit`;
+                const apiUrl = `https://api.automotiveservicescenter.com/live/addlead59.php?key=55ffesafe24try&l=650&ph=${cleanPhone}&fn=${encodeURIComponent(firstName)}&ln=${encodeURIComponent(lastName)}&email=${encodeURIComponent(email)}&vend=EB_infokit&subv=EB_infokit`;
                 
                 // Make API call
                 fetch(apiUrl, {
@@ -482,6 +482,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).catch((error) => {
                     console.error('Error sending data to API:', error);
                 });
+
+                // TV Scientific Lead pixel
+                if (window.tvsci && typeof tvsci.fireCustomPixelWithAutoOrderId === 'function') {
+                    tvsci.fireCustomPixelWithAutoOrderId('lead_generated', {
+                        // OPTIONAL: Last Touch Channel if available
+                        u5: ''
+                    });
+                }
                 
                 // Close modal
                 disclaimerModal.classList.remove('active');
@@ -831,7 +839,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const cleanPhone = phone.replace(/\D/g, '');
                 
                 // Send data to API
-                const apiUrl = `http://api.automotiveservicescenter.com/live/addlead59.php?key=55ffesafe24try&l=651&ph=${cleanPhone}&fn=${encodeURIComponent(firstName)}&ln=${encodeURIComponent(lastName)}&st=${encodeURIComponent(state)}&email=${encodeURIComponent(email)}&vend=Website_GetQuote_${encodeURIComponent(planType)}&subv=Website_GetQuote_${encodeURIComponent(planType)}${referralSource ? '&ref=' + encodeURIComponent(referralSource) : ''}`;
+                const apiUrl = `https://api.automotiveservicescenter.com/live/addlead59.php?key=55ffesafe24try&l=651&ph=${cleanPhone}&fn=${encodeURIComponent(firstName)}&ln=${encodeURIComponent(lastName)}&st=${encodeURIComponent(state)}&email=${encodeURIComponent(email)}&vend=Website_GetQuote_${encodeURIComponent(planType)}&subv=Website_GetQuote_${encodeURIComponent(planType)}${referralSource ? '&ref=' + encodeURIComponent(referralSource) : ''}`;
                 
                 // Make API call
                 fetch(apiUrl, {
